@@ -3,6 +3,7 @@ import Nav from '@/components/Nav';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Making from '@/components/Making';
+import ActionGallery from '@/components/ActionGallery';
 import Partnership from '@/components/Partnership';
 import Coaches from '@/components/Coaches';
 import Believers from '@/components/Believers';
@@ -20,6 +21,7 @@ function App() {
         <Hero />
         <About />
         <Making />
+        <ActionGallery />
         <Partnership />
         <Coaches />
         <Believers />

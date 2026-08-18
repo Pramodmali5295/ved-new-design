@@ -7,10 +7,10 @@ export default function RoadAhead() {
       <div className="absolute inset-0">
         <img
           src={IMAGES.roadAhead}
-          alt="Horse galloping"
+          alt="Ved and horse on the hillside under open skies"
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-[#2d2418]/85" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1f1912] via-[#2d2418]/90 to-[#1f1912]/85" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-40">
@@ -36,7 +36,7 @@ export default function RoadAhead() {
                   <div className="flex flex-col items-center pt-12">
                     <div className="absolute top-0 left-0 right-0 h-[1px] bg-[#a8895c]/40" />
                     <div className="absolute top-[-6px] h-3 w-3 rounded-full border border-[#a8895c] bg-[#2d2418]" />
-                    <div className="w-60 px-6 text-center">
+                    <div className="w-64 px-6 text-center">
                       <p className="font-display text-4xl text-white">{step.year}</p>
                       <p className="mt-4 font-sans text-[10px] uppercase tracking-[0.25em] text-[#a8895c]">
                         {step.title}
