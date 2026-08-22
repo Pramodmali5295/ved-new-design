@@ -1,177 +1,103 @@
-import { useState, useRef } from 'react';
-import { IMAGES, VIDEOS } from '@/data';
-import { Play, Pause, Volume2, VolumeX, Film, Expand } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 
-export default function Hero() {
-  const [isPlayingVideo, setIsPlayingVideo] = useState(true);
-  const [isMuted, setIsMuted] = useState(true);
-  const [mode, setMode] = useState<'video' | 'photo'>('video');
-  const [fitMode, setFitMode] = useState<'cover' | 'contain'>('cover');
-  const videoRef = useRef<HTMLVideoElement>(null);
+interface HeroProps {
+  onNavigate?: (pageId: string) => void;
+}
 
-  const togglePlay = () => {
-    if (!videoRef.current) return;
-    if (isPlayingVideo) {
-      videoRef.current.pause();
-      setIsPlayingVideo(false);
+export default function Hero({ onNavigate }: HeroProps) {
+  const handleExploreMedia = () => {
+    if (onNavigate) {
+      onNavigate('media');
     } else {
-      videoRef.current.play();
-      setIsPlayingVideo(true);
+      document.getElementById('media')?.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  const toggleMute = () => {
-    if (!videoRef.current) return;
-    videoRef.current.muted = !isMuted;
-    setIsMuted(!isMuted);
+  const handleScrollDown = () => {
+    const summaryEl = document.getElementById('overview-summary');
+    if (summaryEl) {
+      summaryEl.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.scrollBy({ top: window.innerHeight * 0.75, behavior: 'smooth' });
+    }
   };
 
   return (
-    <section id="hero" className="relative h-screen min-h-[640px] w-full overflow-hidden bg-[#140e08]">
-      {/* Background Media with 100% Fit Toggle Support */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        {mode === 'video' ? (
-          <video
-            ref={videoRef}
-            src={VIDEOS[0].src}
-            poster={IMAGES.hero}
-            autoPlay
-            loop
-            muted={isMuted}
-            playsInline
-            className={`h-full w-full ${
-              fitMode === 'contain' ? 'object-contain' : 'object-cover'
-            } transition-all duration-700`}
-          />
-        ) : (
-          <img
-            src={IMAGES.hero}
-            alt="Ved Sarma Sarkar jumping in competition with Indian flag"
-            className={`h-full w-full ${
-              fitMode === 'contain' ? 'object-contain' : 'object-cover'
-            } transition-all duration-700`}
-          />
-        )}
+    <section id="hero" className="relative min-h-[100svh] sm:min-h-[640px] max-h-[960px] w-full overflow-hidden bg-[#140e08] flex items-center justify-center pt-16 pb-10 sm:py-16">
+      {/* Background Media: Dynamic Cross-Country Action Full-Width Image */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <img
+          src="/assets/ved-1.jpeg"
+          alt="Ved Sarma Sarkar - Cross-country gallop in official competition"
+          className="h-full w-full object-cover object-[center_35%] transition-transform duration-1000 animate-ken-burns"
+        />
         
-        {/* Subtle overlays that preserve clarity */}
-        <div className={`absolute inset-0 transition-opacity duration-500 ${
-          fitMode === 'contain'
-            ? 'bg-gradient-to-b from-black/60 via-transparent to-black/75'
-            : 'bg-gradient-to-b from-black/65 via-black/35 to-black/80'
-        }`} />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#140e08] via-transparent to-[#140e08]/40" />
+        {/* Cinematic gradient overlays for luxury contrast and text clarity */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1c1610] via-black/55 to-black/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#140e08]/85 via-transparent to-[#1c1610]" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-        <div
-          className="animate-fade-in-up inline-flex items-center gap-3 rounded-full border border-[#d9cdb8]/30 bg-black/40 px-4 py-1.5 backdrop-blur-md opacity-0"
-          style={{ animationDelay: '0.2s' }}
-        >
-          <span className="h-1.5 w-1.5 rounded-full bg-[#a8895c] animate-pulse" />
-          <span className="font-sans text-[10px] uppercase tracking-luxe text-[#d9cdb8]">
+      <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 py-8 sm:py-12 text-center flex flex-col items-center justify-center animate-fade-in-up">
+        {/* Eyebrow Badge */}
+        <div className="inline-flex items-center gap-2 rounded-full border border-[#a8895c]/40 bg-black/60 px-3.5 py-1.5 backdrop-blur-md shadow-lg transition-transform duration-500 hover:scale-105">
+          <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-[#a8895c] animate-pulse" />
+          <span className="font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#e6c994] font-medium">
             Eventing &middot; Team India Athlete
           </span>
         </div>
 
-        <h1
-          className="animate-fade-in-up mt-6 font-display text-5xl text-white opacity-0 sm:text-7xl lg:text-8xl tracking-tight drop-shadow-md"
-          style={{ animationDelay: '0.45s' }}
-        >
+        {/* Main Name Heading */}
+        <h1 className="mt-4 sm:mt-5 font-display text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-normal text-white tracking-tight drop-shadow-lg break-words">
           Ved Sarma Sarkar
         </h1>
 
-        <p
-          className="animate-fade-in-up mt-6 max-w-xl font-serif text-xl italic text-[#ebe4d8] opacity-0 sm:text-2xl drop-shadow"
-          style={{ animationDelay: '0.8s' }}
-        >
-          A young rider.
-          <br />
-          A great road ahead.
+        {/* Subtitle */}
+        <p className="mt-3 sm:mt-4 max-w-2xl font-serif text-base sm:text-xl md:text-2xl italic text-[#ebe4d8] drop-shadow leading-relaxed px-2">
+          Pursuing excellence on the world stage.
+          <br className="hidden sm:inline" />
+          <span className="text-[#d9cdb8]/90 sm:ml-2">On the pathway to the Asian Games &amp; Olympics.</span>
         </p>
 
-        <p
-          className="animate-fade-in-up mt-6 font-sans text-[10px] uppercase tracking-[0.25em] text-[#d9cdb8]/95 opacity-0 drop-shadow"
-          style={{ animationDelay: '1.1s' }}
-        >
-          International podium achiever &nbsp;&bull;&nbsp; National medallist &nbsp;&bull;&nbsp; FEI athlete
-        </p>
+        {/* Credentials Pill Strip */}
+        <div className="mt-4 sm:mt-5 flex flex-wrap items-center justify-center gap-1.5 sm:gap-3 font-sans text-[9px] xs:text-[10px] sm:text-[11px] uppercase tracking-[0.16em] sm:tracking-[0.2em] text-[#e6c994] drop-shadow max-w-lg">
+          <span className="bg-black/60 px-2.5 sm:px-3 py-1 rounded-full border border-white/10 transition-all hover:border-[#a8895c]/60 hover:text-white">International Podium Achiever</span>
+          <span className="hidden sm:inline text-white/40">&bull;</span>
+          <span className="bg-black/60 px-2.5 sm:px-3 py-1 rounded-full border border-white/10 transition-all hover:border-[#a8895c]/60 hover:text-white">National Medallist</span>
+          <span className="hidden sm:inline text-white/40">&bull;</span>
+          <span className="bg-black/60 px-2.5 sm:px-3 py-1 rounded-full border border-white/10 transition-all hover:border-[#a8895c]/60 hover:text-white">FEI Athlete</span>
+        </div>
 
         {/* Action Buttons */}
-        <div
-          className="animate-fade-in-up mt-10 flex flex-wrap items-center justify-center gap-4 opacity-0"
-          style={{ animationDelay: '1.35s' }}
-        >
+        <div className="mt-6 sm:mt-8 flex flex-col xs:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 w-full xs:w-auto">
           <button
-            onClick={() => document.getElementById('action-reel')?.scrollIntoView({ behavior: 'smooth' })}
-            className="group flex items-center gap-2.5 rounded-full bg-[#a8895c] px-6 py-3 font-sans text-xs uppercase tracking-[0.2em] text-[#2d2418] font-medium transition-all duration-300 hover:bg-[#c2a372] hover:shadow-[0_0_20px_rgba(168,137,92,0.4)]"
+            onClick={handleExploreMedia}
+            className="w-full xs:w-auto group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#a8895c] px-6 sm:px-7 py-3 font-sans text-xs uppercase tracking-[0.18em] sm:tracking-[0.2em] text-[#2d2418] font-bold transition-all duration-300 hover:bg-[#c2a372] hover:shadow-[0_0_25px_rgba(168,137,92,0.5)] hover:scale-105 active:scale-95 shadow-xl min-h-[44px]"
           >
-            <Play size={14} className="fill-[#2d2418] transition-transform group-hover:scale-110" />
-            Watch In Action (6 Videos)
+            <span>In Action &amp; Gallery (16 Items)</span>
+            <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
           </button>
           
-          <button
-            onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
-            className="rounded-full border border-white/30 bg-black/40 px-6 py-3 font-sans text-xs uppercase tracking-[0.2em] text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/20 hover:border-white/50"
-          >
-            Photo Gallery (10 Images)
-          </button>
+          {onNavigate && (
+            <button
+              onClick={() => onNavigate('about')}
+              className="w-full xs:w-auto group inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-black/50 px-5 sm:px-6 py-3 font-sans text-xs uppercase tracking-[0.18em] sm:tracking-[0.2em] text-white backdrop-blur-md transition-all duration-300 hover:bg-white/15 hover:border-[#a8895c] hover:text-[#e6c994] hover:scale-105 active:scale-95 shadow-xl min-h-[44px]"
+            >
+              <span>About Ved</span>
+              <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+            </button>
+          )}
         </div>
 
         {/* Scroll indicator */}
         <button
-          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-          className="animate-fade-in-up mt-12 flex flex-col items-center gap-2.5 opacity-0"
-          style={{ animationDelay: '1.6s' }}
-          aria-label="Scroll down"
+          onClick={handleScrollDown}
+          className="mt-8 sm:mt-10 flex flex-col items-center gap-1.5 cursor-pointer group text-white/70 hover:text-white transition-colors"
+          aria-label="Scroll to summary"
         >
-          <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-white/70">Scroll</span>
-          <span className="flex h-10 w-[1px] items-start overflow-hidden bg-white/30">
-            <span className="h-full w-full animate-[fadeInUp_1.5s_ease-in-out_infinite] bg-white/80" />
-          </span>
+          <span className="font-sans text-[10px] uppercase tracking-[0.3em] font-medium">Scroll</span>
+          <ChevronDown size={18} className="animate-bounce text-[#a8895c]" />
         </button>
-      </div>
-
-      {/* Hero Media Controls with 100% Fit Mode toggle */}
-      <div className="absolute bottom-6 right-6 z-20 hidden sm:flex items-center gap-2 rounded-full border border-white/15 bg-black/60 p-1.5 backdrop-blur-md shadow-xl">
-        <button
-          onClick={() => setFitMode(fitMode === 'cover' ? 'contain' : 'cover')}
-          className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[10px] uppercase tracking-wider transition-colors ${
-            fitMode === 'contain' ? 'bg-[#a8895c] text-[#2d2418] font-bold' : 'text-white/80 hover:text-white hover:bg-white/10'
-          }`}
-          title="Toggle 100% Uncropped View"
-        >
-          <Expand size={12} />
-          <span>{fitMode === 'contain' ? '100% Full' : 'Fit Screen'}</span>
-        </button>
-
-        <button
-          onClick={() => setMode(mode === 'video' ? 'photo' : 'video')}
-          className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[10px] uppercase tracking-wider text-white/80 transition-colors hover:text-white hover:bg-white/10"
-          title={`Switch to ${mode === 'video' ? 'Photo' : 'Video'}`}
-        >
-          <Film size={12} />
-          <span>{mode === 'video' ? 'Video' : 'Photo'}</span>
-        </button>
-
-        {mode === 'video' && (
-          <>
-            <button
-              onClick={togglePlay}
-              className="rounded-full p-2 text-white/80 transition-colors hover:text-white hover:bg-white/10"
-              aria-label={isPlayingVideo ? 'Pause video' : 'Play video'}
-            >
-              {isPlayingVideo ? <Pause size={13} /> : <Play size={13} />}
-            </button>
-            <button
-              onClick={toggleMute}
-              className="rounded-full p-2 text-white/80 transition-colors hover:text-white hover:bg-white/10"
-              aria-label={isMuted ? 'Unmute video' : 'Mute video'}
-            >
-              {isMuted ? <VolumeX size={13} /> : <Volume2 size={13} />}
-            </button>
-          </>
-        )}
       </div>
     </section>
   );

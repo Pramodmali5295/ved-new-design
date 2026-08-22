@@ -19,5 +19,6 @@ dist-ssr
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
 .env
+*.timestamp-*.mjs
+*.mjs
