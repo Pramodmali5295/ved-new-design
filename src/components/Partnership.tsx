@@ -1,7 +1,11 @@
 
+import { useGsapReveal } from '@/hooks/useGsapAnimations';
+
 export default function Partnership() {
+  const sectionRef = useGsapReveal<HTMLElement>();
+
   return (
-    <section id="partnership" className="bg-[#1f1912] py-16 sm:py-24 lg:py-36 text-[#ebe4d8]">
+    <section ref={sectionRef} id="partnership" className="bg-[#1f1912] py-16 sm:py-24 lg:py-36 text-[#ebe4d8]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="reveal text-center">
           <p className="font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
@@ -27,7 +31,7 @@ export default function Partnership() {
           </div>
           <div className="bg-[#251e16] p-3 sm:p-4 text-center border-t border-white/10 mt-2 rounded-sm">
             <p className="font-sans text-[9px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.2em] text-[#d9cdb8]">
-              Daily Trust &amp; Connection &middot; Ocala, Florida &middot; 100% Full Uncropped Frame
+              Daily Trust &amp; Connection &middot; Ocala, Florida
             </p>
           </div>
         </div>
@@ -52,8 +56,9 @@ export default function Partnership() {
                 De Baune De Laudette — The powerhouse partner carrying Ved into the international 2-star eventing circuit.
               </p>
             </div>
-            <div className="mt-5 sm:mt-6 pt-4 border-t border-white/10 text-[10px] sm:text-[11px] font-sans uppercase tracking-wider text-[#a8895c]">
-              100% Full Rosette &amp; Partner Connection View
+            <div className="mt-5 sm:mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-[10px] sm:text-[11px] font-sans uppercase tracking-wider text-[#a8895c]">
+              <span>International Partner</span>
+              <span className="text-[#e6c994]">CCI 2★ Eventer</span>
             </div>
           </div>
 
@@ -75,8 +80,9 @@ export default function Partnership() {
                 A trusted companion in training conditioning, building rider endurance and refining cross-country rhythm.
               </p>
             </div>
-            <div className="mt-5 sm:mt-6 pt-4 border-t border-white/10 text-[10px] sm:text-[11px] font-sans uppercase tracking-wider text-[#a8895c]">
-              100% Full Trail Portrait View
+            <div className="mt-5 sm:mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-[10px] sm:text-[11px] font-sans uppercase tracking-wider text-[#a8895c]">
+              <span>Conditioning Partner</span>
+              <span className="text-[#e6c994]">Trail &amp; Arena</span>
             </div>
           </div>
         </div>

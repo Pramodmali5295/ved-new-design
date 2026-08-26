@@ -1,4 +1,5 @@
 import { Sparkles, Flag, ArrowRight } from 'lucide-react';
+import { useGsapReveal } from '@/hooks/useGsapAnimations';
 
 const ROADMAP = [
   {
@@ -39,8 +40,10 @@ const ROADMAP = [
 ];
 
 export default function RoadAhead() {
+  const sectionRef = useGsapReveal<HTMLElement>();
+
   return (
-    <section id="road" className="relative bg-[#1a140e] text-[#ebe4d8] py-16 sm:py-24 lg:py-36 overflow-hidden">
+    <section ref={sectionRef} id="road" className="relative bg-[#1a140e] text-[#ebe4d8] py-16 sm:py-24 lg:py-36 overflow-hidden">
       {/* Background with Ambient Overlay */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <img
@@ -55,7 +58,7 @@ export default function RoadAhead() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         {/* Section Header */}
-        <div className="reveal flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="gsap-reveal flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
               <span className="h-[1px] w-6 bg-[#a8895c]" />
@@ -76,14 +79,13 @@ export default function RoadAhead() {
         </div>
 
         {/* Visual Roadmap Cards Grid (5 Milestone Stages with Photos) */}
-        <div className="reveal mt-12 sm:mt-16 grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="gsap-stagger-container mt-12 sm:mt-16 grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {ROADMAP.map((step, i) => (
             <div
               key={step.year}
-              className={`group relative flex flex-col overflow-hidden rounded-sm border border-[#a8895c]/25 bg-[#251e16] shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-[#a8895c] hover:shadow-[0_15px_30px_rgba(0,0,0,0.6)] ${
+              className={`gsap-stagger-item group relative flex flex-col overflow-hidden rounded-sm border border-[#a8895c]/25 bg-[#251e16] shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-[#a8895c] hover:shadow-[0_15px_30px_rgba(0,0,0,0.6)] ${
                 i === 4 ? 'sm:col-span-2 lg:col-span-1 xl:col-span-1' : ''
               }`}
-              style={{ transitionDelay: `${i * 0.08}s` }}
             >
               {/* Photo Thumbnail - 100% Uncropped with object-contain */}
               {step.image && (

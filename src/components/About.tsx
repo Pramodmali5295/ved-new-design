@@ -1,9 +1,12 @@
 import { Sparkles } from 'lucide-react';
 import { PILLARS } from '../data';
+import { useGsapReveal } from '@/hooks/useGsapAnimations';
 
 export default function About() {
+  const sectionRef = useGsapReveal<HTMLElement>();
+
   return (
-    <section id="about" className="bg-[#1c1610] text-[#ebe4d8] py-16 sm:py-24 lg:py-36 relative overflow-hidden">
+    <section ref={sectionRef} id="about" className="bg-[#1c1610] text-[#ebe4d8] py-16 sm:py-24 lg:py-36 relative overflow-hidden">
       {/* Ambient background glow */}
       <div className="absolute top-1/4 left-0 -z-0 h-96 w-96 rounded-full bg-[#a8895c]/10 blur-3xl pointer-events-none animate-ambient-glow" />
       <div className="absolute bottom-1/4 right-0 -z-0 h-96 w-96 rounded-full bg-[#a8895c]/10 blur-3xl pointer-events-none animate-ambient-glow" style={{ animationDelay: '9s' }} />
@@ -12,28 +15,15 @@ export default function About() {
         {/* Main Biography Grid */}
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
           {/* Dual Image Presentation */}
-          <div className="reveal relative lg:col-span-6 flex flex-col items-center">
-            {/* Main Picture: FEI Podium Finish - 100% Uncropped with object-contain */}
+          <div className="gsap-reveal-left relative lg:col-span-6 flex flex-col items-center">
+            {/* Main Picture: Ved with Horse Portrait (ved-14.jpeg) - 100% Uncropped with object-contain */}
             <div className="relative w-full overflow-hidden rounded-sm bg-[#120d08] shadow-2xl border border-[#a8895c]/40 p-2.5 flex flex-col items-center">
               <div className="w-full flex items-center justify-center min-h-[320px] max-h-[540px] overflow-hidden bg-black/60 rounded-sm">
                 <img
-                  src="/assets/ved-5.jpeg"
-                  alt="Ved Sarma Sarkar on the FEI World Challenge Podium holding the Indian flag"
+                  src="/assets/ved-14.jpeg"
+                  alt="Ved Sarma Sarkar with horse"
                   className="h-auto max-h-[500px] w-full object-contain transition-transform duration-700 hover:scale-102"
                 />
-              </div>
-              
-              {/* Caption Banner Below Image (no blocking) */}
-              <div className="mt-2.5 w-full bg-[#251e16] px-3.5 sm:px-4 py-2.5 rounded-sm flex items-center justify-between text-white border border-white/10">
-                <div className="min-w-0 pr-2">
-                  <span className="font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.18em] sm:tracking-[0.2em] text-[#a8895c] block truncate">
-                    FEI World Challenge Podium
-                  </span>
-                  <p className="font-display text-xs sm:text-sm text-white truncate">Team India Athlete &middot; New Delhi</p>
-                </div>
-                <span className="shrink-0 rounded bg-[#a8895c]/20 px-2.5 py-1 font-sans text-[9px] sm:text-[10px] uppercase tracking-wider text-[#e6c994] border border-[#a8895c]/40 font-semibold">
-                  Podium 2023
-                </span>
               </div>
             </div>
 
@@ -58,7 +48,7 @@ export default function About() {
           </div>
 
           {/* Text */}
-          <div className="reveal lg:col-span-6" style={{ transitionDelay: '0.15s' }}>
+          <div className="gsap-reveal-right lg:col-span-6">
             <div className="flex items-center gap-2 flex-wrap">
               <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
                 <span className="h-[1px] w-6 bg-[#a8895c]" />
@@ -114,7 +104,7 @@ export default function About() {
         </div>
 
         {/* CORE VALUES & THE PILLARS OF CHARACTER SECTION */}
-        <div className="reveal mt-20 sm:mt-28 border-t border-white/10 pt-12 sm:pt-16">
+        <div className="gsap-reveal mt-20 sm:mt-28 border-t border-white/10 pt-12 sm:pt-16">
           <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
             <span className="h-[1px] w-6 bg-[#a8895c]" />
             Core Values
@@ -125,12 +115,11 @@ export default function About() {
         </div>
 
         {/* Pillars Grid */}
-        <div className="mt-8 sm:mt-12 grid gap-6 sm:gap-x-10 sm:gap-y-10 lg:gap-x-12 grid-cols-1 sm:grid-cols-2">
+        <div className="gsap-stagger-container mt-8 sm:mt-12 grid gap-6 sm:gap-x-10 sm:gap-y-10 lg:gap-x-12 grid-cols-1 sm:grid-cols-2">
           {PILLARS.map((pillar, i) => (
             <div
               key={pillar.title}
-              className="reveal border-l-2 border-[#a8895c]/50 pl-4 sm:pl-6 bg-[#251e16]/50 p-4 sm:p-6 rounded-r-sm border-y border-r border-white/5"
-              style={{ transitionDelay: `${i * 0.08}s` }}
+              className="gsap-stagger-item border-l-2 border-[#a8895c]/50 pl-4 sm:pl-6 bg-[#251e16]/50 p-4 sm:p-6 rounded-r-sm border-y border-r border-white/5 hover:border-[#a8895c] transition-colors"
             >
               <div className="flex items-baseline gap-3 sm:gap-4">
                 <span className="font-display text-2xl sm:text-3xl font-bold text-[#e6c994]">

@@ -1,18 +1,22 @@
-import { Trophy, CheckCircle2, ShieldCheck, Medal, ArrowRight, Play, Maximize2, Sparkles, Flag, HeartHandshake, Users } from 'lucide-react';
-import { VIDEOS, GALLERY_ITEMS } from './ActionGallery';
-import { NATIONAL_RESULTS } from './Record';
+import { useState } from 'react';
+import { Trophy, CheckCircle2, ShieldCheck, Medal, ArrowRight, Play, Maximize2, Sparkles, Flag, HeartHandshake, Users, X } from 'lucide-react';
+import { VIDEOS, GALLERY_ITEMS, NATIONAL_RESULTS } from '@/data';
 import Hero from '@/components/Hero';
+import { useGsapReveal, GsapCounter } from '@/hooks/useGsapAnimations';
 
 interface HomeOverviewProps {
   onNavigate: (pageId: string) => void;
 }
 
 export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
-  const featuredVideos = VIDEOS.slice(0, 2);
+  const containerRef = useGsapReveal<HTMLDivElement>();
+  const [playingFeaturedVideoId, setPlayingFeaturedVideoId] = useState<string | null>(null);
+  const video7 = VIDEOS.find((v) => v.id === 'video-7') || VIDEOS[6] || VIDEOS[0];
+  const featuredVideos = [video7, VIDEOS[0]];
   const featuredPhotos = GALLERY_ITEMS.slice(0, 3);
 
   return (
-    <div>
+    <div ref={containerRef}>
       {/* Hero Section */}
       <Hero onNavigate={onNavigate} />
 
@@ -23,7 +27,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
           <div className="grid gap-10 lg:gap-12 lg:grid-cols-12 lg:items-center">
             {/* Left: Bio teaser */}
-            <div className="reveal lg:col-span-6">
+            <div className="gsap-reveal-left lg:col-span-6">
               <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
                 <span className="h-[1px] w-6 bg-[#a8895c]" />
                 Executive Summary
@@ -53,10 +57,12 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
             </div>
 
             {/* Right: Key Highlights 4 Cards */}
-            <div className="reveal lg:col-span-6 grid gap-3 sm:gap-4 grid-cols-2">
+            <div className="gsap-reveal-right lg:col-span-6 grid gap-3 sm:gap-4 grid-cols-2">
               <div className="rounded-sm bg-[#251e16] border border-white/10 p-3.5 sm:p-5 shadow-xl transition-all duration-300 hover:border-[#a8895c]/60 flex flex-col justify-between">
                 <div className="flex items-center justify-between">
-                  <span className="font-display text-2xl xs:text-3xl sm:text-4xl text-[#e6c994] font-bold">16</span>
+                  <span className="font-display text-2xl xs:text-3xl sm:text-4xl text-[#e6c994] font-bold">
+                    <GsapCounter end={16} />
+                  </span>
                   <div className="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#e6c994]">
                     <Trophy size={16} />
                   </div>
@@ -73,7 +79,9 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
 
               <div className="rounded-sm bg-[#251e16] border border-white/10 p-3.5 sm:p-5 shadow-xl transition-all duration-300 hover:border-[#a8895c]/60 flex flex-col justify-between">
                 <div className="flex items-center justify-between">
-                  <span className="font-display text-2xl xs:text-3xl sm:text-4xl text-[#e6c994] font-bold">100%</span>
+                  <span className="font-display text-2xl xs:text-3xl sm:text-4xl text-[#e6c994] font-bold">
+                    <GsapCounter end={100} suffix="%" />
+                  </span>
                   <div className="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#e6c994]">
                     <CheckCircle2 size={16} />
                   </div>
@@ -90,7 +98,9 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
 
               <div className="rounded-sm bg-[#251e16] border border-white/10 p-3.5 sm:p-5 shadow-xl transition-all duration-300 hover:border-[#a8895c]/60 flex flex-col justify-between">
                 <div className="flex items-center justify-between">
-                  <span className="font-display text-2xl xs:text-3xl sm:text-4xl text-[#e6c994] font-bold">0</span>
+                  <span className="font-display text-2xl xs:text-3xl sm:text-4xl text-[#e6c994] font-bold">
+                    <GsapCounter end={0} />
+                  </span>
                   <div className="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#e6c994]">
                     <ShieldCheck size={16} />
                   </div>
@@ -107,7 +117,9 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
 
               <div className="rounded-sm bg-[#251e16] border border-white/10 p-3.5 sm:p-5 shadow-xl transition-all duration-300 hover:border-[#a8895c]/60 flex flex-col justify-between">
                 <div className="flex items-center justify-between">
-                  <span className="font-display text-2xl xs:text-3xl sm:text-4xl text-[#e6c994] font-bold">2</span>
+                  <span className="font-display text-2xl xs:text-3xl sm:text-4xl text-[#e6c994] font-bold">
+                    <GsapCounter end={2} />
+                  </span>
                   <div className="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#e6c994]">
                     <Medal size={16} />
                   </div>
@@ -247,74 +259,124 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
               onClick={() => onNavigate('media')}
               className="group inline-flex items-center gap-2 rounded-full bg-[#a8895c] px-5 sm:px-6 py-2.5 font-sans text-xs uppercase tracking-wider text-[#2d2418] font-bold transition-all hover:bg-[#c2a372] shadow-lg self-start md:self-auto hover:scale-105 active:scale-95 min-h-[42px]"
             >
-              <span>View All Media (16 Items)</span>
+              <span>View Full Media (39 Items)</span>
               <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
             </button>
           </div>
 
-          {/* 2 Featured Videos */}
+          {/* 2 Featured Videos - Play in place on the same page */}
           <div className="mt-10 grid gap-6 grid-cols-1 sm:grid-cols-2">
-            {featuredVideos.map((vid) => (
-              <div
-                key={vid.id}
-                onClick={() => onNavigate('media')}
-                className="group relative cursor-pointer overflow-hidden rounded-sm border border-white/10 bg-[#251e16] p-3.5 sm:p-4 transition-all hover:border-[#a8895c]/60 shadow-lg"
-              >
-                <div className="relative aspect-[16/9] w-full bg-black rounded overflow-hidden flex items-center justify-center">
-                  <video
-                    src={vid.src}
-                    poster={vid.poster}
-                    muted
-                    loop
-                    playsInline
-                    className="h-full w-full object-contain"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#a8895c] text-[#2d2418] shadow-lg transition-transform group-hover:scale-110">
-                      <Play size={18} className="fill-[#2d2418] ml-0.5" />
+            {featuredVideos.map((vid) => {
+              const isPlaying = playingFeaturedVideoId === vid.id;
+
+              return (
+                <div
+                  key={vid.id}
+                  className={`group relative overflow-hidden rounded-sm border bg-[#251e16] p-3.5 sm:p-4 transition-all shadow-lg flex flex-col justify-between ${
+                    isPlaying ? 'border-[#a8895c] ring-1 ring-[#a8895c]/60' : 'border-white/10 hover:border-[#a8895c]/60'
+                  }`}
+                >
+                  <div className="relative aspect-[16/9] w-full bg-black rounded overflow-hidden flex items-center justify-center">
+                    {isPlaying ? (
+                      <video
+                        src={vid.src}
+                        controls
+                        autoPlay
+                        playsInline
+                        disablePictureInPicture
+                        className="h-full w-full object-contain"
+                      />
+                    ) : (
+                      <div
+                        onClick={() => setPlayingFeaturedVideoId(vid.id)}
+                        className="relative w-full h-full cursor-pointer group/thumb"
+                      >
+                        <video
+                          src={vid.src}
+                          poster={vid.poster}
+                          muted
+                          loop
+                          playsInline
+                          disablePictureInPicture
+                          disableRemotePlayback
+                          controlsList="nodownload nofullscreen noremoteplayback"
+                          className="h-full w-full object-contain transition-transform duration-500 group-hover/thumb:scale-102 pointer-events-none"
+                          onMouseEnter={(e) => {
+                            const target = e.currentTarget;
+                            target.play().catch(() => {});
+                          }}
+                          onMouseLeave={(e) => {
+                            const target = e.currentTarget;
+                            target.pause();
+                            target.currentTime = 0;
+                          }}
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                          <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#a8895c] text-[#2d2418] shadow-2xl transition-transform duration-300 group-hover/thumb:scale-110 group-hover/thumb:bg-[#c2a372]">
+                            <Play size={20} className="fill-[#2d2418] ml-0.5" />
+                          </div>
+                        </div>
+                        <span className="absolute top-2.5 left-2.5 rounded-full bg-black/75 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#d9cdb8] backdrop-blur-md border border-white/10">
+                          {vid.category}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="mt-3 sm:mt-4 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-display text-lg sm:text-xl text-white group-hover:text-[#e6c994] transition-colors">
+                        {vid.title}
+                      </h3>
+                      <p className="mt-1 font-sans text-xs text-[#d9cdb8]/70 leading-relaxed">
+                        {vid.description}
+                      </p>
+                    </div>
+
+                    <div className="mt-3 pt-2 flex items-center justify-between border-t border-white/5 text-[11px] font-sans uppercase tracking-wider text-[#a8895c]">
+                      {isPlaying ? (
+                        <button
+                          onClick={() => setPlayingFeaturedVideoId(null)}
+                          className="inline-flex items-center gap-1.5 text-xs text-[#e6c994] hover:text-white transition-colors cursor-pointer"
+                        >
+                          <span>Close Video</span>
+                          <X size={14} />
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => setPlayingFeaturedVideoId(vid.id)}
+                          className="inline-flex items-center gap-1 text-[#a8895c] hover:text-[#e6c994] transition-colors cursor-pointer"
+                        >
+                          <span>Play Video</span>
+                          <span>&rarr;</span>
+                        </button>
+                      )}
                     </div>
                   </div>
-                  <span className="absolute top-2.5 left-2.5 rounded-full bg-black/75 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#d9cdb8]">
-                    {vid.category}
-                  </span>
                 </div>
-                <h3 className="mt-3 sm:mt-4 font-display text-lg sm:text-xl text-white group-hover:text-[#e6c994] transition-colors">
-                  {vid.title}
-                </h3>
-                <p className="mt-1 font-sans text-xs text-[#d9cdb8]/70">
-                  {vid.description}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
-          {/* 3 Featured Photos */}
+          {/* 3 Featured Photos - 100% Uncropped with object-contain */}
           <div className="mt-6 sm:mt-8 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {featuredPhotos.map((photo, pIdx) => (
               <div
                 key={photo.id}
                 onClick={() => onNavigate('media')}
-                className={`group relative cursor-pointer overflow-hidden rounded-sm border border-white/10 bg-[#251e16] p-2 transition-all hover:border-[#a8895c]/60 shadow-lg ${
+                className={`group relative cursor-pointer overflow-hidden rounded-sm border border-white/10 bg-[#120d08] h-56 sm:h-64 flex items-center justify-center p-2 transition-all duration-500 hover:border-[#a8895c]/70 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] ${
                   pIdx === 2 ? 'sm:col-span-2 lg:col-span-1' : ''
                 }`}
               >
-                <div className="relative h-48 sm:h-52 w-full bg-black rounded overflow-hidden flex items-center justify-center p-1">
-                  <img
-                    src={photo.src}
-                    alt={photo.title}
-                    className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity rounded-full bg-black/70 p-1.5 text-white">
-                    <Maximize2 size={12} />
+                <img
+                  src={photo.src}
+                  alt={photo.title}
+                  className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                  <div className="rounded-full bg-black/70 p-2.5 text-[#d9cdb8] border border-[#a8895c]/50">
+                    <Maximize2 size={16} className="text-[#a8895c]" />
                   </div>
-                </div>
-                <div className="p-2.5">
-                  <h4 className="font-display text-sm text-white group-hover:text-[#e6c994] transition-colors">
-                    {photo.title}
-                  </h4>
-                  <p className="mt-0.5 font-sans text-[11px] text-[#d9cdb8]/70 line-clamp-1">
-                    {photo.caption}
-                  </p>
                 </div>
               </div>
             ))}

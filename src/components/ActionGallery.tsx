@@ -1,5 +1,7 @@
-import { useState, useRef } from 'react';
-import { Play, Pause, Volume2, VolumeX, Maximize2, X, ChevronLeft, ChevronRight, Film, Image as ImageIcon, Sparkles } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
+import { Play, Maximize2, X, ChevronLeft, ChevronRight, Film, Image as ImageIcon, Sparkles } from 'lucide-react';
+import { useGsapReveal } from '@/hooks/useGsapAnimations';
 
 export const VIDEOS = [
   {
@@ -50,94 +52,63 @@ export const VIDEOS = [
     description: 'Combination fences, quick recovery and balanced stride discipline.',
     poster: '/assets/ved-6.jpeg',
   },
+  {
+    id: 'video-7',
+    src: '/assets/video-7.mp4',
+    title: 'Championship Course Execution',
+    category: 'Show Jumping',
+    description: 'Dynamic pacing, technical obstacle navigation, and clean line execution.',
+    poster: '/assets/ved-20.jpeg',
+  },
 ];
 
 export const GALLERY_ITEMS = [
-  {
-    id: 'g-8',
-    src: '/assets/ved-8.jpeg',
-    title: 'Show Jumping Mastery',
-    category: 'Competition',
-    caption: 'Flawless clearance over high competition fences, showcasing exceptional rhythm, power, and the Team India emblem.',
-  },
-  {
-    id: 'g-1',
-    src: '/assets/ved-1.jpeg',
-    title: 'Cross-Country Precision & Speed',
-    category: 'Competition',
-    caption: 'Ved in competition bib #16 executing a technical gallop across open terrain with perfect stride control.',
-  },
-  {
-    id: 'g-5',
-    src: '/assets/ved-5.jpeg',
-    title: 'FEI World Challenge Podium',
-    category: 'Milestones',
-    caption: 'At age 16, Ved stood on the podium at the 2023 FEI Eventing World Challenge in New Delhi — the youngest rider in the field.',
-  },
-  {
-    id: 'g-2',
-    src: '/assets/ved-2.jpeg',
-    title: 'Junior National Championship Silver',
-    category: 'Milestones',
-    caption: 'Team Silver presentation ceremony at the Junior National Equestrian Championship, establishing Ved on the national stage.',
-  },
-  {
-    id: 'g-4',
-    src: '/assets/ved-4.jpeg',
-    title: 'Individual Bronze & Equine Bond',
-    category: 'The Bond',
-    caption: 'Celebrating the Junior National Individual Bronze medal alongside his trusted equine partner with the tricolor rosette.',
-  },
-  {
-    id: 'g-7',
-    src: '/assets/ved-7.jpeg',
-    title: 'Formal Equestrian Athlete Portrait',
-    category: 'Portraits',
-    caption: 'Ved in official competition attire alongside his equine partner — representing focus, discipline, and pride for India.',
-  },
-  {
-    id: 'g-3',
-    src: '/assets/ved-3.jpeg',
-    title: 'Foundations at Seahorse Academy',
-    category: 'The Bond',
-    caption: 'Formative training under Indian Olympian Imtiaz Anees, cultivating the fundamental trust and horsemanship behind every victory.',
-  },
-  {
-    id: 'g-6',
-    src: '/assets/ved-6.jpeg',
-    title: 'Endurance & Trail Conditioning',
-    category: 'Portraits',
-    caption: 'Long-distance outdoor conditioning sessions designed to develop stamina, calmness, and mental endurance for rider and horse.',
-  },
-  {
-    id: 'g-9',
-    src: '/assets/ved-9.jpeg',
-    title: 'Hillside Training Horizons',
-    category: 'Landscapes',
-    caption: 'Open hillside terrain where core training, fresh-air conditioning, and natural riding discipline are forged.',
-  },
-  {
-    id: 'g-10',
-    src: '/assets/ved-10.jpeg',
-    title: 'The American Circuit & Facilities',
-    category: 'Landscapes',
-    caption: 'World-class training grounds and arenas in Ocala, Florida — the epicenter of international eventing excellence.',
-  },
+  { id: 'g-1', src: '/assets/ved-1.jpeg', title: 'Cross-Country Precision & Speed', category: 'Competition' },
+  { id: 'g-2', src: '/assets/ved-2.jpeg', title: 'Junior National Championship Silver', category: 'Milestones' },
+  { id: 'g-3', src: '/assets/ved-3.jpeg', title: 'Foundations at Seahorse Academy', category: 'The Bond' },
+  { id: 'g-4', src: '/assets/ved-4.jpeg', title: 'Individual Bronze & Equine Bond', category: 'The Bond' },
+  { id: 'g-5', src: '/assets/ved-5.jpeg', title: 'FEI World Challenge Podium', category: 'Milestones' },
+  { id: 'g-6', src: '/assets/ved-6.jpeg', title: 'Endurance & Trail Conditioning', category: 'Portraits' },
+  { id: 'g-7', src: '/assets/ved-7.jpeg', title: 'Formal Equestrian Athlete Portrait', category: 'Portraits' },
+  { id: 'g-8', src: '/assets/ved-8.jpeg', title: 'Show Jumping Mastery', category: 'Competition' },
+  { id: 'g-9', src: '/assets/ved-9.jpeg', title: 'Hillside Training Horizons', category: 'Landscapes' },
+  { id: 'g-10', src: '/assets/ved-10.jpeg', title: 'The American Circuit & Facilities', category: 'Landscapes' },
+  { id: 'g-11', src: '/assets/ved-11.jpeg', title: 'Archival Photography 11', category: 'Competition' },
+  { id: 'g-12', src: '/assets/ved-12.jpeg', title: 'Archival Photography 12', category: 'Competition' },
+  { id: 'g-13', src: '/assets/ved-13.jpeg', title: 'Archival Photography 13', category: 'Portraits' },
+  { id: 'g-14', src: '/assets/ved-14.jpeg', title: 'Archival Photography 14', category: 'The Bond' },
+  { id: 'g-15', src: '/assets/ved-15.jpeg', title: 'Archival Photography 15', category: 'Competition' },
+  { id: 'g-16', src: '/assets/ved-16.jpeg', title: 'Archival Photography 16', category: 'Milestones' },
+  { id: 'g-17', src: '/assets/ved-17.jpeg', title: 'Archival Photography 17', category: 'Competition' },
+  { id: 'g-18', src: '/assets/ved-18.jpeg', title: 'Archival Photography 18', category: 'The Bond' },
+  { id: 'g-19', src: '/assets/ved-19.jpeg', title: 'Archival Photography 19', category: 'Portraits' },
+  { id: 'g-20', src: '/assets/ved-20.jpeg', title: 'Archival Photography 20', category: 'Competition' },
+  { id: 'g-21', src: '/assets/ved-21.jpeg', title: 'Archival Photography 21', category: 'Milestones' },
+  { id: 'g-22', src: '/assets/ved-22.jpeg', title: 'Archival Photography 22', category: 'Portraits' },
+  { id: 'g-23', src: '/assets/ved-23.jpeg', title: 'Archival Photography 23', category: 'Competition' },
+  { id: 'g-24', src: '/assets/ved-24.jpeg', title: 'Archival Photography 24', category: 'The Bond' },
+  { id: 'g-25', src: '/assets/ved-25.jpeg', title: 'Archival Photography 25', category: 'Competition' },
+  { id: 'g-26', src: '/assets/ved-26.jpeg', title: 'Archival Photography 26', category: 'Portraits' },
+  { id: 'g-27', src: '/assets/ved-27.jpeg', title: 'Archival Photography 27', category: 'The Bond' },
+  { id: 'g-28', src: '/assets/ved-28.jpeg', title: 'Archival Photography 28', category: 'Competition' },
+  { id: 'g-29', src: '/assets/ved-29.jpeg', title: 'Archival Photography 29', category: 'Landscapes' },
+  { id: 'g-30', src: '/assets/ved-30.jpeg', title: 'Archival Photography 30', category: 'Competition' },
+  { id: 'g-31', src: '/assets/ved-31.jpeg', title: 'Archival Photography 31', category: 'Portraits' },
+  { id: 'g-32', src: '/assets/ved-32.jpeg', title: 'Archival Photography 32', category: 'Competition' },
 ];
 
 
 export default function ActionGallery() {
   const [activeMediaTab, setActiveMediaTab] = useState<'all' | 'videos' | 'photos'>('all');
 
-  // Video player modal state
-  const [selectedVideo, setSelectedVideo] = useState<(typeof VIDEOS)[0] | null>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(false);
-  const modalVideoRef = useRef<HTMLVideoElement>(null);
+  // Video modal state
+  const [selectedVideoIndex, setSelectedVideoIndex] = useState<number | null>(null);
 
   // Photo gallery lightbox state
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number | null>(null);
   const [photoFilter, setPhotoFilter] = useState<string>('All');
+
+  const sectionRef = useGsapReveal<HTMLElement>([activeMediaTab, photoFilter]);
 
   const categories = ['All', 'Competition', 'Milestones', 'The Bond', 'Portraits', 'Landscapes'];
 
@@ -145,31 +116,22 @@ export default function ActionGallery() {
     ? GALLERY_ITEMS
     : GALLERY_ITEMS.filter((item) => item.category === photoFilter);
 
-  const openVideo = (video: (typeof VIDEOS)[0]) => {
-    setSelectedVideo(video);
-    setIsPlaying(true);
-    setIsMuted(false);
+  const openVideoModal = (index: number) => {
+    setSelectedVideoIndex(index);
   };
 
-  const closeVideo = () => {
-    setSelectedVideo(null);
+  const closeVideoModal = () => {
+    setSelectedVideoIndex(null);
   };
 
-  const toggleModalPlay = () => {
-    if (!modalVideoRef.current) return;
-    if (isPlaying) {
-      modalVideoRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      modalVideoRef.current.play();
-      setIsPlaying(true);
-    }
+  const prevVideo = () => {
+    if (selectedVideoIndex === null) return;
+    setSelectedVideoIndex((selectedVideoIndex - 1 + VIDEOS.length) % VIDEOS.length);
   };
 
-  const toggleModalMute = () => {
-    if (!modalVideoRef.current) return;
-    modalVideoRef.current.muted = !isMuted;
-    setIsMuted(!isMuted);
+  const nextVideo = () => {
+    if (selectedVideoIndex === null) return;
+    setSelectedVideoIndex((selectedVideoIndex + 1) % VIDEOS.length);
   };
 
   const openLightbox = (index: number) => {
@@ -190,8 +152,42 @@ export default function ActionGallery() {
     setSelectedPhotoIndex((selectedPhotoIndex + 1) % filteredPhotos.length);
   };
 
+  // Lock & preserve scroll position when modal is open
+  useEffect(() => {
+    if (selectedPhotoIndex !== null || selectedVideoIndex !== null) {
+      const scrollY = window.scrollY;
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        window.scrollTo({ top: scrollY, behavior: 'instant' });
+      };
+    }
+  }, [selectedPhotoIndex, selectedVideoIndex]);
+
+  // Keyboard navigation & Escape to close
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closeVideoModal();
+      } else if (e.key === 'ArrowLeft') {
+        if (selectedPhotoIndex !== null) prevPhoto();
+        if (selectedVideoIndex !== null) prevVideo();
+      } else if (e.key === 'ArrowRight') {
+        if (selectedPhotoIndex !== null) nextPhoto();
+        if (selectedVideoIndex !== null) nextVideo();
+      }
+    };
+    if (selectedPhotoIndex !== null || selectedVideoIndex !== null) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedPhotoIndex, selectedVideoIndex, filteredPhotos.length]);
+
   return (
-    <section id="media" className="bg-[#19140e] text-[#ebe4d8] py-16 sm:py-24 lg:py-36 relative overflow-hidden">
+    <section ref={sectionRef} id="media" className="bg-[#19140e] text-[#ebe4d8] py-16 sm:py-24 lg:py-36 relative overflow-hidden">
       {/* Anchors for legacy navigation */}
       <div id="action-reel" className="absolute -top-24" />
       <div id="gallery" className="absolute -top-24" />
@@ -202,7 +198,7 @@ export default function ActionGallery() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         {/* Unified Section Header */}
-        <div className="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-6 sm:gap-8">
+        <div className="gsap-reveal flex flex-col md:flex-row md:items-end md:justify-between gap-6 sm:gap-8">
           <div>
             <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
               <span className="h-[1px] w-6 bg-[#a8895c]" />
@@ -212,7 +208,7 @@ export default function ActionGallery() {
               In Action &amp; Gallery
             </h2>
             <p className="mt-3 sm:mt-4 max-w-2xl font-serif text-base sm:text-lg italic text-[#d9cdb8]/85">
-              Experience the full dynamic visual record &mdash; 6 competition action video reels and 10 high-resolution archival photographs.
+              Experience the full dynamic visual record &mdash; {VIDEOS.length} competition action video reels and {GALLERY_ITEMS.length} high-resolution archival photographs.
             </p>
           </div>
 
@@ -227,7 +223,7 @@ export default function ActionGallery() {
               }`}
             >
               <Sparkles size={14} />
-              <span>All Media (16)</span>
+              <span>All Media ({VIDEOS.length + GALLERY_ITEMS.length})</span>
             </button>
             <button
               onClick={() => setActiveMediaTab('videos')}
@@ -238,7 +234,7 @@ export default function ActionGallery() {
               }`}
             >
               <Film size={14} />
-              <span>Videos (6)</span>
+              <span>Videos ({VIDEOS.length})</span>
             </button>
             <button
               onClick={() => setActiveMediaTab('photos')}
@@ -249,7 +245,7 @@ export default function ActionGallery() {
               }`}
             >
               <ImageIcon size={14} />
-              <span>Photos (10)</span>
+              <span>Photos ({GALLERY_ITEMS.length})</span>
             </button>
           </div>
         </div>
@@ -263,27 +259,30 @@ export default function ActionGallery() {
                 <h3 className="font-display text-xl sm:text-2xl text-white">Action Video Reels</h3>
               </div>
               <span className="font-sans text-[10px] sm:text-[11px] uppercase tracking-widest text-[#a8895c]">
-                6 Video Clips
+                {VIDEOS.length} Video Clips
               </span>
             </div>
 
             {/* Videos Grid */}
-            <div className="mt-8 grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="gsap-stagger-container mt-8 grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {VIDEOS.map((vid, i) => (
                 <div
                   key={vid.id}
-                  onClick={() => openVideo(vid)}
-                  className="group relative cursor-pointer overflow-hidden rounded-sm border border-white/10 bg-[#251e16] shadow-lg transition-all duration-500 hover:-translate-y-1.5 hover:border-[#a8895c]/60 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col"
+                  onClick={() => openVideoModal(i)}
+                  className="gsap-stagger-item group relative cursor-pointer overflow-hidden rounded-sm border border-white/10 bg-[#251e16] shadow-lg transition-all duration-500 hover:-translate-y-1.5 hover:border-[#a8895c]/60 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between"
                 >
-                  {/* Video Canvas 100% full view */}
-                  <div className="relative aspect-[16/10] w-full bg-black flex items-center justify-center overflow-hidden">
+                  {/* Video Canvas - 100% Uncropped with object-contain */}
+                  <div className="relative h-48 sm:h-54 w-full bg-[#100b06] flex items-center justify-center overflow-hidden p-1.5">
                     <video
                       src={vid.src}
                       poster={vid.poster}
+                      preload="none"
                       muted
                       loop
                       playsInline
-                      className="h-full w-full object-contain transition-all duration-500 group-hover:scale-102"
+                      disablePictureInPicture
+                      disableRemotePlayback
+                      className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-102 pointer-events-none"
                       onMouseEnter={(e) => {
                         const target = e.currentTarget;
                         target.play().catch(() => {});
@@ -295,10 +294,10 @@ export default function ActionGallery() {
                       }}
                     />
 
-                    {/* Play Badge */}
+                    {/* Play Button Badge */}
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <div className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#a8895c]/90 text-[#2d2418] shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#c2a372]">
-                        <Play size={18} className="fill-[#2d2418] ml-0.5" />
+                      <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#a8895c] text-[#2d2418] shadow-2xl transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#c2a372]">
+                        <Play size={20} className="fill-[#2d2418] ml-0.5" />
                       </div>
                     </div>
 
@@ -321,8 +320,9 @@ export default function ActionGallery() {
                         {vid.description}
                       </p>
                     </div>
-                    <div className="mt-4 flex items-center gap-2 text-[11px] font-sans uppercase tracking-wider text-[#a8895c]">
-                      <span>Watch Full Clip</span>
+
+                    <div className="mt-4 flex items-center gap-1.5 text-[11px] font-sans uppercase tracking-wider text-[#a8895c]">
+                      <span>Watch Video</span>
                       <span>&rarr;</span>
                     </div>
                   </div>
@@ -359,45 +359,39 @@ export default function ActionGallery() {
               </div>
             </div>
 
-            {/* Photo Grid with 100% Full Uncropped Image View */}
-            <div className="mt-8 grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Photo Grid with Organic Masonry Flow (Vertical & Horizontal seamlessly mixed) */}
+            <div className="gsap-stagger-container mt-8 columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
               {filteredPhotos.map((photo, index) => (
                 <div
                   key={photo.id}
-                  onClick={() => openLightbox(index)}
-                  className="group relative cursor-pointer overflow-hidden rounded-sm border border-white/10 bg-[#251e16] shadow-lg transition-all duration-500 hover:-translate-y-1 hover:border-[#a8895c]/60 flex flex-col"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    openLightbox(index);
+                  }}
+                  className="gsap-stagger-item group relative cursor-pointer overflow-hidden rounded-sm border border-white/10 bg-[#140e08] shadow-lg transition-all duration-500 hover:-translate-y-1 hover:border-[#a8895c]/70 hover:shadow-[0_10px_30px_rgba(0,0,0,0.6)] mb-4 break-inside-avoid"
                 >
-                  {/* Photo Container: 100% Uncropped with full view */}
-                  <div className="relative h-64 sm:h-72 lg:h-80 w-full bg-[#120d08] flex items-center justify-center p-2 overflow-hidden">
-                    <img
-                      src={photo.src}
-                      alt={photo.title}
-                      className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-103"
-                      loading="lazy"
-                    />
-                    
-                    <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity rounded-full bg-black/75 p-1.5 sm:p-2 text-white backdrop-blur-sm border border-white/10">
-                      <Maximize2 size={14} />
+                  <img
+                    src={photo.src}
+                    alt={photo.title}
+                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-104 block"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  
+                  {/* Subtle Hover Overlay with category tag & zoom icon */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-3 pointer-events-none">
+                    <div className="flex justify-end">
+                      <span className="font-sans text-[8px] sm:text-[9px] uppercase tracking-wider text-[#e6c994] bg-black/80 px-2 py-0.5 rounded-sm border border-[#a8895c]/40 backdrop-blur-sm">
+                        {photo.category}
+                      </span>
                     </div>
-
-                    <span className="absolute bottom-2.5 left-2.5 rounded-full bg-black/75 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#d9cdb8] backdrop-blur-md border border-white/10">
-                      {photo.category}
-                    </span>
-                  </div>
-
-                  <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
-                    <div>
-                      <h4 className="font-display text-base sm:text-lg text-white group-hover:text-[#d9cdb8] transition-colors">
-                        {photo.title}
-                      </h4>
-                      <p className="mt-1.5 font-sans text-xs leading-relaxed text-[#d9cdb8]/70">
-                        {photo.caption}
-                      </p>
+                    <div className="flex items-center justify-center">
+                      <div className="rounded-full bg-black/80 p-2.5 text-[#d9cdb8] border border-[#a8895c]/50 shadow-xl transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                        <Maximize2 size={18} className="text-[#a8895c]" />
+                      </div>
                     </div>
-                    <div className="mt-3 flex items-center gap-1.5 font-sans text-[10px] uppercase tracking-wider text-[#a8895c]">
-                      <span>Open High-Res Lightbox</span>
-                      <span>&rarr;</span>
-                    </div>
+                    <div />
                   </div>
                 </div>
               ))}
@@ -406,120 +400,127 @@ export default function ActionGallery() {
         )}
       </div>
 
-      {/* VIDEO MODAL PLAYER - 100% Uncropped & Responsive */}
-      {selectedVideo && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-3 sm:p-4 backdrop-blur-md animate-modal-enter">
-          <div className="relative w-full max-w-5xl overflow-hidden rounded-md border border-[#a8895c]/40 bg-[#19140e] shadow-2xl flex flex-col max-h-[94vh]">
-            {/* Modal Header */}
-            <div className="flex items-center justify-between border-b border-white/10 px-4 sm:px-6 py-3 sm:py-4">
-              <div className="pr-4">
-                <span className="font-sans text-[9px] sm:text-[10px] uppercase tracking-widest text-[#a8895c]">
-                  {selectedVideo.category} &middot; 100% Full Resolution
-                </span>
-                <h3 className="font-display text-lg sm:text-xl text-white truncate">{selectedVideo.title}</h3>
-              </div>
-              <button
-                onClick={closeVideo}
-                className="rounded-full border border-white/20 p-2 text-[#d9cdb8] transition-colors hover:bg-white/10 hover:text-white shrink-0 min-h-[38px] min-w-[38px] flex items-center justify-center"
-                aria-label="Close modal"
-              >
-                <X size={18} />
-              </button>
-            </div>
+      {/* VIDEO MODAL - Rendered via Portal directly into document.body */}
+      {selectedVideoIndex !== null && VIDEOS[selectedVideoIndex] && typeof document !== 'undefined' && createPortal(
+        <div
+          onClick={closeVideoModal}
+          className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/90 p-3 sm:p-6 backdrop-blur-md animate-modal-enter cursor-pointer"
+        >
+          {/* Main Video Card Container */}
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-h-[82vh] max-w-3xl w-full overflow-hidden rounded-lg border border-[#a8895c]/50 bg-[#140e08] shadow-[0_25px_80px_rgba(0,0,0,0.95)] flex flex-col items-center justify-center p-3 sm:p-5 cursor-default my-auto"
+          >
+            {/* Top Close Button attached right on the video card */}
+            <button
+              onClick={closeVideoModal}
+              className="absolute top-3 right-3 z-30 flex items-center gap-1.5 rounded-full bg-black/90 hover:bg-[#a8895c] px-3 py-1.5 text-xs text-white hover:text-[#19140e] font-sans font-medium border border-white/20 hover:border-[#a8895c] shadow-lg transition-all duration-200 cursor-pointer"
+              aria-label="Close video"
+            >
+              <X size={15} />
+              <span>Close</span>
+            </button>
 
-            {/* Video Canvas - 100% object-contain */}
-            <div className="relative flex-1 bg-black flex items-center justify-center min-h-[35vh] max-h-[60vh] sm:max-h-[68vh] p-1">
+            {/* Navigation Prev Button */}
+            <button
+              onClick={prevVideo}
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-30 rounded-full border border-white/20 bg-black/80 hover:bg-[#a8895c] p-2 sm:p-2.5 text-white hover:text-[#19140e] transition-all hover:border-[#a8895c] shadow-lg cursor-pointer"
+              aria-label="Previous video"
+            >
+              <ChevronLeft size={20} />
+            </button>
+
+            {/* Navigation Next Button */}
+            <button
+              onClick={nextVideo}
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-30 rounded-full border border-white/20 bg-black/80 hover:bg-[#a8895c] p-2 sm:p-2.5 text-white hover:text-[#19140e] transition-all hover:border-[#a8895c] shadow-lg cursor-pointer"
+              aria-label="Next video"
+            >
+              <ChevronRight size={20} />
+            </button>
+
+            {/* Centered Video with balanced, comfortable height */}
+            <div className="w-full flex items-center justify-center overflow-hidden py-1">
               <video
-                ref={modalVideoRef}
-                src={selectedVideo.src}
+                src={VIDEOS[selectedVideoIndex].src}
                 controls
                 autoPlay
-                className="h-full w-full max-h-[60vh] sm:max-h-[68vh] object-contain"
-                onPlay={() => setIsPlaying(true)}
-                onPause={() => setIsPlaying(false)}
+                playsInline
+                disablePictureInPicture
+                className="max-h-[62vh] sm:max-h-[66vh] w-auto max-w-full object-contain rounded shadow-md"
               />
             </div>
 
-            {/* Modal Footer Controls */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 bg-[#251e16] px-4 sm:px-6 py-3 sm:py-4 text-xs font-sans text-[#d9cdb8]/80 border-t border-white/10">
-              <p className="text-xs">{selectedVideo.description}</p>
-              <div className="flex items-center gap-2.5 shrink-0">
-                <button
-                  onClick={toggleModalPlay}
-                  className="flex items-center gap-1.5 rounded-full border border-white/20 px-3 py-1.5 text-white hover:bg-white/10 min-h-[36px]"
-                >
-                  {isPlaying ? <Pause size={13} /> : <Play size={13} />}
-                  <span>{isPlaying ? 'Pause' : 'Play'}</span>
-                </button>
-                <button
-                  onClick={toggleModalMute}
-                  className="flex items-center gap-1.5 rounded-full border border-white/20 px-3 py-1.5 text-white hover:bg-white/10 min-h-[36px]"
-                >
-                  {isMuted ? <VolumeX size={13} /> : <Volume2 size={13} />}
-                  <span>{isMuted ? 'Unmute' : 'Mute'}</span>
-                </button>
-              </div>
+            {/* Counter indicator & Title */}
+            <div className="mt-2.5 text-center px-4">
+              <span className="font-sans text-[11px] uppercase tracking-widest text-[#a8895c] font-medium">
+                Video {selectedVideoIndex + 1} / {VIDEOS.length} &middot; {VIDEOS[selectedVideoIndex].title}
+              </span>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
-      {/* PHOTO LIGHTBOX MODAL - 100% Uncropped & Responsive */}
-      {selectedPhotoIndex !== null && filteredPhotos[selectedPhotoIndex] && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-2 sm:p-4 backdrop-blur-lg animate-modal-enter">
-          {/* Close button */}
-          <button
-            onClick={closeLightbox}
-            className="absolute top-3 right-3 sm:top-6 sm:right-6 z-50 rounded-full border border-white/20 bg-black/70 p-2 sm:p-3 text-white transition-colors hover:bg-white/20 min-h-[44px] min-w-[44px] flex items-center justify-center"
-            aria-label="Close Lightbox"
+      {/* PHOTO LIGHTBOX MODAL - Rendered via Portal directly into document.body */}
+      {selectedPhotoIndex !== null && filteredPhotos[selectedPhotoIndex] && typeof document !== 'undefined' && createPortal(
+        <div
+          onClick={closeLightbox}
+          className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/90 p-3 sm:p-6 backdrop-blur-md animate-modal-enter cursor-pointer"
+        >
+          {/* Main Lightbox Card Container */}
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-h-[82vh] max-w-3xl w-full overflow-hidden rounded-lg border border-[#a8895c]/50 bg-[#140e08] shadow-[0_25px_80px_rgba(0,0,0,0.95)] flex flex-col items-center justify-center p-3 sm:p-5 cursor-default my-auto"
           >
-            <X size={20} />
-          </button>
+            {/* Top Close Button attached right on the image card */}
+            <button
+              onClick={closeLightbox}
+              className="absolute top-3 right-3 z-30 flex items-center gap-1.5 rounded-full bg-black/90 hover:bg-[#a8895c] px-3 py-1.5 text-xs text-white hover:text-[#19140e] font-sans font-medium border border-white/20 hover:border-[#a8895c] shadow-lg transition-all duration-200 cursor-pointer"
+              aria-label="Close image"
+            >
+              <X size={15} />
+              <span>Close</span>
+            </button>
 
-          {/* Navigation Prev */}
-          <button
-            onClick={prevPhoto}
-            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-50 rounded-full border border-white/20 bg-black/70 p-2 sm:p-3 text-white transition-colors hover:bg-white/20 min-h-[44px] min-w-[44px] flex items-center justify-center"
-            aria-label="Previous photo"
-          >
-            <ChevronLeft size={22} />
-          </button>
+            {/* Navigation Prev Button */}
+            <button
+              onClick={prevPhoto}
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-30 rounded-full border border-white/20 bg-black/80 hover:bg-[#a8895c] p-2 sm:p-2.5 text-white hover:text-[#19140e] transition-all hover:border-[#a8895c] shadow-lg cursor-pointer"
+              aria-label="Previous photo"
+            >
+              <ChevronLeft size={20} />
+            </button>
 
-          {/* Navigation Next */}
-          <button
-            onClick={nextPhoto}
-            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-50 rounded-full border border-white/20 bg-black/70 p-2 sm:p-3 text-white transition-colors hover:bg-white/20 min-h-[44px] min-w-[44px] flex items-center justify-center"
-            aria-label="Next photo"
-          >
-            <ChevronRight size={22} />
-          </button>
+            {/* Navigation Next Button */}
+            <button
+              onClick={nextPhoto}
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-30 rounded-full border border-white/20 bg-black/80 hover:bg-[#a8895c] p-2 sm:p-2.5 text-white hover:text-[#19140e] transition-all hover:border-[#a8895c] shadow-lg cursor-pointer"
+              aria-label="Next photo"
+            >
+              <ChevronRight size={20} />
+            </button>
 
-          {/* Main Lightbox Content - 100% Uncropped View */}
-          <div className="relative max-h-[94vh] max-w-6xl w-full overflow-hidden rounded-md border border-[#a8895c]/40 bg-[#19140e] shadow-2xl flex flex-col">
-            <div className="flex-1 overflow-hidden bg-black flex items-center justify-center min-h-[40vh] max-h-[64vh] sm:max-h-[74vh] p-2">
+            {/* Centered Image with balanced, comfortable height */}
+            <div className="w-full flex items-center justify-center overflow-hidden py-1">
               <img
                 src={filteredPhotos[selectedPhotoIndex].src}
                 alt={filteredPhotos[selectedPhotoIndex].title}
-                className="max-h-[62vh] sm:max-h-[72vh] w-auto max-w-full object-contain"
+                className="max-h-[62vh] sm:max-h-[66vh] w-auto max-w-full object-contain rounded select-none shadow-md"
               />
             </div>
-            
-            <div className="bg-[#251e16] px-4 sm:px-6 py-3 sm:py-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2">
-              <div>
-                <span className="font-sans text-[9px] sm:text-[10px] uppercase tracking-widest text-[#a8895c]">
-                  {filteredPhotos[selectedPhotoIndex].category} &middot; {selectedPhotoIndex + 1} of {filteredPhotos.length} &middot; 100% Original Frame
-                </span>
-                <h4 className="font-display text-lg sm:text-xl text-white">
-                  {filteredPhotos[selectedPhotoIndex].title}
-                </h4>
-                <p className="mt-0.5 sm:mt-1 font-sans text-xs text-[#d9cdb8]/80 line-clamp-2 sm:line-clamp-none">
-                  {filteredPhotos[selectedPhotoIndex].caption}
-                </p>
-              </div>
+
+            {/* Counter indicator */}
+            <div className="mt-2.5 text-center px-4">
+              <span className="font-sans text-[11px] uppercase tracking-widest text-[#a8895c] font-medium">
+                Photo {selectedPhotoIndex + 1} / {filteredPhotos.length} &middot; {filteredPhotos[selectedPhotoIndex].title}
+              </span>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
+
     </section>
   );
 }

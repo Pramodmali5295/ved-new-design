@@ -1,5 +1,6 @@
 
 import { Sparkles } from 'lucide-react';
+import { useGsapReveal } from '@/hooks/useGsapAnimations';
 
 const TIMELINE = [
   {
@@ -61,20 +62,21 @@ const TIMELINE = [
 ];
 
 export default function Making() {
+  const sectionRef = useGsapReveal<HTMLElement>();
   const milestones = TIMELINE.map((item, idx) => ({
     ...item,
     milestoneNum: String(idx + 1).padStart(2, '0'),
   }));
 
   return (
-    <section id="making" className="bg-[#1c1610] text-[#ebe4d8] py-16 sm:py-24 lg:py-36 relative overflow-hidden">
+    <section ref={sectionRef} id="making" className="bg-[#1c1610] text-[#ebe4d8] py-16 sm:py-24 lg:py-36 relative overflow-hidden">
       {/* Ambient background glows */}
       <div className="absolute top-1/4 left-0 -z-0 h-96 w-96 rounded-full bg-[#a8895c]/10 blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/3 right-0 -z-0 h-96 w-96 rounded-full bg-[#a8895c]/10 blur-3xl pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         {/* Section header */}
-        <div className="reveal flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="gsap-reveal flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
               <span className="h-[1px] w-6 bg-[#a8895c]" />
@@ -95,12 +97,11 @@ export default function Making() {
         </div>
 
         {/* All 7 Milestones in Open Grid Display */}
-        <div className="reveal mt-10 sm:mt-14 lg:mt-16 grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {milestones.map((item, i) => (
+        <div className="gsap-stagger-container mt-10 sm:mt-14 lg:mt-16 grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {milestones.map((item) => (
             <div
               key={`${item.phase}-${item.title}`}
-              className="group relative flex flex-col rounded-sm bg-[#251e16] border border-white/10 shadow-xl transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#a8895c]/70 overflow-hidden"
-              style={{ transitionDelay: `${i * 0.05}s` }}
+              className="gsap-stagger-item group relative flex flex-col rounded-sm bg-[#251e16] border border-white/10 shadow-xl transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#a8895c]/70 overflow-hidden"
             >
               {/* Photo thumbnail - 100% full view with object-contain */}
               {item.image && (
@@ -144,7 +145,7 @@ export default function Making() {
         </div>
 
         {/* Action band - 100% Uncropped Full Action Image */}
-        <div className="reveal mt-16 sm:mt-24 relative overflow-hidden rounded-sm bg-[#120d08] border border-[#a8895c]/40 p-2 shadow-2xl flex flex-col items-center">
+        <div className="gsap-reveal mt-16 sm:mt-24 relative overflow-hidden rounded-sm bg-[#120d08] border border-[#a8895c]/40 p-2 shadow-2xl flex flex-col items-center">
           <div className="w-full flex items-center justify-center max-h-[600px] overflow-hidden">
             <img
               src="/assets/ved-1.jpeg"
@@ -156,7 +157,7 @@ export default function Making() {
           <div className="w-full bg-[#251e16] p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between text-white gap-3 border-t border-white/10">
             <div>
               <p className="font-sans text-[9px] sm:text-[10px] uppercase tracking-widest text-[#a8895c]">
-                Cross-Country Mastery &middot; 100% Full View
+                Cross-Country Mastery &middot; Elite Performance
               </p>
               <p className="font-display text-lg sm:text-xl lg:text-2xl text-white">Precision, Pace &amp; Zero Jump Penalties</p>
             </div>

@@ -1,4 +1,5 @@
 import { ExternalLink, Sparkles } from 'lucide-react';
+import { useGsapReveal } from '@/hooks/useGsapAnimations';
 
 const COACHES = [
   {
@@ -7,7 +8,7 @@ const COACHES = [
     role: '5★ Eventer — Coach',
     text: 'A world-renowned eventer, training very selectively at BDJ Equestrian Centre in Ocala, FL and Chesterland, PA — the “Mecca of Eventing.” With five decades of top 5★ experience, Buck Davidson held world #3 and US #1 for a long period, and has coached numerous eventers to Olympics and World Championships. Son of legendary four-time Olympian Bruce Davidson Sr.',
     link: 'www.bdjequestrian.com',
-    image: 'https://images.pexels.com/photos/5655498/pexels-photo-5655498.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: '/assets/mentor Bruce.webp',
   },
   {
     name: 'Donna Smith',
@@ -15,22 +16,22 @@ const COACHES = [
     role: '5★ Eventer — Coach',
     text: 'An acclaimed 5★ eventer, winner of 11 national titles, who has represented New Zealand eleven times internationally. An expert in training horses from lower levels to 5★, she is a sought-after coach and her country’s future Performance Potential Squad member. She trained Ved to higher difficulties of cross country, and in the huge importance of core strength and body balance.',
     link: 'www.donnasmitheventing.com',
-    image: 'https://images.pexels.com/photos/16574820/pexels-photo-16574820.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: '/assets/mentor donna.webp',
   },
   {
     name: 'Le Cadre Noir',
     location: 'IFCE, Saumur, France',
     role: 'Elite Equine Institute',
     text: 'Internationally one of the most respected equine institutes, supported by the French Government. The lessons from the Ecuyers — especially Mr. David — set the quality and detailing of Ved’s riding. A deep learning on covering higher fences with ease and using the body effectively.',
-    link: 'le-cadre-noir.com',
-    image: 'https://images.pexels.com/photos/4894978/pexels-photo-4894978.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    link: 'www.ifce.fr',
+    image: '/assets/mentor noir.jpg',
   },
   {
     name: 'Cullen Equine Solutions',
     location: 'Belfast, Northern Ireland',
     role: 'European 5★ Eventers',
     text: 'Ved’s cross-country training started under Mr. Declan Cullen and Mrs. Becky Cullen, European 5★ eventers. The learnings helped Ved later compete and win in Eventing. He gained knowledge about stable management, improving horse fitness through swimming, incline galloping, advanced equipment use, and nutrition.',
-    link: 'cullenequine.com',
+    link: 'cullenequinesolutions.com',
     image: 'https://images.pexels.com/photos/18892382/pexels-photo-18892382.jpeg?auto=compress&cs=tinysrgb&w=1200',
   },
   {
@@ -39,13 +40,15 @@ const COACHES = [
     role: 'Mr. Imtiaz Anees — Indian Olympian',
     text: 'Indian equestrian is well aware of the legendary Mr. Imtiaz Anees, the second Indian Olympian to participate in the Olympic Games, Sydney 2000, and winner of innumerable medals for India across the world. A certified instructor, coach and author, through Mr. Anees’ guidance, Ved developed technical knowledge of the game and the values required of a sportsman — resilience against set-backs and the attitude of a winner.',
     link: 'imtiazanees.com',
-    image: '/assets/ved-3.jpeg',
+    image: '/assets/mentor imtiaz.jpg',
   },
 ];
 
 export default function Coaches() {
+  const sectionRef = useGsapReveal<HTMLElement>();
+
   return (
-    <section id="coaches" className="bg-[#1c1610] text-[#ebe4d8] py-16 sm:py-24 lg:py-36 relative overflow-hidden">
+    <section ref={sectionRef} id="coaches" className="bg-[#1c1610] text-[#ebe4d8] py-16 sm:py-24 lg:py-36 relative overflow-hidden">
       {/* Ambient background glows */}
       <div className="absolute top-1/4 left-0 -z-0 h-96 w-96 rounded-full bg-[#a8895c]/10 blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 right-0 -z-0 h-96 w-96 rounded-full bg-[#a8895c]/10 blur-3xl pointer-events-none" />
@@ -82,15 +85,15 @@ export default function Coaches() {
               }`}
               style={{ transitionDelay: `${i * 0.08}s` }}
             >
-              {/* Image Container with Fallback */}
-              <div className="lg:col-span-5 overflow-hidden rounded-sm bg-[#120d08] border border-white/10 shadow-lg relative group aspect-[4/3] sm:aspect-[16/11] flex items-center justify-center">
+              {/* Image Container with Fallback - 100% Uncropped with object-contain */}
+              <div className="lg:col-span-5 overflow-hidden rounded-sm bg-[#120d08] border border-white/10 shadow-lg relative group aspect-[4/3] sm:aspect-[16/11] flex items-center justify-center p-2">
                 <img
                   src={coach.image}
                   alt={coach.name}
                   onError={(e) => {
                     e.currentTarget.src = '/assets/ved-3.jpeg';
                   }}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-104"
                   loading="lazy"
                 />
                 <div className="absolute top-3 left-3 rounded-full bg-black/80 px-2.5 sm:px-3 py-1 font-sans text-[8px] sm:text-[9px] uppercase tracking-widest text-[#e6c994] backdrop-blur-md border border-[#a8895c]/30">

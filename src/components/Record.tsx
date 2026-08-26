@@ -1,4 +1,5 @@
 import { Trophy, Medal, ShieldCheck, CheckCircle2, Sparkles, Flag, Star } from 'lucide-react';
+import { useGsapReveal, GsapCounter } from '@/hooks/useGsapAnimations';
 
 export const KPI = [
   { metric: 'Total Competitions', value: '7' },
@@ -35,15 +36,17 @@ const medalBadge: Record<string, { bg: string; text: string; label: string }> = 
 };
 
 export default function Record() {
+  const sectionRef = useGsapReveal<HTMLElement>();
+
   return (
-    <section id="record" className="bg-[#1c1610] py-16 sm:py-24 lg:py-36 text-[#ebe4d8] relative overflow-hidden">
+    <section ref={sectionRef} id="record" className="bg-[#1c1610] py-16 sm:py-24 lg:py-36 text-[#ebe4d8] relative overflow-hidden">
       {/* Ambient background glows */}
       <div className="absolute top-1/4 left-0 -z-0 h-96 w-96 rounded-full bg-[#a8895c]/10 blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 right-0 -z-0 h-96 w-96 rounded-full bg-[#a8895c]/10 blur-3xl pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         {/* Section Header */}
-        <div className="reveal flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="gsap-reveal flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
               <span className="h-[1px] w-6 bg-[#a8895c]" />
@@ -64,11 +67,13 @@ export default function Record() {
         </div>
 
         {/* Top 4 Featured Key Stat Cards */}
-        <div className="reveal mt-10 sm:mt-14 grid gap-3 sm:gap-5 grid-cols-2 lg:grid-cols-4">
+        <div className="gsap-stagger-container mt-10 sm:mt-14 grid gap-3 sm:gap-5 grid-cols-2 lg:grid-cols-4">
           {/* Stat 1 */}
-          <div className="group relative overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-4 sm:p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#a8895c] flex flex-col justify-between">
+          <div className="gsap-stagger-item group relative overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-4 sm:p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#a8895c] flex flex-col justify-between">
             <div className="flex items-center justify-between">
-              <span className="font-display text-3xl xs:text-4xl sm:text-5xl font-bold text-[#e6c994]">16</span>
+              <span className="font-display text-3xl xs:text-4xl sm:text-5xl font-bold text-[#e6c994]">
+                <GsapCounter end={16} />
+              </span>
               <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#a8895c]">
                 <Trophy size={18} />
               </div>
@@ -84,9 +89,11 @@ export default function Record() {
           </div>
 
           {/* Stat 2 */}
-          <div className="group relative overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-4 sm:p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#a8895c] flex flex-col justify-between">
+          <div className="gsap-stagger-item group relative overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-4 sm:p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#a8895c] flex flex-col justify-between">
             <div className="flex items-center justify-between">
-              <span className="font-display text-3xl xs:text-4xl sm:text-5xl font-bold text-[#e6c994]">100%</span>
+              <span className="font-display text-3xl xs:text-4xl sm:text-5xl font-bold text-[#e6c994]">
+                <GsapCounter end={100} suffix="%" />
+              </span>
               <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#a8895c]">
                 <CheckCircle2 size={18} />
               </div>
@@ -102,9 +109,11 @@ export default function Record() {
           </div>
 
           {/* Stat 3 */}
-          <div className="group relative overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-4 sm:p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#a8895c] flex flex-col justify-between">
+          <div className="gsap-stagger-item group relative overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-4 sm:p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#a8895c] flex flex-col justify-between">
             <div className="flex items-center justify-between">
-              <span className="font-display text-3xl xs:text-4xl sm:text-5xl font-bold text-[#e6c994]">0</span>
+              <span className="font-display text-3xl xs:text-4xl sm:text-5xl font-bold text-[#e6c994]">
+                <GsapCounter end={0} />
+              </span>
               <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#a8895c]">
                 <ShieldCheck size={18} />
               </div>
@@ -120,9 +129,11 @@ export default function Record() {
           </div>
 
           {/* Stat 4 */}
-          <div className="group relative overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-4 sm:p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#a8895c] flex flex-col justify-between">
+          <div className="gsap-stagger-item group relative overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-4 sm:p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#a8895c] flex flex-col justify-between">
             <div className="flex items-center justify-between">
-              <span className="font-display text-3xl xs:text-4xl sm:text-5xl font-bold text-[#e6c994]">2</span>
+              <span className="font-display text-3xl xs:text-4xl sm:text-5xl font-bold text-[#e6c994]">
+                <GsapCounter end={2} />
+              </span>
               <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#a8895c]">
                 <Medal size={18} />
               </div>

@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Mail, MapPin, Sparkles, Award, Globe, Copy, Check, ExternalLink, ShieldCheck, Flag, Users } from 'lucide-react';
+import { useGsapReveal } from '@/hooks/useGsapAnimations';
 
 export default function Contact() {
+  const sectionRef = useGsapReveal<HTMLElement>();
   const [copied, setCopied] = useState(false);
   const email = 'vedsarkar.equestrian@gmail.com';
 
@@ -12,7 +14,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="bg-[#1c1610] text-[#ebe4d8] py-16 sm:py-24 lg:py-36 relative overflow-hidden">
+    <section ref={sectionRef} id="contact" className="bg-[#1c1610] text-[#ebe4d8] py-16 sm:py-24 lg:py-36 relative overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 left-0 -z-0 h-96 w-96 rounded-full bg-[#a8895c]/10 blur-3xl pointer-events-none animate-ambient-glow" />
       <div className="absolute bottom-1/4 right-0 -z-0 h-96 w-96 rounded-full bg-[#a8895c]/10 blur-3xl pointer-events-none animate-ambient-glow" style={{ animationDelay: '9s' }} />

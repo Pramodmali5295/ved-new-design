@@ -30,6 +30,7 @@ html {
   box-sizing: border-box;
   overflow-x: hidden;
   width: 100%;
+  min-height: 100%;
 }
 
 *, *::before, *::after {
@@ -52,6 +53,21 @@ body {
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
   width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Responsive safety rules for mobile devices */
+@media (max-width: 640px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  html {
+    font-size: 14px;
+  }
 }
 
 .font-display {
@@ -132,16 +148,16 @@ body {
 @keyframes pageEnter {
   0% {
     opacity: 0;
-    transform: translateY(14px) scale(0.995);
+    transform: translateY(14px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: none;
   }
 }
 
 .animate-page-enter {
-  animation: pageEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: pageEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes modalEnter {
@@ -215,6 +231,32 @@ body {
   animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Luxury Gold Text Shimmer */
+@keyframes textShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-text-shimmer {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #fcf6e8 20%,
+    #f0c775 50%,
+    #ffffff 80%,
+    #fcf6e8 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: textShimmer 5.5s ease-in-out infinite;
+}
+
 /* Gentle floating */
 @keyframes float {
   0%, 100% {
@@ -227,6 +269,20 @@ body {
 
 .animate-float {
   animation: float 5s ease-in-out infinite;
+}
+
+/* Floating Breathe */
+@keyframes gentleBreathe {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-breathe {
+  animation: gentleBreathe 4s ease-in-out infinite;
 }
 
 /* Gold glowing pulse */
@@ -328,5 +384,13 @@ button, a {
   .safe-bottom {
     padding-bottom: env(safe-area-inset-bottom);
   }
+}
+
+/* Suppress browser native video hover overlays (Picture-in-Picture, live translate buttons) */
+video::-webkit-media-controls-picture-in-picture-button {
+  display: none !important;
+}
+video::-webkit-media-controls-remote-playback-button {
+  display: none !important;
 }
 

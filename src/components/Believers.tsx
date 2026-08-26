@@ -1,4 +1,5 @@
 import { HeartHandshake } from 'lucide-react';
+import { useGsapReveal } from '@/hooks/useGsapAnimations';
 
 const BELIEVERS = [
   {
@@ -19,8 +20,10 @@ const BELIEVERS = [
 ];
 
 export default function Believers() {
+  const sectionRef = useGsapReveal<HTMLElement>();
+
   return (
-    <section id="believers" className="bg-[#19140e] text-[#ebe4d8] py-16 sm:py-20 lg:py-32 relative overflow-hidden border-t border-white/10">
+    <section ref={sectionRef} id="believers" className="bg-[#19140e] text-[#ebe4d8] py-16 sm:py-20 lg:py-32 relative overflow-hidden border-t border-white/10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         {/* Header */}
         <div className="reveal max-w-3xl">
