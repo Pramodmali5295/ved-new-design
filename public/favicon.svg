@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="48" fill="#140e08" stroke="#f0c775" stroke-width="3.5" />
+  <circle cx="50" cy="50" r="43" fill="none" stroke="#a8895c" stroke-width="1" stroke-dasharray="3,3" />
+  <text x="50" y="58" font-family="'Cinzel', serif, sans-serif" font-size="34" font-weight="bold" fill="#f0c775" text-anchor="middle" letter-spacing="2">V</text>
+  <path d="M42 66 L50 71 L58 66" fill="none" stroke="#f0c775" stroke-width="2" stroke-linecap="round" />
+</svg>

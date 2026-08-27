@@ -41,14 +41,14 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
               <div className="mt-6 flex flex-col xs:flex-row flex-wrap items-stretch xs:items-center gap-3 sm:gap-4">
                 <button
                   onClick={() => onNavigate('about')}
-                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#a8895c] px-5 py-2.5 font-sans text-xs uppercase tracking-wider text-[#2d2418] font-bold transition-all hover:bg-[#c2a372] shadow-md hover:scale-105 active:scale-95 min-h-[42px]"
+                  className="btn-shimmer group inline-flex items-center justify-center gap-2 rounded-full bg-[#a8895c] px-5 py-2.5 font-sans text-xs uppercase tracking-wider text-[#2d2418] font-bold transition-all hover:bg-[#c2a372] shadow-md hover:scale-105 active:scale-95 min-h-[42px]"
                 >
                   <span>About Ved</span>
                   <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
                 </button>
                 <button
                   onClick={() => onNavigate('record')}
-                  className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-black/40 px-5 py-2.5 font-sans text-xs uppercase tracking-wider text-[#d9cdb8] transition-all hover:border-[#a8895c] hover:text-[#e6c994] min-h-[42px]"
+                  className="btn-shimmer group inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-black/40 px-5 py-2.5 font-sans text-xs uppercase tracking-wider text-[#d9cdb8] transition-all hover:border-[#a8895c] hover:text-[#e6c994] min-h-[42px]"
                 >
                   <span>Official Record</span>
                   <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
@@ -312,7 +312,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
                           }}
                         />
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                          <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#a8895c] text-[#2d2418] shadow-2xl transition-transform duration-300 group-hover/thumb:scale-110 group-hover/thumb:bg-[#c2a372]">
+                          <div className="play-ripple flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#a8895c] text-[#2d2418] shadow-2xl transition-transform duration-300 group-hover/thumb:scale-110 group-hover/thumb:bg-[#c2a372]">
                             <Play size={20} className="fill-[#2d2418] ml-0.5" />
                           </div>
                         </div>

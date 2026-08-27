@@ -12,7 +12,7 @@ export function useGsapReveal<T extends HTMLElement = HTMLDivElement>(dependenci
     () => {
       if (!containerRef.current) return;
 
-      // Make sure ScrollTrigger refreshes accurately
+      // Ensure ScrollTrigger refreshes accurately after layout
       ScrollTrigger.refresh();
 
       // 1. Standard Upwards Reveal (.gsap-reveal, .gsap-reveal-up, .reveal)
@@ -22,15 +22,15 @@ export function useGsapReveal<T extends HTMLElement = HTMLDivElement>(dependenci
       upElements.forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, y: 32 },
+          { opacity: 0, y: 20 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.85,
-            ease: 'power3.out',
+            duration: 0.55,
+            ease: 'power2.out',
             scrollTrigger: {
               trigger: el,
-              start: 'top 88%',
+              start: 'top 95%',
               toggleActions: 'play none none none',
             },
           }
@@ -42,15 +42,15 @@ export function useGsapReveal<T extends HTMLElement = HTMLDivElement>(dependenci
       leftElements.forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, x: -36 },
+          { opacity: 0, x: -24 },
           {
             opacity: 1,
             x: 0,
-            duration: 0.9,
-            ease: 'power3.out',
+            duration: 0.55,
+            ease: 'power2.out',
             scrollTrigger: {
               trigger: el,
-              start: 'top 88%',
+              start: 'top 95%',
               toggleActions: 'play none none none',
             },
           }
@@ -62,15 +62,15 @@ export function useGsapReveal<T extends HTMLElement = HTMLDivElement>(dependenci
       rightElements.forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, x: 36 },
+          { opacity: 0, x: 24 },
           {
             opacity: 1,
             x: 0,
-            duration: 0.9,
-            ease: 'power3.out',
+            duration: 0.55,
+            ease: 'power2.out',
             scrollTrigger: {
               trigger: el,
-              start: 'top 88%',
+              start: 'top 95%',
               toggleActions: 'play none none none',
             },
           }
@@ -82,16 +82,16 @@ export function useGsapReveal<T extends HTMLElement = HTMLDivElement>(dependenci
       scaleElements.forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, scale: 0.94, y: 20 },
+          { opacity: 0, scale: 0.96, y: 16 },
           {
             opacity: 1,
             scale: 1,
             y: 0,
-            duration: 0.9,
-            ease: 'power3.out',
+            duration: 0.55,
+            ease: 'power2.out',
             scrollTrigger: {
               trigger: el,
-              start: 'top 90%',
+              start: 'top 95%',
               toggleActions: 'play none none none',
             },
           }
@@ -105,22 +105,41 @@ export function useGsapReveal<T extends HTMLElement = HTMLDivElement>(dependenci
         if (items.length > 0) {
           gsap.fromTo(
             items,
-            { opacity: 0, y: 28, scale: 0.97 },
+            { opacity: 0, y: 18, scale: 0.97 },
             {
               opacity: 1,
               y: 0,
               scale: 1,
-              duration: 0.8,
-              stagger: 0.1,
-              ease: 'power3.out',
+              duration: 0.5,
+              stagger: 0.06,
+              ease: 'power2.out',
               scrollTrigger: {
                 trigger: parent,
-                start: 'top 86%',
+                start: 'top 92%',
                 toggleActions: 'play none none none',
               },
             }
           );
         }
+      });
+
+      // 6. Ambient Subtle Parallax (.gsap-parallax)
+      const parallaxElements = containerRef.current.querySelectorAll('.gsap-parallax');
+      parallaxElements.forEach((el) => {
+        gsap.fromTo(
+          el,
+          { y: -15 },
+          {
+            y: 15,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 1.5,
+            },
+          }
+        );
       });
     },
     { scope: containerRef, dependencies }

@@ -296,7 +296,7 @@ export default function ActionGallery() {
 
                     {/* Play Button Badge */}
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#a8895c] text-[#2d2418] shadow-2xl transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#c2a372]">
+                      <div className="play-ripple flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#a8895c] text-[#2d2418] shadow-2xl transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#c2a372]">
                         <Play size={20} className="fill-[#2d2418] ml-0.5" />
                       </div>
                     </div>
