@@ -8,7 +8,7 @@ const TIMELINE = [
     year: '2021',
     title: 'The Beginning',
     text: 'Ved began riding professionally in 2021, discovering Indian Olympian Mr. Imtiaz Anees at a show in Pune. A shy 14-year-old, he rose to the expectations and coaching of Mr. Anees.',
-    image: '/assets/ved-3.jpeg',
+    image: '/assets/ved-26.jpeg',
     tag: 'Seahorse Equestrian',
   },
   {
@@ -32,7 +32,7 @@ const TIMELINE = [
     year: '2024',
     title: 'National Medallist Again',
     text: 'Individual Bronze at Junior National Equestrian Championship, Delhi. Ved made a powerful statement by claiming Individual Bronze — a remarkable podium finish two years in a row.',
-    image: '/assets/ved-4.jpeg',
+    image: '/assets/ved-21.jpeg',
     tag: 'Individual Bronze',
   },
   {
@@ -40,7 +40,7 @@ const TIMELINE = [
     year: '2026',
     title: 'Ocala Circuit',
     text: 'Mecca of Equestrian world, Ocala, FL is one of the renowned competitive circuits in the world. Ved completed a commendable 6 competitions with 2 podium finishes!',
-    image: '/assets/ved-6.jpeg',
+    image: '/assets/ved-16.jpeg',
     tag: '2 Podium Finishes',
   },
   {
@@ -48,7 +48,7 @@ const TIMELINE = [
     year: '2026',
     title: 'India Representation in FEI CCI-1★',
     text: 'Tryon International, NC is one of the most prestigious circuits in the world, one that hosted World Equestrian Games in 2018. Ved’s entry into the arena, alongside professionals who claim world position #2, 11 and 23, was a major milestone for India. Placed #9th.',
-    image: '/assets/ved-1.jpeg',
+    image: '/assets/ved-11.jpeg',
     tag: 'Placed #9th &bull; Tryon',
   },
   {
@@ -56,7 +56,7 @@ const TIMELINE = [
     year: '2026',
     title: 'CSI-2★ Accomplished',
     text: 'World Equestrian Centre, Ocala is host to the best show jumping events and riders, sponsored often by brands such as Longines and Rolex. Accomplishing a 6th position amongst 33 riders was hugely applauded.',
-    image: '/assets/ved-8.jpeg',
+    image: '/assets/ved-30.jpeg',
     tag: '6th / 33 Riders &bull; WEC',
   },
 ];
@@ -90,8 +90,8 @@ export default function Making() {
             </p>
           </div>
 
-          <div className="flex items-center gap-2 rounded-full border border-[#a8895c]/40 bg-[#251e16] px-3.5 sm:px-4 py-2 text-xs font-sans text-[#e6c994] self-start md:self-auto shadow-lg">
-            <Sparkles size={14} className="text-[#a8895c]" />
+          <div className="hidden lg:flex items-center gap-2 rounded-full border border-[#a8895c]/30 bg-black/40 px-4 py-2 text-xs text-[#a8895c]">
+            <Sparkles size={14} className="text-[#f0c775]" />
             <span>7 Milestones &bull; 2021 &ndash; 2026</span>
           </div>
         </div>
@@ -103,20 +103,20 @@ export default function Making() {
               key={`${item.phase}-${item.title}`}
               className="gsap-stagger-item group relative flex flex-col rounded-sm bg-[#251e16] border border-white/10 shadow-xl transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#a8895c]/70 overflow-hidden"
             >
-              {/* Photo thumbnail - 100% full view with object-contain */}
+              {/* Photo thumbnail - Naturally Formatted Landscape Photo */}
               {item.image && (
-                <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-[#120d08] flex items-center justify-center p-2">
+                <div className="relative w-full overflow-hidden bg-[#120d08]">
                   <img
                     src={item.image}
                     alt={`${item.title} - ${item.year}`}
-                    className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-auto aspect-[16/10] sm:aspect-[4/3] object-cover object-center rounded-sm transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <span className="absolute top-2.5 left-2.5 rounded-full bg-black/80 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#d9cdb8] backdrop-blur-sm border border-white/10">
+                  <span className="absolute top-2.5 left-2.5 z-20 rounded-full bg-black/80 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#d9cdb8] backdrop-blur-sm border border-white/10">
                     {item.phase}
                   </span>
                   {item.tag && (
-                    <span className="absolute bottom-2.5 left-2.5 font-sans text-[9px] font-medium tracking-wide text-[#e6c994] bg-black/85 px-2 py-0.5 rounded-sm border border-[#a8895c]/40">
+                    <span className="absolute bottom-2.5 left-2.5 z-20 font-sans text-[9px] font-medium tracking-wide text-[#e6c994] bg-black/85 px-2 py-0.5 rounded-sm border border-[#a8895c]/40">
                       {item.tag}
                     </span>
                   )}
@@ -144,17 +144,17 @@ export default function Making() {
           ))}
         </div>
 
-        {/* Action band - 100% Uncropped Full Action Image */}
-        <div className="gsap-reveal mt-16 sm:mt-24 relative overflow-hidden rounded-sm bg-[#120d08] border border-[#a8895c]/40 p-2 shadow-2xl flex flex-col items-center">
-          <div className="w-full flex items-center justify-center max-h-[600px] overflow-hidden">
+        {/* Action band - High Resolution Landscape Action Photo */}
+        <div className="gsap-reveal mt-16 sm:mt-24 relative overflow-hidden rounded-sm bg-[#120d08] border border-[#a8895c]/40 p-1.5 sm:p-2 shadow-2xl flex flex-col items-center">
+          <div className="w-full overflow-hidden bg-[#120d08] rounded-sm">
             <img
-              src="/assets/ved-1.jpeg"
-              alt="Ved Sarma Sarkar galloping across cross-country course"
-              className="h-auto max-h-[480px] sm:max-h-[580px] w-full object-contain"
+              src="/assets/ved-25.jpeg"
+              alt="Ved Sarma Sarkar galloping across cross-country water jump"
+              className="w-full h-auto aspect-[16/9] sm:aspect-[21/9] object-cover object-center rounded-sm transition-transform duration-700 hover:scale-102"
               loading="lazy"
             />
           </div>
-          <div className="w-full bg-[#251e16] p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between text-white gap-3 border-t border-white/10">
+          <div className="w-full bg-[#251e16] p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between text-white gap-3 border-t border-white/10 mt-1.5 sm:mt-2 rounded-sm">
             <div>
               <p className="font-sans text-[9px] sm:text-[10px] uppercase tracking-widest text-[#a8895c]">
                 Cross-Country Mastery &middot; Elite Performance

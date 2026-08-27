@@ -16,24 +16,24 @@ export default function About() {
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
           {/* Dual Image Presentation */}
           <div className="gsap-reveal-left relative lg:col-span-6 flex flex-col items-center">
-            {/* Main Picture: Ved with Horse Portrait (ved-14.jpeg) - 100% Uncropped with object-contain */}
-            <div className="relative w-full overflow-hidden rounded-sm bg-[#120d08] shadow-2xl border border-[#a8895c]/40 p-2.5 flex flex-col items-center">
-              <div className="w-full flex items-center justify-center min-h-[320px] max-h-[540px] overflow-hidden bg-black/60 rounded-sm">
-                <img
-                  src="/assets/ved-14.jpeg"
-                  alt="Ved Sarma Sarkar with horse"
-                  className="h-auto max-h-[500px] w-full object-contain transition-transform duration-700 hover:scale-102"
-                />
-              </div>
+            {/* Main Picture: Ved with Horse Landscape Portrait (ved-14.jpeg) */}
+            <div className="w-full overflow-hidden rounded-sm bg-[#120d08] shadow-2xl border border-[#a8895c]/40 p-1 sm:p-1.5">
+              <img
+                src="/assets/ved-14.jpeg"
+                alt="Ved Sarma Sarkar with horse"
+                className="w-full h-auto aspect-[16/10] sm:aspect-[4/3] object-cover object-center rounded-sm transition-transform duration-700 hover:scale-102"
+                loading="lazy"
+              />
             </div>
 
-            {/* Inset Secondary Image - High Clearance Show Jumping */}
-            <div className="mt-4 sm:mt-0 sm:absolute sm:-bottom-6 sm:-right-4 w-full sm:w-52 lg:w-56 overflow-hidden rounded-sm border-2 border-[#a8895c] bg-[#1a140e] shadow-2xl p-1.5 z-20">
-              <div className="relative overflow-hidden bg-[#120d08] rounded-[1px] flex items-center justify-center h-40 sm:h-36 lg:h-40">
+            {/* Inset Secondary Image - High Clearance Show Jumping Action Photo (ved-20.jpeg) */}
+            <div className="mt-4 sm:mt-0 sm:absolute sm:-bottom-6 sm:-right-4 w-full sm:w-56 lg:w-60 overflow-hidden rounded-sm border-2 border-[#a8895c] bg-[#1a140e] shadow-2xl p-1 z-20">
+              <div className="relative overflow-hidden bg-[#120d08] rounded-[1px]">
                 <img
-                  src="/assets/ved-8.jpeg"
+                  src="/assets/ved-20.jpeg"
                   alt="Ved competing in show jumping over high fences"
-                  className="h-full w-full object-contain transition-transform duration-500 hover:scale-105"
+                  className="w-full h-auto aspect-[16/10] object-cover object-center transition-transform duration-500 hover:scale-105"
+                  loading="lazy"
                 />
                 <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent py-1 px-2 text-center">
                   <span className="font-sans text-[8px] sm:text-[9px] uppercase tracking-widest text-[#e6c994] font-medium block truncate">

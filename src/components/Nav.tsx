@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Menu, X, ArrowRight, Mail } from 'lucide-react';
 
 export const NAV_LINKS = [
@@ -106,70 +107,91 @@ export default function Nav({ currentPage, onNavigate }: NavProps) {
             <span>Connect</span>
           </button>
 
-          {/* Hamburger Menu Toggle Button */}
+          {/* Hamburger Menu Toggle Button - Radiant Olympic Gold Styling */}
           <button
             onClick={() => setOpen((v) => !v)}
-            className="text-white transition-all p-2 rounded-lg bg-black/40 hover:bg-[#a8895c]/20 border border-white/15 hover:border-[#f0c775]/50 focus:outline-none flex items-center justify-center h-9 w-9 sm:h-10 sm:w-10"
+            className="transition-all p-2 rounded-lg bg-[#221910] hover:bg-[#a8895c] text-[#f0c775] hover:text-[#140e08] border-2 border-[#f0c775] shadow-[0_0_15px_rgba(240,199,117,0.4)] focus:outline-none flex items-center justify-center h-10 w-10 active:scale-95"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
           >
-            {open ? <X size={20} className="text-white" /> : <Menu size={20} className="text-white" />}
+            {open ? <X size={22} className="stroke-[2.5]" /> : <Menu size={22} className="stroke-[2.5]" />}
           </button>
         </div>
       </nav>
 
-      {/* Responsive Mobile/Tablet Drawer Menu */}
-      {open && (
-        <div className="xl:hidden fixed inset-x-0 top-[57px] sm:top-[61px] bottom-0 z-50 bg-[#140e08]/98 backdrop-blur-2xl border-b border-white/15 shadow-2xl flex flex-col justify-between p-4 sm:p-6 overflow-y-auto animate-modal-enter touch-scroll">
-          <ul className="flex flex-col gap-1.5 sm:gap-2">
-            {NAV_LINKS.map((link, idx) => {
-              const isActive = currentPage === link.target;
-              return (
-                <li key={link.target}>
-                  <button
-                    onClick={() => handleLinkClick(link.target)}
-                    className={`w-full py-3 px-4 rounded-lg text-left font-sans text-xs sm:text-sm uppercase tracking-[0.18em] transition-all flex items-center justify-between min-h-[46px] sm:min-h-[50px] ${
-                      isActive
-                        ? 'bg-[#a8895c]/30 text-white font-bold border-l-4 border-[#f0c775] shadow-md'
-                        : 'text-white/90 hover:text-white hover:bg-white/10 font-medium'
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="text-[10px] font-sans font-normal text-[#f0c775]/60">
-                        {String(idx + 1).padStart(2, '0')}
-                      </span>
-                      <span>{link.label}</span>
-                    </div>
-                    {isActive ? (
-                      <span className="h-2 w-2 rounded-full bg-[#f0c775] shadow-[0_0_8px_#f0c775]" />
-                    ) : (
-                      <ArrowRight size={14} className="text-white/30" />
-                    )}
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
+      {/* Full-Screen 100% Solid Opaque Mobile/Tablet Drawer Portal (No Background Bleed-Through) */}
+      {open && typeof document !== 'undefined' && createPortal(
+        <div className="xl:hidden fixed inset-0 z-[999999] bg-[#120d08] flex flex-col justify-between h-[100dvh] w-full overflow-hidden animate-modal-enter">
+          {/* Solid Top Bar inside mobile menu with Logo and Close button */}
+          <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-white/15 shrink-0 bg-[#1a130c]">
+            <button
+              onClick={() => handleLinkClick('home')}
+              className="font-display text-sm sm:text-base tracking-[0.14em] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] via-[#f0c775] to-[#e6c994] text-left"
+            >
+              VED SARMA SARKAR
+            </button>
+            <button
+              onClick={() => setOpen(false)}
+              className="p-2 rounded-full bg-[#a8895c] hover:bg-[#c2a372] text-[#140e08] transition-all focus:outline-none flex items-center justify-center h-9 w-9 shadow-[0_0_14px_rgba(240,199,117,0.5)] active:scale-95"
+              aria-label="Close navigation menu"
+            >
+              <X size={18} className="stroke-[3]" />
+            </button>
+          </div>
 
-          {/* Drawer Footer Badge */}
-          <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+          {/* Scrollable Navigation Links List with Solid High-Contrast Backgrounds */}
+          <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4 touch-scroll bg-[#120d08]">
+            <ul className="flex flex-col gap-2">
+              {NAV_LINKS.map((link, idx) => {
+                const isActive = currentPage === link.target;
+                return (
+                  <li key={link.target}>
+                    <button
+                      onClick={() => handleLinkClick(link.target)}
+                      className={`w-full py-3.5 px-4 rounded-lg text-left font-sans text-xs sm:text-sm uppercase tracking-[0.18em] transition-all flex items-center justify-between min-h-[50px] ${
+                        isActive
+                          ? 'bg-[#2a1f14] text-white font-bold border-l-4 border-[#f0c775] border-y border-r border-[#f0c775]/30 shadow-lg'
+                          : 'bg-[#1b140d] text-white hover:text-white hover:bg-[#251c13] font-medium border border-white/10'
+                      }`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="text-[11px] font-mono font-bold text-[#f0c775]">
+                          {String(idx + 1).padStart(2, '0')}
+                        </span>
+                        <span>{link.label}</span>
+                      </div>
+                      {isActive ? (
+                        <span className="h-2.5 w-2.5 rounded-full bg-[#f0c775] shadow-[0_0_8px_#f0c775]" />
+                      ) : (
+                        <ArrowRight size={15} className="text-[#a8895c]" />
+                      )}
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          {/* Solid Drawer Footer */}
+          <div className="p-4 sm:p-6 border-t border-white/15 bg-[#1a130c] shrink-0 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
             <div>
-              <p className="font-sans text-[10px] uppercase tracking-widest text-[#f0c775] font-semibold">
+              <p className="font-sans text-[10px] uppercase tracking-widest text-[#f0c775] font-bold">
                 Team India Athlete &bull; Eventing
               </p>
-              <p className="font-serif text-xs italic text-[#d9cdb8]/70 mt-0.5">
+              <p className="font-serif text-xs italic text-[#d9cdb8]/80 mt-0.5">
                 Targeting 2030 Asian Games &amp; 2032 Olympics
               </p>
             </div>
             <button
               onClick={() => handleLinkClick('contact')}
-              className="btn-shimmer w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#a8895c] hover:bg-[#c2a372] text-[#140e08] font-bold text-xs uppercase tracking-wider px-5 py-2.5 shadow-lg transition-all active:scale-95"
+              className="btn-shimmer w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#a8895c] hover:bg-[#c2a372] text-[#140e08] font-bold text-xs uppercase tracking-wider px-6 py-2.5 shadow-lg transition-all active:scale-95 min-h-[44px]"
             >
               <span>Get in Touch</span>
-              <ArrowRight size={13} />
+              <ArrowRight size={14} />
             </button>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </header>
   );

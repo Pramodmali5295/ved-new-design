@@ -30,22 +30,31 @@ function PageLoadingSkeleton() {
 }
 
 function App() {
-  // Get initial page from hash if available
-  const getInitialPage = () => {
-    const hash = window.location.hash.replace('#', '').replace('/', '');
-    return validPages.has(hash) ? hash : 'home';
-  };
-
-  const [currentPage, setCurrentPage] = useState<string>(getInitialPage);
+  // Always land on 'home' page upon browser refresh
+  const [currentPage, setCurrentPage] = useState<string>('home');
   const containerRef = useGsapReveal<HTMLDivElement>([currentPage]);
   const pageContentRef = useRef<HTMLDivElement>(null);
 
-  // Sync hash changes (browser back/forward button)
+  // Clean URL hash and reset to Home on initial page load / refresh
+  useEffect(() => {
+    try {
+      localStorage.removeItem('ved_current_page');
+    } catch {
+      // ignore
+    }
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  }, []);
+
+  // Sync hash changes if user uses browser Back/Forward navigation
   useEffect(() => {
     const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '').replace('/', '');
-      if (validPages.has(hash) || hash === 'home' || hash === '') {
-        setCurrentPage(hash || 'home');
+      const hash = window.location.hash.replace('#', '').replace('/', '').trim();
+      if (validPages.has(hash)) {
+        setCurrentPage(hash);
+      } else {
+        setCurrentPage('home');
       }
     };
     window.addEventListener('hashchange', handleHashChange);
@@ -88,7 +97,11 @@ function App() {
 
   const navigateTo = (pageId: string) => {
     setCurrentPage(pageId);
-    window.location.hash = pageId === 'home' ? '' : `#${pageId}`;
+    if (pageId === 'home') {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    } else {
+      window.location.hash = `#${pageId}`;
+    }
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;

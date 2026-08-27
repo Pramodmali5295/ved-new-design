@@ -130,15 +130,25 @@ export default function Hero({ onNavigate: _onNavigate }: HeroProps) {
           return (
             <div
               key={item.id}
-              className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
+              className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out flex items-center justify-center ${
                 isActive ? 'opacity-100 z-[1]' : 'opacity-0 z-0 pointer-events-none'
               }`}
             >
+              {/* Ambient Atmospheric Backdrop on Mobile to fill vertical screen */}
+              <img
+                src={item.src}
+                alt=""
+                aria-hidden="true"
+                className="sm:hidden absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-125 pointer-events-none"
+                loading={index === 0 ? 'eager' : 'lazy'}
+              />
+
+              {/* Hero Image: 100% complete and uncropped on mobile, cover on desktop */}
               <img
                 src={item.src}
                 alt={item.title}
-                className={`w-full h-full object-cover object-top transform transition-transform duration-[6000ms] ease-out ${
-                  isActive ? 'scale-105' : 'scale-100'
+                className={`relative w-full h-full object-contain sm:object-cover sm:object-top transform transition-transform duration-[6000ms] ease-out ${
+                  isActive ? 'scale-100 sm:scale-105' : 'scale-95 sm:scale-100'
                 }`}
                 loading={index === 0 ? 'eager' : 'lazy'}
               />
@@ -146,10 +156,9 @@ export default function Hero({ onNavigate: _onNavigate }: HeroProps) {
           );
         })}
 
-        {/* Crystal-Clear Overlays: Preserves bright top of image while ensuring text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#140e08] via-[#140e08]/40 to-black/30 z-[2] pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#140e08]/85 z-[2] pointer-events-none" />
-        <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-black/45 z-[2] pointer-events-none" />
+        {/* Crystal-Clear Overlays: Soft gradients ensuring text readability without hiding images */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#140e08] via-[#140e08]/30 to-black/40 z-[2] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-[#140e08]/80 z-[2] pointer-events-none" />
       </div>
 
       {/* GALLERY NAVIGATION BUTTONS (LEFT & RIGHT) */}

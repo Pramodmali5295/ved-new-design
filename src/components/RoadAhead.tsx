@@ -4,37 +4,37 @@ import { useGsapReveal } from '@/hooks/useGsapAnimations';
 const ROADMAP = [
   {
     year: '2026',
-    title: 'International Circuit',
-    text: 'Competing in the American eventing circuit in Ocala, FL and building elite FEI experience.',
-    image: '/assets/ved-10.jpeg',
+    title: 'International 2★ Foundation',
+    text: 'Completing the Florida winter circuit and establishing baseline qualification scores at CCI 2★.',
+    image: '/assets/ved-16.jpeg',
     tag: 'Ocala Circuit',
   },
   {
     year: '2027',
     title: 'FEI 2★ / 3★ Progression',
     text: 'Stepping up through the higher FEI international star levels with consistent podium results.',
-    image: '/assets/ved-8.jpeg',
+    image: '/assets/ved-20.jpeg',
     tag: 'FEI Star Levels',
   },
   {
     year: '2028',
     title: 'U25 World Pathway',
     text: 'Qualifying for and competing on the global U25 World Championship pathway.',
-    image: '/assets/ved-1.jpeg',
+    image: '/assets/ved-23.jpeg',
     tag: 'U25 Championship',
   },
   {
     year: '2030',
     title: 'Asian Games',
     text: 'Representing India at the 2030 Asian Games with a formidable national presence.',
-    image: '/assets/ved-7.jpeg',
+    image: '/assets/ved-25.jpeg',
     tag: 'Team India',
   },
   {
     year: '2032',
     title: 'Olympic Games',
     text: 'Representing India at the 2032 Olympic Games — and multiple times thereafter on the global stage.',
-    image: '/assets/ved-9.jpeg',
+    image: '/assets/ved-28.jpeg',
     tag: 'Olympic Vision',
   },
 ];
@@ -43,39 +43,25 @@ export default function RoadAhead() {
   const sectionRef = useGsapReveal<HTMLElement>();
 
   return (
-    <section ref={sectionRef} id="road" className="relative bg-[#1a140e] text-[#ebe4d8] py-16 sm:py-24 lg:py-36 overflow-hidden">
-      {/* Background with Ambient Overlay */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <img
-          src="/assets/ved-9.jpeg"
-          alt=""
-          aria-hidden="true"
-          className="h-full w-full object-cover opacity-15 blur-sm"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1a140e] via-[#1a140e]/95 to-[#1a140e]/90" />
-        <div className="absolute top-0 right-1/3 h-96 w-96 rounded-full bg-[#a8895c]/10 blur-3xl" />
-      </div>
+    <section ref={sectionRef} id="road" className="bg-[#19140e] text-[#ebe4d8] py-16 sm:py-24 lg:py-36 relative overflow-hidden">
+      {/* Subtle Background Glows */}
+      <div className="absolute top-1/3 -left-32 -z-0 h-96 w-96 rounded-full bg-[#a8895c]/10 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-32 -z-0 h-96 w-96 rounded-full bg-[#a8895c]/10 blur-3xl pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         {/* Section Header */}
-        <div className="gsap-reveal flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
-              <span className="h-[1px] w-6 bg-[#a8895c]" />
-              Strategic Vision &middot; 2026 &ndash; 2032
-            </div>
-            <h2 className="mt-3 sm:mt-4 font-display text-3xl xs:text-4xl sm:text-5xl lg:text-6xl text-white">
-              The Road Ahead
-            </h2>
-            <p className="mt-3 sm:mt-4 max-w-2xl font-serif text-base sm:text-lg italic text-[#d9cdb8]/85">
-              From international circuit progression in Ocala to the U25 World Championship pathway, the Asian Games, and the Olympic Games.
-            </p>
+        <div className="gsap-reveal text-center max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
+            <span className="h-[1px] w-6 bg-[#a8895c]" />
+            Long-Term Vision &bull; Road Ahead
+            <span className="h-[1px] w-6 bg-[#a8895c]" />
           </div>
-
-          <div className="flex items-center gap-2 rounded-full border border-[#a8895c]/40 bg-[#251e16] px-3.5 sm:px-4 py-2 text-xs font-sans text-[#e6c994] self-start md:self-auto shadow-lg">
-            <Sparkles size={14} className="text-[#a8895c]" />
-            <span>Target: Asian Games 2030 &bull; Olympics 2032</span>
-          </div>
+          <h2 className="mt-3 sm:mt-4 font-display text-3xl xs:text-4xl sm:text-5xl lg:text-6xl text-white">
+            The Olympic Vision
+          </h2>
+          <p className="mt-3 sm:mt-4 font-serif text-base sm:text-lg italic text-[#d9cdb8]/85">
+            A methodical 8-year high-performance pathway engineered to peak at the 2030 Asian Games and 2032 Olympic Games.
+          </p>
         </div>
 
         {/* Visual Roadmap Cards Grid (5 Milestone Stages with Photos) */}
@@ -87,21 +73,22 @@ export default function RoadAhead() {
                 i === 4 ? 'sm:col-span-2 lg:col-span-1 xl:col-span-1' : ''
               }`}
             >
-              {/* Photo Thumbnail - 100% Uncropped with object-contain */}
+              {/* Photo Thumbnail - High Resolution Landscape Photo */}
               {step.image && (
-                <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-[#120d08] flex items-center justify-center p-2">
+                <div className="relative w-full overflow-hidden bg-[#120d08]">
                   <img
                     src={step.image}
                     alt={`${step.title} - ${step.year}`}
-                    className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-auto aspect-[16/10] sm:aspect-[4/3] object-cover object-center rounded-sm transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                   
-                  <span className="absolute top-2.5 left-2.5 rounded-full bg-black/80 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#e6c994] border border-[#a8895c]/40 backdrop-blur-md">
+                  <span className="absolute top-2.5 left-2.5 z-30 rounded-full bg-black/80 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#e6c994] border border-[#a8895c]/40 backdrop-blur-md">
                     {step.tag}
                   </span>
 
-                  <span className="absolute bottom-2 right-2.5 font-display text-2xl font-bold text-white drop-shadow-md">
+                  <span className="absolute bottom-2 right-2.5 z-30 font-display text-2xl font-bold text-white drop-shadow-md">
                     {step.year}
                   </span>
                 </div>

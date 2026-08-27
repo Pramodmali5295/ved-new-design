@@ -21,38 +21,40 @@ export default function Partnership() {
         </div>
 
         {/* 100% Full Panoramic image of Ved + Horse */}
-        <div className="reveal mt-12 sm:mt-16 overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#140e08] shadow-2xl p-2" style={{ transitionDelay: '0.1s' }}>
-          <div className="w-full flex items-center justify-center max-h-[620px] overflow-hidden">
+        <div className="reveal mt-12 sm:mt-16 overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#140e08] shadow-2xl p-1.5 sm:p-2" style={{ transitionDelay: '0.1s' }}>
+          <div className="w-full overflow-hidden bg-[#120d08] rounded-sm">
             <img
               src="/assets/ved-10.jpeg"
               alt="Ved with his horse in the open pasture"
-              className="h-auto max-h-[480px] sm:max-h-[600px] w-full object-contain"
+              className="w-full h-auto aspect-[16/9] sm:aspect-[21/9] object-cover object-center rounded-sm transition-transform duration-700 hover:scale-102"
+              loading="lazy"
             />
           </div>
-          <div className="bg-[#251e16] p-3 sm:p-4 text-center border-t border-white/10 mt-2 rounded-sm">
+          <div className="bg-[#251e16] p-3 sm:p-4 text-center border-t border-white/10 mt-1.5 sm:mt-2 rounded-sm">
             <p className="font-sans text-[9px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.2em] text-[#d9cdb8]">
               Daily Trust &amp; Connection &middot; Ocala, Florida
             </p>
           </div>
         </div>
 
-        {/* Horse Cards - 100% Uncropped with object-contain */}
-        <div className="mt-12 sm:mt-16 grid gap-8 sm:gap-10 md:grid-cols-2 lg:gap-16">
-          {/* Card 1 */}
-          <div className="reveal rounded-sm border border-white/10 bg-[#251e16] p-5 sm:p-6 shadow-xl flex flex-col justify-between" style={{ transitionDelay: '0.15s' }}>
+        {/* Horse Cards - Perfectly Proportioned Landscape Action Photos */}
+        <div className="mt-12 sm:mt-16 grid gap-6 sm:gap-8 md:grid-cols-2 lg:gap-14">
+          {/* Card 1: Matteo */}
+          <div className="reveal rounded-sm border border-white/10 bg-[#251e16] p-4 sm:p-6 shadow-xl flex flex-col justify-between" style={{ transitionDelay: '0.15s' }}>
             <div>
-              <div className="overflow-hidden rounded-sm bg-[#120d08] p-2 flex items-center justify-center h-64 sm:h-72 lg:h-80">
+              <div className="w-full overflow-hidden rounded-sm bg-[#120d08]">
                 <img
-                  src="/assets/ved-4.jpeg"
-                  alt="Matteo and Ved"
-                  className="h-full w-full object-contain transition-transform duration-700 hover:scale-102"
+                  src="/assets/ved-20.jpeg"
+                  alt="Matteo and Ved clearing high international competition obstacle"
+                  className="w-full h-auto aspect-[16/10] sm:aspect-[4/3] object-cover object-center rounded-sm transition-transform duration-700 hover:scale-104"
+                  loading="lazy"
                 />
               </div>
-              <h3 className="mt-6 sm:mt-8 font-display text-2xl sm:text-3xl text-white">Matteo</h3>
+              <h3 className="mt-5 sm:mt-7 font-display text-2xl sm:text-3xl text-white">Matteo</h3>
               <p className="mt-1.5 sm:mt-2 font-sans text-[10px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.2em] text-[#a8895c]">
                 10yo &middot; CCI 2★ Irish Sport Horse &middot; Bay &middot; Gelding
               </p>
-              <p className="mt-3 sm:mt-4 font-serif text-sm sm:text-base italic text-[#d9cdb8]/90">
+              <p className="mt-3 sm:mt-4 font-serif text-sm sm:text-base italic text-[#d9cdb8]/90 leading-relaxed">
                 De Baune De Laudette — The powerhouse partner carrying Ved into the international 2-star eventing circuit.
               </p>
             </div>
@@ -62,21 +64,22 @@ export default function Partnership() {
             </div>
           </div>
 
-          {/* Card 2 */}
-          <div className="reveal rounded-sm border border-white/10 bg-[#251e16] p-5 sm:p-6 shadow-xl flex flex-col justify-between" style={{ transitionDelay: '0.25s' }}>
+          {/* Card 2: Cuba */}
+          <div className="reveal rounded-sm border border-white/10 bg-[#251e16] p-4 sm:p-6 shadow-xl flex flex-col justify-between" style={{ transitionDelay: '0.25s' }}>
             <div>
-              <div className="overflow-hidden rounded-sm bg-[#120d08] p-2 flex items-center justify-center h-64 sm:h-72 lg:h-80">
+              <div className="w-full overflow-hidden rounded-sm bg-[#120d08]">
                 <img
-                  src="/assets/ved-6.jpeg"
-                  alt="Cuba and Ved on trail"
-                  className="h-full w-full object-contain transition-transform duration-700 hover:scale-102"
+                  src="/assets/ved-24.jpeg"
+                  alt="Cuba and Ved in training conditioning"
+                  className="w-full h-auto aspect-[16/10] sm:aspect-[4/3] object-cover object-center rounded-sm transition-transform duration-700 hover:scale-104"
+                  loading="lazy"
                 />
               </div>
-              <h3 className="mt-6 sm:mt-8 font-display text-2xl sm:text-3xl text-white">Cuba</h3>
+              <h3 className="mt-5 sm:mt-7 font-display text-2xl sm:text-3xl text-white">Cuba</h3>
               <p className="mt-1.5 sm:mt-2 font-sans text-[10px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.2em] text-[#a8895c]">
                 Partner horse &middot; Trail &amp; Arena Specialist
               </p>
-              <p className="mt-3 sm:mt-4 font-serif text-sm sm:text-base italic text-[#d9cdb8]/90">
+              <p className="mt-3 sm:mt-4 font-serif text-sm sm:text-base italic text-[#d9cdb8]/90 leading-relaxed">
                 A trusted companion in training conditioning, building rider endurance and refining cross-country rhythm.
               </p>
             </div>

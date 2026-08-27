@@ -13,7 +13,12 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
   const [playingFeaturedVideoId, setPlayingFeaturedVideoId] = useState<string | null>(null);
   const video7 = VIDEOS.find((v) => v.id === 'video-7') || VIDEOS[6] || VIDEOS[0];
   const featuredVideos = [video7, VIDEOS[0]];
-  const featuredPhotos = GALLERY_ITEMS.slice(0, 3);
+  // Pick horizontal 3:2 action landscape photos that fit naturally
+  const featuredPhotos = [
+    GALLERY_ITEMS.find((g) => g.id === 'g-11') || GALLERY_ITEMS[10],
+    GALLERY_ITEMS.find((g) => g.id === 'g-20') || GALLERY_ITEMS[19],
+    GALLERY_ITEMS.find((g) => g.id === 'g-23') || GALLERY_ITEMS[22],
+  ];
 
   return (
     <div ref={containerRef}>
@@ -358,22 +363,23 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
             })}
           </div>
 
-          {/* 3 Featured Photos - 100% Uncropped with object-contain */}
+          {/* 3 Featured Photos - High Resolution Horizontal Action Photos */}
           <div className="mt-6 sm:mt-8 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {featuredPhotos.map((photo, pIdx) => (
               <div
                 key={photo.id}
                 onClick={() => onNavigate('media')}
-                className={`group relative cursor-pointer overflow-hidden rounded-sm border border-white/10 bg-[#120d08] h-56 sm:h-64 flex items-center justify-center p-2 transition-all duration-500 hover:border-[#a8895c]/70 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] ${
+                className={`relative group cursor-pointer overflow-hidden rounded-sm border border-white/10 bg-[#120d08] transition-all duration-500 hover:border-[#a8895c]/70 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] ${
                   pIdx === 2 ? 'sm:col-span-2 lg:col-span-1' : ''
                 }`}
               >
                 <img
                   src={photo.src}
                   alt={photo.title}
-                  className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-auto aspect-[16/10] sm:aspect-[4/3] object-cover object-center rounded-sm transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                   <div className="rounded-full bg-black/70 p-2.5 text-[#d9cdb8] border border-[#a8895c]/50">
                     <Maximize2 size={16} className="text-[#a8895c]" />
                   </div>

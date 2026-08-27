@@ -271,8 +271,8 @@ export default function ActionGallery() {
                   onClick={() => openVideoModal(i)}
                   className="gsap-stagger-item group relative cursor-pointer overflow-hidden rounded-sm border border-white/10 bg-[#251e16] shadow-lg transition-all duration-500 hover:-translate-y-1.5 hover:border-[#a8895c]/60 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between"
                 >
-                  {/* Video Canvas - 100% Uncropped with object-contain */}
-                  <div className="relative h-48 sm:h-54 w-full bg-[#100b06] flex items-center justify-center overflow-hidden p-1.5">
+                  {/* Video Canvas - Full Width & Equal Height on Phone and Tablet */}
+                  <div className="relative h-52 xs:h-56 sm:h-60 md:h-64 w-full bg-[#100b06] flex items-center justify-center overflow-hidden p-1.5">
                     <video
                       src={vid.src}
                       poster={vid.poster}
