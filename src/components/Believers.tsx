@@ -25,16 +25,17 @@ export default function Believers() {
   return (
     <section ref={sectionRef} id="believers" className="bg-[#19140e] text-[#ebe4d8] py-16 sm:py-20 lg:py-32 relative overflow-hidden border-t border-white/10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-        {/* Header */}
-        <div className="reveal max-w-3xl">
+        {/* Header - Centered */}
+        <div className="reveal max-w-3xl mx-auto text-center flex flex-col items-center">
           <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
             <span className="h-[1px] w-6 bg-[#a8895c]" />
             Foundational Support
+            <span className="h-[1px] w-6 bg-[#a8895c]" />
           </div>
           <h2 className="mt-3 sm:mt-4 font-display text-3xl xs:text-4xl sm:text-5xl lg:text-6xl text-white">
             The Early Believers
           </h2>
-          <p className="mt-3 sm:mt-4 font-serif text-base sm:text-lg italic text-[#d9cdb8]/85">
+          <p className="mt-3 sm:mt-4 font-serif text-base sm:text-lg italic text-[#d9cdb8]/85 text-center">
             Pillars of vision and support who saw the potential in Ved and empowered his journey to global equestrian arenas.
           </p>
         </div>

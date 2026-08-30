@@ -197,23 +197,22 @@ export default function ActionGallery() {
       <div className="absolute bottom-0 left-1/4 -z-0 h-96 w-96 rounded-full bg-[#a8895c]/5 blur-3xl pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-        {/* Unified Section Header */}
-        <div className="gsap-reveal flex flex-col md:flex-row md:items-end md:justify-between gap-6 sm:gap-8">
-          <div>
-            <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
-              <span className="h-[1px] w-6 bg-[#a8895c]" />
-              Media Archives &middot; 100% Uncropped
-            </div>
-            <h2 className="mt-3 sm:mt-4 font-display text-3xl xs:text-4xl sm:text-5xl lg:text-6xl text-white">
-              In Action &amp; Gallery
-            </h2>
-            <p className="mt-3 sm:mt-4 max-w-2xl font-serif text-base sm:text-lg italic text-[#d9cdb8]/85">
-              Experience the full dynamic visual record &mdash; {VIDEOS.length} competition action video reels and {GALLERY_ITEMS.length} high-resolution archival photographs.
-            </p>
+        {/* Unified Section Header - Centered */}
+        <div className="gsap-reveal text-center max-w-3xl mx-auto flex flex-col items-center">
+          <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
+            <span className="h-[1px] w-6 bg-[#a8895c]" />
+            Media Archives &middot; 100% Uncropped
+            <span className="h-[1px] w-6 bg-[#a8895c]" />
           </div>
+          <h2 className="mt-3 sm:mt-4 font-display text-3xl xs:text-4xl sm:text-5xl lg:text-6xl text-white">
+            In Action &amp; Gallery
+          </h2>
+          <p className="mt-3 sm:mt-4 font-serif text-base sm:text-lg italic text-[#d9cdb8]/85 text-center">
+            Experience the full dynamic visual record &mdash; {VIDEOS.length} competition action video reels and {GALLERY_ITEMS.length} high-resolution archival photographs.
+          </p>
 
-          {/* Primary View Switcher Tabs */}
-          <div className="flex items-center gap-1 sm:gap-1.5 rounded-full border border-white/15 bg-black/60 p-1 sm:p-1.5 backdrop-blur-md self-start md:self-auto shadow-xl overflow-x-auto no-scrollbar touch-scroll max-w-full">
+          {/* Primary View Switcher Tabs - Centered */}
+          <div className="mt-6 flex items-center justify-center gap-1 sm:gap-1.5 rounded-full border border-white/15 bg-black/60 p-1 sm:p-1.5 backdrop-blur-md shadow-xl overflow-x-auto no-scrollbar touch-scroll max-w-full">
             <button
               onClick={() => setActiveMediaTab('all')}
               className={`flex items-center gap-1.5 sm:gap-2 rounded-full px-3.5 sm:px-4 py-1.5 sm:py-2 font-sans text-[11px] sm:text-xs uppercase tracking-wider transition-all duration-300 whitespace-nowrap min-h-[38px] ${

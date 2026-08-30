@@ -75,22 +75,20 @@ export default function Making() {
       <div className="absolute bottom-1/3 right-0 -z-0 h-96 w-96 rounded-full bg-[#a8895c]/10 blur-3xl pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-        {/* Section header */}
-        <div className="gsap-reveal flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
-              <span className="h-[1px] w-6 bg-[#a8895c]" />
-              The Journey &bull; The Making of an Athlete
-            </div>
-            <h1 className="mt-3 sm:mt-4 font-display text-3xl xs:text-4xl sm:text-5xl lg:text-6xl">
-              From Pune to the World Stage
-            </h1>
-            <p className="mt-3 sm:mt-4 max-w-2xl font-serif text-base sm:text-lg italic text-[#d9cdb8]/85">
-              7 defining career milestones forged through dedication, elite international training, and unwavering resilience.
-            </p>
+        {/* Section header - Centered */}
+        <div className="gsap-reveal text-center max-w-3xl mx-auto flex flex-col items-center">
+          <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
+            <span className="h-[1px] w-6 bg-[#a8895c]" />
+            The Journey &bull; The Making of an Athlete
+            <span className="h-[1px] w-6 bg-[#a8895c]" />
           </div>
-
-          <div className="hidden lg:flex items-center gap-2 rounded-full border border-[#a8895c]/30 bg-black/40 px-4 py-2 text-xs text-[#a8895c]">
+          <h1 className="mt-3 sm:mt-4 font-display text-3xl xs:text-4xl sm:text-5xl lg:text-6xl text-white">
+            From Pune to the World Stage
+          </h1>
+          <p className="mt-3 sm:mt-4 font-serif text-base sm:text-lg italic text-[#d9cdb8]/85 text-center">
+            7 defining career milestones forged through dedication, elite international training, and unwavering resilience.
+          </p>
+          <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#a8895c]/30 bg-black/40 px-4 py-1.5 text-xs text-[#a8895c]">
             <Sparkles size={14} className="text-[#f0c775]" />
             <span>7 Milestones &bull; 2021 &ndash; 2026</span>
           </div>
@@ -101,7 +99,7 @@ export default function Making() {
           {milestones.map((item) => (
             <div
               key={`${item.phase}-${item.title}`}
-              className="gsap-stagger-item group relative flex flex-col rounded-sm bg-[#251e16] border border-white/10 shadow-xl transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:border-[#a8895c]/70 overflow-hidden"
+              className="gsap-stagger-item group relative flex flex-col rounded-sm bg-[#251e16] border border-white/10 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_30px_rgba(240,199,117,0.18)] hover:border-[#f0c775]/70 overflow-hidden"
             >
               {/* Photo thumbnail - Naturally Formatted Landscape Photo */}
               {item.image && (

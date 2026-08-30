@@ -83,13 +83,14 @@ export default function Nav({ currentPage, onNavigate }: NavProps) {
               <li key={link.target} className="relative">
                 <button
                   onClick={() => handleLinkClick(link.target)}
-                  className={`relative font-sans text-[11px] 2xl:text-xs uppercase tracking-[0.12em] 2xl:tracking-[0.16em] transition-all duration-200 py-1.5 px-3 rounded-full whitespace-nowrap ${
+                  className={`relative font-sans text-[11px] 2xl:text-xs uppercase tracking-[0.12em] 2xl:tracking-[0.16em] transition-all duration-300 py-1.5 px-3.5 rounded-full whitespace-nowrap flex items-center gap-1.5 ${
                     isActive
-                      ? 'text-white font-bold bg-[#a8895c]/35 border border-[#f0c775]/70 shadow-[0_0_15px_rgba(240,199,117,0.35)]'
-                      : 'text-white/90 hover:text-white hover:bg-white/10 font-medium'
+                      ? 'text-[#f0c775] font-bold bg-[#a8895c]/30 border border-[#f0c775]/80 shadow-[0_0_20px_rgba(240,199,117,0.3)]'
+                      : 'text-white/85 hover:text-white hover:bg-white/10 font-medium'
                   }`}
                 >
-                  {link.label}
+                  {isActive && <span className="h-1.5 w-1.5 rounded-full bg-[#f0c775] animate-pulse" />}
+                  <span>{link.label}</span>
                 </button>
               </li>
             );

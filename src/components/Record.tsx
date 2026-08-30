@@ -45,22 +45,20 @@ export default function Record() {
       <div className="absolute bottom-1/4 right-0 -z-0 h-96 w-96 rounded-full bg-[#a8895c]/10 blur-3xl pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-        {/* Section Header */}
-        <div className="gsap-reveal flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
-              <span className="h-[1px] w-6 bg-[#a8895c]" />
-              Official Track Record
-            </div>
-            <h2 className="mt-3 sm:mt-4 font-display text-3xl xs:text-4xl sm:text-5xl lg:text-6xl text-white">
-              Proven Results &amp; Milestones
-            </h2>
-            <p className="mt-3 sm:mt-4 max-w-2xl font-serif text-base sm:text-lg italic text-[#d9cdb8]/80">
-              A track record of precision &mdash; multiple national medals, international podium finishes, and a 100% course completion record.
-            </p>
+        {/* Section Header - Centered */}
+        <div className="gsap-reveal text-center max-w-3xl mx-auto flex flex-col items-center">
+          <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
+            <span className="h-[1px] w-6 bg-[#a8895c]" />
+            Official Track Record
+            <span className="h-[1px] w-6 bg-[#a8895c]" />
           </div>
-          
-          <div className="flex items-center gap-2 rounded-full border border-[#a8895c]/40 bg-[#251e16] px-3.5 sm:px-4 py-2 text-xs font-sans text-[#e6c994] self-start md:self-auto shadow-lg">
+          <h2 className="mt-3 sm:mt-4 font-display text-3xl xs:text-4xl sm:text-5xl lg:text-6xl text-white">
+            Proven Results &amp; Milestones
+          </h2>
+          <p className="mt-3 sm:mt-4 font-serif text-base sm:text-lg italic text-[#d9cdb8]/80 text-center">
+            A track record of precision &mdash; multiple national medals, international podium finishes, and a 100% course completion record.
+          </p>
+          <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#a8895c]/40 bg-[#251e16] px-4 py-1.5 text-xs font-sans text-[#e6c994] shadow-lg">
             <Sparkles size={14} className="text-[#a8895c]" />
             <span>FEI &bull; National &bull; US Circuit</span>
           </div>
@@ -69,12 +67,12 @@ export default function Record() {
         {/* Top 4 Featured Key Stat Cards */}
         <div className="gsap-stagger-container mt-10 sm:mt-14 grid gap-3 sm:gap-5 grid-cols-2 lg:grid-cols-4">
           {/* Stat 1 */}
-          <div className="gsap-stagger-item group relative overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-4 sm:p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#a8895c] flex flex-col justify-between">
+          <div className="gsap-stagger-item group/stat relative overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-4 sm:p-6 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-[#f0c775]/70 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_25px_rgba(240,199,117,0.18)] flex flex-col justify-between cursor-default">
             <div className="flex items-center justify-between">
-              <span className="font-display text-3xl xs:text-4xl sm:text-5xl font-bold text-[#e6c994]">
+              <span className="font-display text-3xl xs:text-4xl sm:text-5xl font-bold text-[#e6c994] group-hover/stat:text-[#f0c775] transition-colors">
                 <GsapCounter end={16} />
               </span>
-              <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#a8895c]">
+              <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#a8895c] group-hover/stat:scale-110 group-hover/stat:bg-[#a8895c]/35 transition-all duration-500">
                 <Trophy size={18} />
               </div>
             </div>
@@ -89,12 +87,12 @@ export default function Record() {
           </div>
 
           {/* Stat 2 */}
-          <div className="gsap-stagger-item group relative overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-4 sm:p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#a8895c] flex flex-col justify-between">
+          <div className="gsap-stagger-item group/stat relative overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-4 sm:p-6 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-[#f0c775]/70 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_25px_rgba(240,199,117,0.18)] flex flex-col justify-between cursor-default">
             <div className="flex items-center justify-between">
-              <span className="font-display text-3xl xs:text-4xl sm:text-5xl font-bold text-[#e6c994]">
+              <span className="font-display text-3xl xs:text-4xl sm:text-5xl font-bold text-[#e6c994] group-hover/stat:text-[#f0c775] transition-colors">
                 <GsapCounter end={100} suffix="%" />
               </span>
-              <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#a8895c]">
+              <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#a8895c] group-hover/stat:scale-110 group-hover/stat:bg-[#a8895c]/35 transition-all duration-500">
                 <CheckCircle2 size={18} />
               </div>
             </div>
@@ -109,12 +107,12 @@ export default function Record() {
           </div>
 
           {/* Stat 3 */}
-          <div className="gsap-stagger-item group relative overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-4 sm:p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#a8895c] flex flex-col justify-between">
+          <div className="gsap-stagger-item group/stat relative overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-4 sm:p-6 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-[#f0c775]/70 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_25px_rgba(240,199,117,0.18)] flex flex-col justify-between cursor-default">
             <div className="flex items-center justify-between">
-              <span className="font-display text-3xl xs:text-4xl sm:text-5xl font-bold text-[#e6c994]">
+              <span className="font-display text-3xl xs:text-4xl sm:text-5xl font-bold text-[#e6c994] group-hover/stat:text-[#f0c775] transition-colors">
                 <GsapCounter end={0} />
               </span>
-              <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#a8895c]">
+              <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#a8895c] group-hover/stat:scale-110 group-hover/stat:bg-[#a8895c]/35 transition-all duration-500">
                 <ShieldCheck size={18} />
               </div>
             </div>
@@ -129,12 +127,12 @@ export default function Record() {
           </div>
 
           {/* Stat 4 */}
-          <div className="gsap-stagger-item group relative overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-4 sm:p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#a8895c] flex flex-col justify-between">
+          <div className="gsap-stagger-item group/stat relative overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-4 sm:p-6 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-[#f0c775]/70 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_25px_rgba(240,199,117,0.18)] flex flex-col justify-between cursor-default">
             <div className="flex items-center justify-between">
-              <span className="font-display text-3xl xs:text-4xl sm:text-5xl font-bold text-[#e6c994]">
+              <span className="font-display text-3xl xs:text-4xl sm:text-5xl font-bold text-[#e6c994] group-hover/stat:text-[#f0c775] transition-colors">
                 <GsapCounter end={2} />
               </span>
-              <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#a8895c]">
+              <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#a8895c] group-hover/stat:scale-110 group-hover/stat:bg-[#a8895c]/35 transition-all duration-500">
                 <Medal size={18} />
               </div>
             </div>

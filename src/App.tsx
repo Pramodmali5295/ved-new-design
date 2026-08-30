@@ -79,12 +79,12 @@ function App() {
       if (pageContentRef.current) {
         gsap.fromTo(
           pageContentRef.current,
-          { opacity: 0, y: 12 },
+          { opacity: 0, y: 18 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.3,
-            ease: 'power2.out',
+            duration: 0.55,
+            ease: 'power3.out',
             onComplete: () => {
               ScrollTrigger.refresh();
             },

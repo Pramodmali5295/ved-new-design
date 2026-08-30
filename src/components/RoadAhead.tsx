@@ -124,16 +124,17 @@ export default function RoadAhead() {
         {/* Featured Mission & Athlete Pledge Spotlight */}
         <div className="reveal mt-12 sm:mt-16 overflow-hidden rounded-sm border border-[#a8895c]/40 bg-[#251e16] shadow-2xl">
           <div className="grid lg:grid-cols-12 items-center">
-            {/* Left Image Showcase */}
-            <div className="lg:col-span-5 relative h-64 sm:h-80 lg:h-full min-h-[260px] sm:min-h-[300px] bg-black flex items-center justify-center p-2 overflow-hidden border-b lg:border-b-0 lg:border-r border-white/10">
+            {/* Left Image Showcase - Full-bleed landscape photo */}
+            <div className="lg:col-span-5 relative h-72 sm:h-96 lg:h-full min-h-[300px] sm:min-h-[380px] overflow-hidden border-b lg:border-b-0 lg:border-r border-white/10">
               <img
-                src="/assets/ved-7.jpeg"
-                alt="Ved Sarma Sarkar in official Team India equestrian attire"
-                className="h-full w-full object-contain"
+                src="/assets/ved-21.jpeg"
+                alt="Ved Sarma Sarkar in official Team India podium attire"
+                className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-104"
+                loading="lazy"
               />
-              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex items-center gap-2 rounded-full bg-black/75 px-3 py-1 text-xs font-sans text-white backdrop-blur-md border border-white/10">
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex items-center gap-2 rounded-full bg-black/80 px-3.5 py-1.5 text-xs font-sans text-white backdrop-blur-md border border-[#a8895c]/40 shadow-lg">
                 <Flag size={14} className="text-[#a8895c]" />
-                <span className="text-[9px] sm:text-[10px] uppercase tracking-wider">Team India Athlete</span>
+                <span className="text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold">Team India Athlete</span>
               </div>
             </div>
 

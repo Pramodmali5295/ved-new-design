@@ -22,15 +22,15 @@ export function useGsapReveal<T extends HTMLElement = HTMLDivElement>(dependenci
       upElements.forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, y: 20 },
+          { opacity: 0, y: 28 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.55,
-            ease: 'power2.out',
+            duration: 0.75,
+            ease: 'power3.out',
             scrollTrigger: {
               trigger: el,
-              start: 'top 95%',
+              start: 'top 94%',
               toggleActions: 'play none none none',
             },
           }
@@ -42,15 +42,15 @@ export function useGsapReveal<T extends HTMLElement = HTMLDivElement>(dependenci
       leftElements.forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, x: -24 },
+          { opacity: 0, x: -32 },
           {
             opacity: 1,
             x: 0,
-            duration: 0.55,
-            ease: 'power2.out',
+            duration: 0.8,
+            ease: 'power3.out',
             scrollTrigger: {
               trigger: el,
-              start: 'top 95%',
+              start: 'top 94%',
               toggleActions: 'play none none none',
             },
           }
@@ -62,15 +62,15 @@ export function useGsapReveal<T extends HTMLElement = HTMLDivElement>(dependenci
       rightElements.forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, x: 24 },
+          { opacity: 0, x: 32 },
           {
             opacity: 1,
             x: 0,
-            duration: 0.55,
-            ease: 'power2.out',
+            duration: 0.8,
+            ease: 'power3.out',
             scrollTrigger: {
               trigger: el,
-              start: 'top 95%',
+              start: 'top 94%',
               toggleActions: 'play none none none',
             },
           }
@@ -82,16 +82,16 @@ export function useGsapReveal<T extends HTMLElement = HTMLDivElement>(dependenci
       scaleElements.forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, scale: 0.96, y: 16 },
+          { opacity: 0, scale: 0.94, y: 22 },
           {
             opacity: 1,
             scale: 1,
             y: 0,
-            duration: 0.55,
-            ease: 'power2.out',
+            duration: 0.75,
+            ease: 'power3.out',
             scrollTrigger: {
               trigger: el,
-              start: 'top 95%',
+              start: 'top 94%',
               toggleActions: 'play none none none',
             },
           }
@@ -105,14 +105,14 @@ export function useGsapReveal<T extends HTMLElement = HTMLDivElement>(dependenci
         if (items.length > 0) {
           gsap.fromTo(
             items,
-            { opacity: 0, y: 18, scale: 0.97 },
+            { opacity: 0, y: 26, scale: 0.95 },
             {
               opacity: 1,
               y: 0,
               scale: 1,
-              duration: 0.5,
-              stagger: 0.06,
-              ease: 'power2.out',
+              duration: 0.7,
+              stagger: 0.08,
+              ease: 'power3.out',
               scrollTrigger: {
                 trigger: parent,
                 start: 'top 92%',
@@ -128,9 +128,9 @@ export function useGsapReveal<T extends HTMLElement = HTMLDivElement>(dependenci
       parallaxElements.forEach((el) => {
         gsap.fromTo(
           el,
-          { y: -15 },
+          { y: -20 },
           {
-            y: 15,
+            y: 20,
             ease: 'none',
             scrollTrigger: {
               trigger: el,
@@ -172,8 +172,8 @@ export function GsapCounter({
     const obj = { val: 0 };
     gsap.to(obj, {
       val: end,
-      duration,
-      ease: 'power2.out',
+      duration: duration || 2.2,
+      ease: 'power3.out',
       scrollTrigger: {
         trigger: countRef.current,
         start: 'top 92%',

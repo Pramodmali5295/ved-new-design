@@ -20,22 +20,21 @@ export default function Contact() {
       <div className="absolute bottom-1/4 right-0 -z-0 h-96 w-96 rounded-full bg-[#a8895c]/10 blur-3xl pointer-events-none animate-ambient-glow" style={{ animationDelay: '9s' }} />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-        {/* Section Header */}
-        <div className="reveal flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
-              <span className="h-[1px] w-6 bg-[#a8895c]" />
-              Connect &bull; Partnerships &bull; Official Inquiries
-            </div>
-            <h1 className="mt-3 sm:mt-4 font-display text-3xl xs:text-4xl sm:text-5xl lg:text-6xl text-white">
-              Contact &amp; Partnerships
-            </h1>
-            <p className="mt-3 sm:mt-4 max-w-2xl font-serif text-base sm:text-lg italic text-[#d9cdb8]/85">
-              Connect directly with Ved Sarma Sarkar and his management team for corporate sponsorships, CSR foundations, media coverage, and equestrian inquiries.
-            </p>
+        {/* Section Header - Centered */}
+        <div className="reveal text-center max-w-3xl mx-auto flex flex-col items-center">
+          <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
+            <span className="h-[1px] w-6 bg-[#a8895c]" />
+            Connect &bull; Partnerships &bull; Official Inquiries
+            <span className="h-[1px] w-6 bg-[#a8895c]" />
           </div>
+          <h1 className="mt-3 sm:mt-4 font-display text-3xl xs:text-4xl sm:text-5xl lg:text-6xl text-white">
+            Contact &amp; Partnerships
+          </h1>
+          <p className="mt-3 sm:mt-4 font-serif text-base sm:text-lg italic text-[#d9cdb8]/85 text-center">
+            Connect directly with Ved Sarma Sarkar and his management team for corporate sponsorships, CSR foundations, media coverage, and equestrian inquiries.
+          </p>
 
-          <div className="flex items-center gap-2 rounded-full border border-[#a8895c]/40 bg-[#251e16] px-3.5 sm:px-4 py-2 text-xs font-sans text-[#e6c994] self-start md:self-auto shadow-lg">
+          <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#a8895c]/40 bg-[#251e16] px-4 py-1.5 text-xs font-sans text-[#e6c994] shadow-lg">
             <Sparkles size={14} className="text-[#a8895c]" />
             <span>Target: Asian Games 2030 &bull; Olympics 2032</span>
           </div>

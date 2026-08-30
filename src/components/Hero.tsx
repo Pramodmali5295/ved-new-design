@@ -1,84 +1,49 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useRef } from 'react';
+import { ArrowRight } from 'lucide-react';
 import { gsap, useGSAP } from '@/utils/gsapConfig';
 
 interface HeroProps {
   onNavigate?: (pageId: string) => void;
 }
 
-// Curated HORIZONTAL (landscape) gallery images for full-width hero presentation
-// Curated HORIZONTAL (landscape) gallery images for full-width hero presentation
-// Excludes images 1, 2, 3, 5, 17, 21 as well as all vertical/portrait images
-const HERO_GALLERY_SLIDES = [
-  { id: 'g-10', src: '/assets/ved-10.jpeg', title: 'The American Circuit & Facilities', category: 'Landscapes' },
-  { id: 'g-11', src: '/assets/ved-11.jpeg', title: 'Cross-Country Obstacle Execution', category: 'Competition' },
-  { id: 'g-14', src: '/assets/ved-14.jpeg', title: 'Equestrian Focus & Equine Bond', category: 'The Bond' },
-  { id: 'g-16', src: '/assets/ved-16.jpeg', title: 'Championship Jump Mastery', category: 'Milestones' },
-  { id: 'g-18', src: '/assets/ved-18.jpeg', title: 'Equine Athlete Partnership', category: 'The Bond' },
-  { id: 'g-20', src: '/assets/ved-20.jpeg', title: 'International Competition Arena', category: 'Competition' },
-  { id: 'g-23', src: '/assets/ved-23.jpeg', title: 'Cross-Country Power & Rhythm', category: 'Competition' },
-  { id: 'g-24', src: '/assets/ved-24.jpeg', title: 'Trust & Equine Harmony', category: 'The Bond' },
-  { id: 'g-25', src: '/assets/ved-25.jpeg', title: 'Championship Stride Precision', category: 'Competition' },
-  { id: 'g-26', src: '/assets/ved-26.jpeg', title: 'Athlete Focus & Discipline', category: 'Portraits' },
-  { id: 'g-27', src: '/assets/ved-27.jpeg', title: 'Dedication & Horsemanship', category: 'The Bond' },
-  { id: 'g-28', src: '/assets/ved-28.jpeg', title: 'Jump Clearance & Pacing', category: 'Competition' },
-  { id: 'g-29', src: '/assets/ved-29.jpeg', title: 'Ocala Circuit Training Grounds', category: 'Landscapes' },
-  { id: 'g-30', src: '/assets/ved-30.jpeg', title: 'Eventing Speed & Balance', category: 'Competition' },
-  { id: 'g-31', src: '/assets/ved-31.jpeg', title: 'The Road to 2032 Olympics', category: 'Portraits' },
-  { id: 'g-32', src: '/assets/ved-32.jpeg', title: 'World Stage Excellence', category: 'Competition' },
-];
+// Featured competition action video for the hero
+const HERO_VIDEO = {
+  src: '/assets/video-7.mp4',
+  title: 'Championship Course Execution',
+};
 
-export default function Hero({ onNavigate: _onNavigate }: HeroProps) {
+export default function Hero({ onNavigate }: HeroProps) {
   const heroRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const pillsRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
   const metricsRef = useRef<HTMLDivElement>(null);
-
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  const totalSlides = HERO_GALLERY_SLIDES.length;
-
-  const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
-  }, [totalSlides]);
-
-  const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-  }, [totalSlides]);
-
-  // Auto-advance slideshow every 5 seconds
-  useEffect(() => {
-    if (isPaused) return;
-    const timer = setInterval(() => {
-      nextSlide();
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [isPaused, nextSlide]);
+  const videoCardRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-      // Eyebrow badge reveal immediately
+      // Eyebrow badge entrance with spring bounce
       if (badgeRef.current) {
         tl.fromTo(
           badgeRef.current,
-          { opacity: 0, y: -12, scale: 0.95 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: 'power2.out' },
+          { opacity: 0, y: -25, scale: 0.85 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: 'back.out(2)' },
           0
         );
       }
 
-      // Title reveal immediately
+      // Title reveal with upward slide & smooth reveal
       if (titleRef.current) {
         tl.fromTo(
           titleRef.current,
-          { opacity: 0, y: 16 },
-          { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' },
-          0.05
+          { opacity: 0, y: 28, scale: 0.96 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.65, ease: 'power3.out' },
+          0.1
         );
       }
 
@@ -86,19 +51,29 @@ export default function Hero({ onNavigate: _onNavigate }: HeroProps) {
       if (subtitleRef.current) {
         tl.fromTo(
           subtitleRef.current,
-          { opacity: 0, y: 12 },
-          { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' },
-          0.1
+          { opacity: 0, y: 22 },
+          { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' },
+          0.35
         );
       }
 
-      // Credential Pills staggered slide-up
+      // Credential Pills staggered slide-up with spring
       if (pillsRef.current) {
         tl.fromTo(
           pillsRef.current.children,
-          { opacity: 0, y: 12, scale: 0.98 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.4, stagger: 0.05, ease: 'power2.out' },
-          0.15
+          { opacity: 0, y: 20, scale: 0.9 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.08, ease: 'back.out(1.5)' },
+          0.45
+        );
+      }
+
+      // CTA Buttons pop-in
+      if (ctaRef.current) {
+        tl.fromTo(
+          ctaRef.current.children,
+          { opacity: 0, y: 18, scale: 0.94 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.09, ease: 'back.out(1.4)' },
+          0.55
         );
       }
 
@@ -106,8 +81,18 @@ export default function Hero({ onNavigate: _onNavigate }: HeroProps) {
       if (metricsRef.current) {
         tl.fromTo(
           metricsRef.current.children,
-          { opacity: 0, y: 12 },
-          { opacity: 1, y: 0, duration: 0.4, stagger: 0.06, ease: 'power2.out' },
+          { opacity: 0, y: 24, scale: 0.95 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.55, stagger: 0.08, ease: 'power3.out' },
+          0.6
+        );
+      }
+
+      // Video Card cinematic scale & 3D entrance
+      if (videoCardRef.current) {
+        tl.fromTo(
+          videoCardRef.current,
+          { opacity: 0, scale: 0.92, y: 35 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.85, ease: 'power3.out' },
           0.2
         );
       }
@@ -119,143 +104,163 @@ export default function Hero({ onNavigate: _onNavigate }: HeroProps) {
     <section
       ref={heroRef}
       id="hero"
-      className="relative min-h-[100dvh] w-full overflow-hidden bg-[#140e08] flex flex-col justify-between items-center pt-16 pb-6 sm:pt-20 sm:pb-8 select-none"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
+      className="relative min-h-[92vh] sm:min-h-[96vh] lg:min-h-[100dvh] w-full overflow-hidden bg-[#140e08] flex items-center justify-center pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-24 select-none"
     >
-      {/* GALLERY IMAGES BACKGROUND SHOWCASE */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden">
-        {HERO_GALLERY_SLIDES.map((item, index) => {
-          const isActive = index === currentSlide;
-          return (
+      {/* AMBIENT ATMOSPHERIC BACKGROUND */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+        {/* Soft blurred video backdrop spreading arena light and color */}
+        <video
+          src={HERO_VIDEO.src}
+          aria-hidden="true"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover blur-3xl opacity-25 scale-125 pointer-events-none"
+        />
+        {/* Dark radial and linear gradients for luxury aesthetics and contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#140e08]/90 via-[#140e08]/80 to-[#140e08] z-[1]" />
+        <div
+          className="absolute top-1/4 right-1/4 h-[450px] w-[450px] rounded-full bg-[#f0c775]/12 blur-[110px] z-[1] pointer-events-none animate-pulse"
+          style={{ animationDuration: '4s' }}
+        />
+        <div
+          className="absolute bottom-1/4 left-1/4 h-[450px] w-[450px] rounded-full bg-[#a8895c]/12 blur-[110px] z-[1] pointer-events-none animate-pulse"
+          style={{ animationDuration: '6s' }}
+        />
+      </div>
+
+      {/* TWO-COLUMN CONTENT GRID: CENTERED TEXT ONE SIDE, VIDEO ONE SIDE */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-6 sm:py-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+          {/* LEFT COLUMN: ATHLETE BRANDING - CENTERED ON MOBILE / LEFT-ALIGNED ON DESKTOP */}
+          <div className="lg:col-span-6 flex flex-col items-center text-center lg:items-start lg:text-left justify-center w-full">
+            {/* Eyebrow Badge */}
             <div
-              key={item.id}
-              className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out flex items-center justify-center ${
-                isActive ? 'opacity-100 z-[1]' : 'opacity-0 z-0 pointer-events-none'
-              }`}
+              ref={badgeRef}
+              className="animate-breathe inline-flex items-center gap-2 rounded-full border border-[#f0c775]/80 bg-black/85 px-4 py-1.5 backdrop-blur-md shadow-[0_4px_25px_rgba(240,199,117,0.35)] transition-all duration-500 hover:scale-105 hover:border-[#f0c775] self-center lg:self-start"
             >
-              {/* Ambient Atmospheric Backdrop on Mobile to fill vertical screen */}
-              <img
-                src={item.src}
-                alt=""
-                aria-hidden="true"
-                className="sm:hidden absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-125 pointer-events-none"
-                loading={index === 0 ? 'eager' : 'lazy'}
-              />
-
-              {/* Hero Image: 100% complete and uncropped on mobile, cover on desktop */}
-              <img
-                src={item.src}
-                alt={item.title}
-                className={`relative w-full h-full object-contain sm:object-cover sm:object-top transform transition-transform duration-[6000ms] ease-out ${
-                  isActive ? 'scale-100 sm:scale-105' : 'scale-95 sm:scale-100'
-                }`}
-                loading={index === 0 ? 'eager' : 'lazy'}
-              />
+              <span className="h-2 w-2 rounded-full bg-[#f0c775] animate-pulse shrink-0 shadow-[0_0_8px_#f0c775]" />
+              <span className="font-sans text-[10px] sm:text-xs uppercase tracking-[0.22em] text-[#fcefd2] font-bold">
+                Eventing &middot; Team India Athlete
+              </span>
             </div>
-          );
-        })}
 
-        {/* Crystal-Clear Overlays: Soft gradients ensuring text readability without hiding images */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#140e08] via-[#140e08]/30 to-black/40 z-[2] pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-[#140e08]/80 z-[2] pointer-events-none" />
-      </div>
+            {/* Main Name Heading - Centered on Mobile / Left on Desktop */}
+            <h1
+              ref={titleRef}
+              className="mt-3 sm:mt-5 font-display text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-normal animate-text-shimmer tracking-tight drop-shadow-[0_8px_30px_rgba(0,0,0,0.98)] leading-[1.06] text-center lg:text-left"
+            >
+              Ved Sarma Sarkar
+            </h1>
 
-      {/* GALLERY NAVIGATION BUTTONS (LEFT & RIGHT) */}
-      <button
-        onClick={prevSlide}
-        aria-label="Previous gallery image"
-        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-black/60 hover:bg-[#a8895c] border border-[#f0c775]/40 hover:border-[#f0c775] text-[#fcefd2] hover:text-[#18120b] flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:scale-110 active:scale-95 group"
-      >
-        <ChevronLeft size={22} className="transition-transform group-hover:-translate-x-0.5" />
-      </button>
+            {/* Subtitle */}
+            <p
+              ref={subtitleRef}
+              className="mt-3 sm:mt-5 max-w-xl font-serif text-base sm:text-xl md:text-2xl italic text-[#f8f5ee] drop-shadow-md leading-relaxed text-center lg:text-left mx-auto lg:mx-0"
+            >
+              Pursuing excellence on the world stage.
+              <span className="text-[#f0c775] not-italic font-sans text-xs sm:text-base font-semibold block mt-1.5 transition-colors hover:text-[#ffe4a0]">
+                &mdash; Pathway to the Asian Games &amp; Olympics
+              </span>
+            </p>
 
-      <button
-        onClick={nextSlide}
-        aria-label="Next gallery image"
-        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-black/60 hover:bg-[#a8895c] border border-[#f0c775]/40 hover:border-[#f0c775] text-[#fcefd2] hover:text-[#18120b] flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:scale-110 active:scale-95 group"
-      >
-        <ChevronRight size={22} className="transition-transform group-hover:translate-x-0.5" />
-      </button>
-
-      {/* TOP / UPPER CONTENT - PROPERLY FRAMED WITH HIGH CONTRAST & ANIMATIONS */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center mt-3 sm:mt-2">
-        {/* Eyebrow Badge - Floating Breathe Animation with Pulsing Indicator */}
-        <div
-          ref={badgeRef}
-          className="animate-breathe inline-flex items-center gap-2 rounded-full border border-[#f0c775]/80 bg-black/85 px-3.5 sm:px-5 py-1.5 sm:py-2 backdrop-blur-md shadow-[0_4px_25px_rgba(240,199,117,0.3)] transition-all duration-500 hover:scale-105 hover:border-[#f0c775]"
-        >
-          <span className="h-2 w-2 rounded-full bg-[#f0c775] animate-pulse shrink-0 shadow-[0_0_8px_#f0c775]" />
-          <span className="font-sans text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.28em] text-[#fcefd2] font-bold">
-            Eventing &middot; Team India Athlete
-          </span>
-        </div>
-
-        {/* Main Name Heading - Continuous Luxury Gold Shimmer Sweep Animation & Deep Shadow */}
-        <h1
-          ref={titleRef}
-          className="mt-3 sm:mt-6 font-display text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal animate-text-shimmer tracking-tight drop-shadow-[0_8px_30px_rgba(0,0,0,0.98)] leading-tight select-none"
-        >
-          Ved Sarma Sarkar
-        </h1>
-
-        {/* Subtitle - Crisp Ivory with Radiant Amber Pathway Accent */}
-        <p
-          ref={subtitleRef}
-          className="mt-2.5 sm:mt-5 max-w-2xl font-serif text-base sm:text-xl md:text-2xl italic text-[#f8f5ee] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] leading-relaxed px-2 sm:px-3 transition-all duration-500"
-        >
-          Pursuing excellence on the world stage.
-          <span className="text-[#f0c775] sm:ml-2 not-italic font-sans text-xs sm:text-base font-semibold block sm:inline mt-1 sm:mt-0 transition-colors hover:text-[#ffe4a0] drop-shadow-md">
-            &mdash; Pathway to the Asian Games &amp; Olympics
-          </span>
-        </p>
-      </div>
-
-      {/* BOTTOM ROW (CREDENTIALS & METRICS) */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-2 xs:px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center mt-3 sm:mt-8 pb-1">
-        {/* Credentials Pill Strip - Interactive Hover Lift & Gold Glow Animation */}
-        <div
-          ref={pillsRef}
-          className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-3 font-sans text-[8px] xs:text-[9px] sm:text-[11px] uppercase tracking-[0.12em] sm:tracking-[0.18em] text-[#fcefd2]"
-        >
-          <span className="bg-[#18120b]/90 px-2.5 xs:px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full border border-[#f0c775]/50 backdrop-blur-md shadow-md hover:-translate-y-1 hover:border-[#f0c775] hover:shadow-[0_0_20px_rgba(240,199,117,0.35)] hover:text-white transition-all duration-300 cursor-default">
-            International Podium Achiever
-          </span>
-          <span className="bg-[#18120b]/90 px-2.5 xs:px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full border border-[#f0c775]/50 backdrop-blur-md shadow-md hover:-translate-y-1 hover:border-[#f0c775] hover:shadow-[0_0_20px_rgba(240,199,117,0.35)] hover:text-white transition-all duration-300 cursor-default">
-            National Medallist
-          </span>
-          <span className="bg-[#18120b]/90 px-2.5 xs:px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full border border-[#f0c775]/50 backdrop-blur-md shadow-md hover:-translate-y-1 hover:border-[#f0c775] hover:shadow-[0_0_20px_rgba(240,199,117,0.35)] hover:text-white transition-all duration-300 cursor-default">
-            FEI Athlete
-          </span>
-        </div>
-
-        {/* Key Metrics Strip - Radiant Gold Glow & Subtle Card Lift */}
-        <div
-          ref={metricsRef}
-          className="mt-2.5 sm:mt-5 pt-2.5 sm:pt-4 border-t border-[#f0c775]/30 grid grid-cols-3 gap-1.5 xs:gap-3 sm:gap-8 md:gap-12 w-full max-w-xl"
-        >
-          <div className="group/metric transition-transform duration-300 hover:scale-105">
-            <div className="font-display text-sm xs:text-base sm:text-2xl text-[#f0c775] drop-shadow-md font-medium group-hover/metric:text-[#ffe4a0] transition-colors">
-              Team India
+            {/* Credentials Pill Strip */}
+            <div
+              ref={pillsRef}
+              className="mt-5 sm:mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-2 font-sans text-[9px] sm:text-[11px] uppercase tracking-[0.14em] text-[#fcefd2]"
+            >
+              <span className="bg-[#18120b]/95 px-3.5 py-1.5 rounded-full border border-[#f0c775]/50 backdrop-blur-md shadow-md hover:-translate-y-1 hover:border-[#f0c775] hover:shadow-[0_0_15px_rgba(240,199,117,0.3)] transition-all duration-300 cursor-default">
+                International Podium Achiever
+              </span>
+              <span className="bg-[#18120b]/95 px-3.5 py-1.5 rounded-full border border-[#f0c775]/50 backdrop-blur-md shadow-md hover:-translate-y-1 hover:border-[#f0c775] hover:shadow-[0_0_15px_rgba(240,199,117,0.3)] transition-all duration-300 cursor-default">
+                National Medallist
+              </span>
+              <span className="bg-[#18120b]/95 px-3.5 py-1.5 rounded-full border border-[#f0c775]/50 backdrop-blur-md shadow-md hover:-translate-y-1 hover:border-[#f0c775] hover:shadow-[0_0_15px_rgba(240,199,117,0.3)] transition-all duration-300 cursor-default">
+                FEI Athlete
+              </span>
             </div>
-            <div className="text-[8px] xs:text-[9px] sm:text-[11px] uppercase tracking-wider text-[#e8ded0] mt-0.5 font-medium">
-              Equestrian Eventing
+
+            {/* Quick Action Navigation Buttons - Centered */}
+            <div ref={ctaRef} className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-3.5 w-full">
+              <button
+                onClick={() => onNavigate?.('about')}
+                className="btn-shimmer group inline-flex items-center justify-center gap-2 rounded-full bg-[#a8895c] hover:bg-[#c2a372] px-6 py-3 font-sans text-xs uppercase tracking-wider text-[#2d2418] font-bold transition-all shadow-lg hover:scale-105 active:scale-95 cursor-pointer min-h-[42px]"
+              >
+                <span>About Ved</span>
+                <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+              </button>
+              <button
+                onClick={() => onNavigate?.('record')}
+                className="btn-shimmer group inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-black/40 hover:border-[#f0c775] hover:text-[#f0c775] px-6 py-3 font-sans text-xs uppercase tracking-wider text-[#d9cdb8] transition-all shadow-md hover:scale-105 active:scale-95 cursor-pointer min-h-[42px]"
+              >
+                <span>Official Record</span>
+                <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+              </button>
+            </div>
+
+            {/* Key Metrics Strip */}
+            <div
+              ref={metricsRef}
+              className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-[#f0c775]/30 grid grid-cols-3 gap-2 sm:gap-6 w-full max-w-xl mx-auto text-center"
+            >
+              <div className="group/metric transition-transform duration-300 hover:scale-105">
+                <div className="font-display text-sm xs:text-base sm:text-2xl text-[#f0c775] drop-shadow-md font-medium group-hover/metric:text-[#ffe4a0] transition-colors">
+                  Team India
+                </div>
+                <div className="text-[7.5px] xs:text-[9px] sm:text-[11px] uppercase tracking-wider text-[#e8ded0] mt-0.5 font-medium">
+                  Equestrian Eventing
+                </div>
+              </div>
+              <div className="group/metric transition-transform duration-300 hover:scale-105">
+                <div className="font-display text-sm xs:text-base sm:text-2xl text-[#f0c775] drop-shadow-md font-medium group-hover/metric:text-[#ffe4a0] transition-colors">
+                  FEI Elite
+                </div>
+                <div className="text-[7.5px] xs:text-[9px] sm:text-[11px] uppercase tracking-wider text-[#e8ded0] mt-0.5 font-medium">
+                  International Circuit
+                </div>
+              </div>
+              <div className="group/metric transition-transform duration-300 hover:scale-105">
+                <div className="font-display text-sm xs:text-base sm:text-2xl text-[#f0c775] drop-shadow-md font-medium group-hover/metric:text-[#ffe4a0] transition-colors">
+                  Silver &amp; Bronze
+                </div>
+                <div className="text-[7.5px] xs:text-[9px] sm:text-[11px] uppercase tracking-wider text-[#e8ded0] mt-0.5 font-medium">
+                  World &amp; National Podiums
+                </div>
+              </div>
             </div>
           </div>
-          <div className="group/metric transition-transform duration-300 hover:scale-105">
-            <div className="font-display text-sm xs:text-lg sm:text-2xl text-[#f0c775] drop-shadow-md font-medium group-hover/metric:text-[#ffe4a0] transition-colors">
-              FEI Elite
-            </div>
-            <div className="text-[8px] xs:text-[10px] sm:text-[11px] uppercase tracking-wider text-[#e8ded0] mt-0.5 font-medium">
-              International Circuit
-            </div>
-          </div>
-          <div className="group/metric transition-transform duration-300 hover:scale-105">
-            <div className="font-display text-sm xs:text-lg sm:text-2xl text-[#f0c775] drop-shadow-md font-medium group-hover/metric:text-[#ffe4a0] transition-colors">
-              39 Items
-            </div>
-            <div className="text-[8px] xs:text-[10px] sm:text-[11px] uppercase tracking-wider text-[#e8ded0] mt-0.5 font-medium">
-              Videos &amp; Photos
+
+          {/* RIGHT COLUMN: LUXURY OLYMPIC CHAMPIONSHIP VIDEO FRAME */}
+          <div className="lg:col-span-6 flex items-center justify-center lg:justify-end w-full">
+            <div
+              ref={videoCardRef}
+              className="relative w-full max-w-[340px] xs:max-w-[380px] sm:max-w-[460px] lg:max-w-[520px] xl:max-w-[550px] h-[440px] xs:h-[500px] sm:h-[580px] lg:h-[640px] xl:h-[670px] max-h-[85vh] rounded-2xl p-2 sm:p-2.5 bg-gradient-to-b from-[#2d2418]/90 via-[#18120b]/95 to-[#120d08] border border-[#f0c775]/60 shadow-[0_25px_80px_rgba(0,0,0,0.95),0_0_45px_rgba(240,199,117,0.22)] backdrop-blur-md group hover:-translate-y-2 hover:scale-[1.015] hover:border-[#f0c775] hover:shadow-[0_35px_100px_rgba(240,199,117,0.32)] transition-all duration-700 cursor-default"
+            >
+              {/* Four Precision Corner Gold Accents */}
+              <div className="absolute top-1.5 left-1.5 w-4 h-4 border-t-2 border-l-2 border-[#f0c775] rounded-tl pointer-events-none z-30 opacity-90 transition-all duration-500 group-hover:scale-110 group-hover:border-[#ffe4a0]" />
+              <div className="absolute top-1.5 right-1.5 w-4 h-4 border-t-2 border-r-2 border-[#f0c775] rounded-tr pointer-events-none z-30 opacity-90 transition-all duration-500 group-hover:scale-110 group-hover:border-[#ffe4a0]" />
+              <div className="absolute bottom-1.5 left-1.5 w-4 h-4 border-b-2 border-l-2 border-[#f0c775] rounded-bl pointer-events-none z-30 opacity-90 transition-all duration-500 group-hover:scale-110 group-hover:border-[#ffe4a0]" />
+              <div className="absolute bottom-1.5 right-1.5 w-4 h-4 border-b-2 border-r-2 border-[#f0c775] rounded-br pointer-events-none z-30 opacity-90 transition-all duration-500 group-hover:scale-110 group-hover:border-[#ffe4a0]" />
+
+              {/* Inner Fine Gold Hairline Rim - Dual Gold Border */}
+              <div className="relative w-full h-full rounded-xl overflow-hidden p-[1.5px] bg-gradient-to-b from-[#f0c775]/60 via-white/15 to-[#f0c775]/50 shadow-inner">
+                {/* Inner Video Container */}
+                <div className="relative w-full h-full rounded-[10px] overflow-hidden bg-black flex items-center justify-center">
+                  <video
+                    ref={videoRef}
+                    src={HERO_VIDEO.src}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    disablePictureInPicture
+                    disableRemotePlayback
+                    controlsList="nodownload noplaybackrate nofullscreen noremoteplayback"
+                    className="w-full h-full object-fill transition-transform duration-700 group-hover:scale-102 drop-shadow-[0_0_50px_rgba(0,0,0,0.9)]"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -263,4 +268,3 @@ export default function Hero({ onNavigate: _onNavigate }: HeroProps) {
     </section>
   );
 }
-

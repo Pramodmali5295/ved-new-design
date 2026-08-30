@@ -103,15 +103,19 @@ export default function About() {
           </div>
         </div>
 
-        {/* CORE VALUES & THE PILLARS OF CHARACTER SECTION */}
-        <div className="gsap-reveal mt-20 sm:mt-28 border-t border-white/10 pt-12 sm:pt-16">
+        {/* CORE VALUES & THE PILLARS OF CHARACTER SECTION - Centered */}
+        <div className="gsap-reveal mt-20 sm:mt-28 border-t border-white/10 pt-12 sm:pt-16 text-center max-w-3xl mx-auto flex flex-col items-center">
           <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
             <span className="h-[1px] w-6 bg-[#a8895c]" />
-            Core Values
+            Core Values &bull; Philosophical Foundations
+            <span className="h-[1px] w-6 bg-[#a8895c]" />
           </div>
           <h2 className="mt-3 font-display text-2xl xs:text-3xl sm:text-4xl text-white lg:text-5xl">
             The Pillars of Character
           </h2>
+          <p className="mt-3 font-serif text-base sm:text-lg italic text-[#d9cdb8]/85 text-center">
+            The enduring principles of discipline, patience, and humility that guide every ride and competition.
+          </p>
         </div>
 
         {/* Pillars Grid */}

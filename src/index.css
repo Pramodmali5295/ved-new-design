@@ -477,12 +477,29 @@ button, a {
   }
 }
 
-/* Suppress browser native video hover overlays (Picture-in-Picture, live translate buttons) */
-video::-webkit-media-controls-picture-in-picture-button {
-  display: none !important;
+/* Bespoke Champagne-Gold Luxury Scrollbar for Desktop Browsers */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
 }
-video::-webkit-media-controls-remote-playback-button {
-  display: none !important;
+
+::-webkit-scrollbar-track {
+  background: #120d08;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #a8895c 0%, #d4af37 50%, #8b6e40 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #f0c775 0%, #ffe4a0 50%, #a8895c 100%);
+}
+
+/* Firefox scrollbar support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #a8895c #120d08;
 }
 
 
