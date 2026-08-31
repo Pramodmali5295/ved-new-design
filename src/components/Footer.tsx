@@ -1,4 +1,4 @@
-import { ArrowUp, Mail, MapPin, Sparkles, Trophy } from 'lucide-react';
+import { ArrowUp, Mail, MapPin, Trophy } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (pageId: string) => void;
@@ -106,7 +106,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             <ul className="mt-4 space-y-2.5 font-sans text-xs">
               <li>
                 <button
-                  onClick={() => onNavigate('record')}
+                  onClick={() => onNavigate('making')}
                   className="text-[#d9cdb8]/75 hover:text-white transition-colors"
                 >
                   Official Results &amp; KPI

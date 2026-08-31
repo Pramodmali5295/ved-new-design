@@ -87,7 +87,7 @@ export default function About() {
             <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-white/10 flex flex-wrap items-center gap-4 sm:gap-6">
               <div>
                 <p className="font-display text-xl sm:text-2xl text-white">Ocala, FL</p>
-                <p className="font-sans text-[9px] sm:text-[10px] uppercase tracking-wider text-[#a8895c]">Training Circuit</p>
+                <p className="font-sans text-[9px] sm:text-[10px] uppercase tracking-wider text-[#a8895c]">Competition Base</p>
               </div>
               <div className="h-8 w-[1px] bg-white/15 hidden xs:block" />
               <div>

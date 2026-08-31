@@ -1,4 +1,4 @@
-import { Sparkles, Flag, ArrowRight } from 'lucide-react';
+import { Flag, ArrowRight } from 'lucide-react';
 import { useGsapReveal } from '@/hooks/useGsapAnimations';
 
 const ROADMAP = [

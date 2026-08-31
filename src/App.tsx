@@ -16,7 +16,7 @@ const Record = lazy(() => import('@/components/Record'));
 const RoadAhead = lazy(() => import('@/components/RoadAhead'));
 const Contact = lazy(() => import('@/components/Contact'));
 
-const validPages = new Set(['home', 'about', 'making', 'media', 'partnership', 'record', 'coaches', 'road', 'contact']);
+const validPages = new Set(['home', 'about', 'making', 'media', 'partnership', 'coaches', 'road', 'contact']);
 
 function PageLoadingSkeleton() {
   return (
@@ -51,7 +51,9 @@ function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '').replace('/', '').trim();
-      if (validPages.has(hash)) {
+      if (hash === 'record') {
+        setCurrentPage('making');
+      } else if (validPages.has(hash)) {
         setCurrentPage(hash);
       } else {
         setCurrentPage('home');
@@ -126,13 +128,16 @@ function App() {
       case 'about':
         return <About />;
       case 'making':
-        return <Making />;
+        return (
+          <>
+            <Making />
+            <Record />
+          </>
+        );
       case 'media':
         return <ActionGallery />;
       case 'partnership':
         return <Partnership />;
-      case 'record':
-        return <Record />;
       case 'coaches':
         return (
           <>
@@ -167,7 +172,7 @@ function App() {
       <button
         onClick={scrollToTop}
         aria-label="Back to top"
-        className={`fixed bottom-6 right-6 z-40 h-11 w-11 sm:h-12 sm:w-12 rounded-full bg-[#18120b]/90 border border-[#f0c775]/60 text-[#f0c775] hover:bg-[#a8895c] hover:text-[#18120b] flex items-center justify-center backdrop-blur-md shadow-[0_4px_25px_rgba(0,0,0,0.6)] transition-all duration-500 hover:scale-110 active:scale-95 group ${
+        className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-[#18120b]/90 border border-[#f0c775]/60 text-[#f0c775] hover:bg-[#a8895c] hover:text-[#18120b] flex items-center justify-center backdrop-blur-md shadow-[0_4px_25px_rgba(0,0,0,0.6)] transition-all duration-500 hover:scale-110 active:scale-95 group ${
           showScrollTop ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-6 pointer-events-none'
         }`}
       >

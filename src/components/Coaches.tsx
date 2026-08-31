@@ -32,7 +32,7 @@ const COACHES = [
     role: 'European 5★ Eventers',
     text: 'Ved’s cross-country training started under Mr. Declan Cullen and Mrs. Becky Cullen, European 5★ eventers. The learnings helped Ved later compete and win in Eventing. He gained knowledge about stable management, improving horse fitness through swimming, incline galloping, advanced equipment use, and nutrition.',
     link: 'cullenequinesolutions.com',
-    image: 'https://images.pexels.com/photos/18892382/pexels-photo-18892382.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: '/assets/mentor cullen.jpg',
   },
   {
     name: 'Sea Horse Equestrian',
@@ -128,10 +128,10 @@ export default function Coaches() {
                     href={`https://${coach.link}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-[#a8895c]/40 bg-black/40 px-3.5 sm:px-4 py-2 font-sans text-[11px] sm:text-xs uppercase tracking-[0.15em] text-[#e6c994] font-medium hover:bg-[#a8895c] hover:text-[#2d2418] hover:border-[#a8895c] transition-all group min-h-[38px]"
+                    className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-[#a8895c]/40 bg-black/40 px-3 sm:px-4 py-2 font-sans text-[10px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.15em] text-[#e6c994] font-medium hover:bg-[#a8895c] hover:text-[#2d2418] hover:border-[#a8895c] transition-all group min-h-[38px] max-w-full"
                   >
-                    <span>Visit {coach.link}</span>
-                    <ExternalLink size={13} className="transition-transform group-hover:translate-x-0.5" />
+                    <span className="truncate max-w-[200px] xxs:max-w-[240px] xs:max-w-none">Visit {coach.link}</span>
+                    <ExternalLink size={13} className="transition-transform group-hover:translate-x-0.5 shrink-0" />
                   </a>
 
                   <span className="rounded-full bg-black/50 px-3 py-1 font-sans text-[9px] sm:text-[10px] uppercase tracking-wider text-[#a8895c] border border-[#a8895c]/30">

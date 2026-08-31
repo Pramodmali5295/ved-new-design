@@ -1,31 +1,6 @@
-import { Trophy, Medal, ShieldCheck, CheckCircle2, Sparkles, Flag, Star } from 'lucide-react';
+import { Trophy, Medal, CheckCircle2, Sparkles, Flag, Star } from 'lucide-react';
+import { KPI, NATIONAL_RESULTS, INTERNATIONAL_RESULTS } from '@/data';
 import { useGsapReveal, GsapCounter } from '@/hooks/useGsapAnimations';
-
-export const KPI = [
-  { metric: 'Total Competitions', value: '7' },
-  { metric: 'Eventing Competitions', value: '6' },
-  { metric: 'CSI 2★ Competitions', value: '1' },
-  { metric: 'USEA Levels Completed', value: '5' },
-  { metric: 'Wins & 1st Place', value: '1' },
-  { metric: 'Top-5 Finishes', value: '2' },
-  { metric: 'Top-10 Finishes', value: '5' },
-  { metric: 'Competition Completion Rate', value: '100%' },
-  { metric: 'Cross-Country Penalties', value: '0' },
-];
-
-export const NATIONAL_RESULTS = [
-  { year: '2023', result: 'Team Silver', event: 'Junior National Equestrian Challenge — Eventing' },
-  { year: '2024', result: 'Individual Bronze', event: 'Junior National Equestrian Challenge — Show Jumping' },
-];
-
-export const INTERNATIONAL_RESULTS = [
-  { date: '2023', event: 'FEI World Equestrian Challenge', result: 'Podium Finish', medal: 'gold' },
-  { date: '5 Feb 2026', event: 'Majestic Oaks Ocala H.T.', result: 'Gold', medal: 'gold' },
-  { date: '4 Mar 2026', event: 'Rocking Horse Spring H.T.', result: 'Bronze', medal: 'bronze' },
-  { date: '16 Apr 2026', event: 'Ocala International', result: 'Silver', medal: 'silver' },
-  { date: '6 May 2026', event: 'Tryon International Three-Day Event — CCI 1★', result: '9th', medal: 'none' },
-  { date: '12 Jun 2026', event: 'Ocala World Equestrian Centre — CCI 2★', result: '6th', medal: 'none' },
-];
 
 
 const medalBadge: Record<string, { bg: string; text: string; label: string }> = {
@@ -39,7 +14,7 @@ export default function Record() {
   const sectionRef = useGsapReveal<HTMLElement>();
 
   return (
-    <section ref={sectionRef} id="record" className="bg-[#1c1610] py-16 sm:py-24 lg:py-36 text-[#ebe4d8] relative overflow-hidden">
+    <section ref={sectionRef} id="record" className="bg-[#1c1610] pt-6 sm:pt-8 lg:pt-12 pb-16 sm:py-24 lg:pb-36 text-[#ebe4d8] relative overflow-hidden border-t border-white/10">
       {/* Ambient background glows */}
       <div className="absolute top-1/4 left-0 -z-0 h-96 w-96 rounded-full bg-[#a8895c]/10 blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 right-0 -z-0 h-96 w-96 rounded-full bg-[#a8895c]/10 blur-3xl pointer-events-none" />
@@ -65,15 +40,16 @@ export default function Record() {
         </div>
 
         {/* Top 4 Featured Key Stat Cards */}
-        <div className="gsap-stagger-container mt-10 sm:mt-14 grid gap-3 sm:gap-5 grid-cols-2 lg:grid-cols-4">
+        <div className="gsap-stagger-container mt-10 sm:mt-14 grid gap-2.5 xxs:gap-3 sm:gap-5 grid-cols-2 lg:grid-cols-4">
           {/* Stat 1 */}
-          <div className="gsap-stagger-item group/stat relative overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-4 sm:p-6 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-[#f0c775]/70 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_25px_rgba(240,199,117,0.18)] flex flex-col justify-between cursor-default">
+          <div className="gsap-stagger-item group/stat relative overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-3 xxs:p-4 sm:p-6 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-[#f0c775]/70 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_25px_rgba(240,199,117,0.18)] flex flex-col justify-between cursor-default">
             <div className="flex items-center justify-between">
-              <span className="font-display text-3xl xs:text-4xl sm:text-5xl font-bold text-[#e6c994] group-hover/stat:text-[#f0c775] transition-colors">
+              <span className="font-display text-2xl xxs:text-3xl xs:text-4xl sm:text-5xl font-bold text-[#e6c994] group-hover/stat:text-[#f0c775] transition-colors">
                 <GsapCounter end={16} />
               </span>
-              <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#a8895c] group-hover/stat:scale-110 group-hover/stat:bg-[#a8895c]/35 transition-all duration-500">
-                <Trophy size={18} />
+              <div className="flex h-7 w-7 xxs:h-8 xxs:w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#a8895c] group-hover/stat:scale-110 group-hover/stat:bg-[#a8895c]/35 transition-all duration-500 shrink-0">
+                <Trophy size={16} className="sm:hidden" />
+                <Trophy size={18} className="hidden sm:block" />
               </div>
             </div>
             <div>
@@ -110,18 +86,18 @@ export default function Record() {
           <div className="gsap-stagger-item group/stat relative overflow-hidden rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-4 sm:p-6 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-[#f0c775]/70 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_25px_rgba(240,199,117,0.18)] flex flex-col justify-between cursor-default">
             <div className="flex items-center justify-between">
               <span className="font-display text-3xl xs:text-4xl sm:text-5xl font-bold text-[#e6c994] group-hover/stat:text-[#f0c775] transition-colors">
-                <GsapCounter end={0} />
+                <GsapCounter end={1} />
               </span>
               <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#a8895c] group-hover/stat:scale-110 group-hover/stat:bg-[#a8895c]/35 transition-all duration-500">
-                <ShieldCheck size={18} />
+                <Medal size={18} />
               </div>
             </div>
             <div>
               <p className="mt-3 sm:mt-4 font-sans text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-white">
-                XC Jump Penalties
+                International Podium
               </p>
               <p className="mt-0.5 sm:mt-1 font-sans text-[10px] sm:text-[11px] text-[#d9cdb8]/70 leading-relaxed">
-                Flawless jumping discipline and optimal pacing
+                FEI World Challenge &middot; New Delhi 2023
               </p>
             </div>
           </div>
@@ -247,6 +223,29 @@ export default function Record() {
                 </span>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Action band - High Resolution Landscape Action Photo at the end of the page */}
+        <div className="reveal mt-14 sm:mt-20 relative overflow-hidden rounded-sm bg-[#120d08] border border-[#a8895c]/40 p-1.5 sm:p-2 shadow-2xl flex flex-col items-center">
+          <div className="w-full overflow-hidden bg-[#120d08] rounded-sm">
+            <img
+              src="/assets/ved-25.jpeg"
+              alt="Ved Sarma Sarkar galloping across cross-country course"
+              className="w-full h-auto aspect-[16/9] sm:aspect-[21/9] object-cover object-center rounded-sm transition-transform duration-700 hover:scale-102"
+              loading="lazy"
+            />
+          </div>
+          <div className="w-full bg-[#251e16] p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between text-white gap-3 border-t border-white/10 mt-1.5 sm:mt-2 rounded-sm">
+            <div>
+              <p className="font-sans text-[9px] sm:text-[10px] uppercase tracking-widest text-[#a8895c]">
+                Cross-Country Mastery &middot; Elite Performance
+              </p>
+              <p className="font-display text-lg sm:text-xl lg:text-2xl text-white">Precision, Pace &amp; High Performance</p>
+            </div>
+            <span className="rounded-full bg-black/60 border border-[#a8895c]/40 px-3.5 sm:px-4 py-1.5 font-sans text-[11px] sm:text-xs uppercase tracking-wider text-[#e6c994] self-start sm:self-auto shrink-0">
+              100% Competition Completion
+            </span>
           </div>
         </div>
       </div>

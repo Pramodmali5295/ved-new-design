@@ -471,10 +471,25 @@ button, a {
   -webkit-overflow-scrolling: touch;
 }
 
+@supports (padding: env(safe-area-inset-top)) {
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
 @supports (padding: env(safe-area-inset-bottom)) {
   .safe-bottom {
     padding-bottom: env(safe-area-inset-bottom);
   }
+}
+
+/* Hide scrollbar for clean horizontal swipe containers on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Bespoke Champagne-Gold Luxury Scrollbar for Desktop Browsers */

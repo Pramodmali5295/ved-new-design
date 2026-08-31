@@ -19,8 +19,8 @@ export const IMAGES = {
   coachBruce: 'https://images.pexels.com/photos/5655498/pexels-photo-5655498.jpeg?auto=compress&cs=tinysrgb&w=1200',
   coachDonna: 'https://images.pexels.com/photos/16574820/pexels-photo-16574820.jpeg?auto=compress&cs=tinysrgb&w=1200',
   coachCadre: 'https://images.pexels.com/photos/4894978/pexels-photo-4894978.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  coachCullen: 'https://images.pexels.com/photos/18892382/pexels-photo-18892382.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  coachImtiaz: '/assets/ved-3.jpeg',
+  coachCullen: '/assets/mentor cullen.jpg',
+  coachImtiaz: '/assets/mentor imtiaz.jpg',
 };
 
 export const VIDEOS = [
@@ -115,24 +115,42 @@ export const GALLERY_ITEMS = [
   { id: 'g-30', src: '/assets/ved-30.jpeg', title: 'Archival Photography 30', category: 'Competition' },
   { id: 'g-31', src: '/assets/ved-31.jpeg', title: 'Archival Photography 31', category: 'Portraits' },
   { id: 'g-32', src: '/assets/ved-32.jpeg', title: 'Archival Photography 32', category: 'Competition' },
+  { id: 'g-33', src: '/assets/ved-33.jpeg', title: 'Archival Photography 33', category: 'The Bond' },
+  { id: 'g-34', src: '/assets/ved-34.jpeg', title: 'Archival Photography 34', category: 'Competition' },
 ];
 
 export const TIMELINE = [
   {
-    phase: 'Early Years',
-    year: '2021',
-    title: 'The Beginning',
-    text: 'Ved began riding professionally in 2021, discovering Indian Olympian Mr. Imtiaz Anees at a show in Pune. A shy 14-year-old, he rose to the expectations and coaching of Mr. Anees.',
-    image: '/assets/ved-3.jpeg',
-    tag: 'Seahorse Equestrian',
+    phase: 'CSI 2★',
+    year: '2026',
+    title: 'CSI-2★ Accomplished',
+    text: 'World Equestrian Centre, Ocala is host to the best show jumping events and riders, sponsored often by brands such as Longines and Rolex. Accomplishing a 6th position amongst 33 riders was hugely applauded.',
+    image: '/assets/journey 2026(1).jpeg',
+    tag: '6th / 33 Riders &bull; WEC',
   },
   {
-    phase: 'National Level',
-    year: '2023',
-    title: 'National Medallist',
-    text: 'Team Silver at the Junior National Equestrian Championship in Eventing. Ved established himself on the national stage.',
-    image: '/assets/ved-2.jpeg',
-    tag: 'Team Silver',
+    phase: 'FEI CCI-1★',
+    year: '2026',
+    title: 'India Representation in FEI CCI-1★',
+    text: 'Tryon International, NC is one of the most prestigious circuits in the world, one that hosted World Equestrian Games in 2018. Ved’s entry into the arena, alongside professionals who claim world position #2, 11 and 23, was a major milestone for India. Placed #9th.',
+    image: '/assets/journey 2026(2).jpeg',
+    tag: 'Placed #9th &bull; Tryon',
+  },
+  {
+    phase: 'US Circuit',
+    year: '2026',
+    title: 'Ocala Circuit',
+    text: 'Mecca of Equestrian world, Ocala, FL is one of the renowned competitive circuits in the world. Ved completed a commendable 6 competitions with 2 podium finishes!',
+    image: '/assets/journey 2026(3).jpeg',
+    tag: '2 Podium Finishes',
+  },
+  {
+    phase: 'National Podium',
+    year: '2024',
+    title: 'National Medallist Again',
+    text: 'Individual Bronze at Junior National Equestrian Championship, Delhi. Ved made a powerful statement by claiming Individual Bronze — a remarkable podium finish two years in a row.',
+    image: '/assets/journey 2024(4).jpeg',
+    tag: 'Individual Bronze',
   },
   {
     phase: 'FEI Podium',
@@ -143,36 +161,20 @@ export const TIMELINE = [
     tag: 'FEI 2023 Podium',
   },
   {
-    phase: 'National Podium',
-    year: '2024',
-    title: 'National Medallist Again',
-    text: 'Individual Bronze at Junior National Equestrian Championship, Delhi. Ved made a powerful statement by claiming Individual Bronze — a remarkable podium finish two years in a row.',
-    image: '/assets/ved-4.jpeg',
-    tag: 'Individual Bronze',
+    phase: 'National Level',
+    year: '2023',
+    title: 'National Medallist',
+    text: 'Team Silver at the Junior National Equestrian Championship in Eventing. Ved established himself on the national stage.',
+    image: '/assets/ved-2.jpeg',
+    tag: 'Team Silver',
   },
   {
-    phase: 'US Circuit',
-    year: '2026',
-    title: 'Ocala Circuit',
-    text: 'Mecca of Equestrian world, Ocala, FL is one of the renowned competitive circuits in the world. Ved completed a commendable 6 competitions with 2 podium finishes!',
-    image: '/assets/ved-6.jpeg',
-    tag: '2 Podium Finishes',
-  },
-  {
-    phase: 'FEI CCI-1★',
-    year: '2026',
-    title: 'India Representation in FEI CCI-1★',
-    text: 'Tryon International, NC is one of the most prestigious circuits in the world, one that hosted World Equestrian Games in 2018. Ved’s entry into the arena, alongside professionals who claim world position #2, 11 and 23, was a major milestone for India. Placed #9th.',
-    image: '/assets/ved-1.jpeg',
-    tag: 'Placed #9th &bull; Tryon',
-  },
-  {
-    phase: 'CSI 2★',
-    year: '2026',
-    title: 'CSI-2★ Accomplished',
-    text: 'World Equestrian Centre, Ocala is host to the best show jumping events and riders, sponsored often by brands such as Longines and Rolex. Accomplishing a 6th position amongst 33 riders was hugely applauded.',
-    image: '/assets/ved-8.jpeg',
-    tag: '6th / 33 Riders &bull; WEC',
+    phase: 'Early Years',
+    year: '2021',
+    title: 'The Beginning',
+    text: 'Ved began riding professionally in 2021, discovering Indian Olympian Mr. Imtiaz Anees at a show in Pune. A shy 14-year-old, he rose to the expectations and coaching of Mr. Anees.',
+    image: '/assets/journey 2021.jpeg',
+    tag: 'Seahorse Equestrian',
   },
 ];
 
@@ -273,7 +275,7 @@ export const KPI = [
   { metric: 'Top-5 Finishes', value: '2' },
   { metric: 'Top-10 Finishes', value: '5' },
   { metric: 'Competition Completion Rate', value: '100%' },
-  { metric: 'Cross-Country Penalties', value: '0' },
+  { metric: 'International Podium Finishes', value: '1' },
 ];
 
 export const NATIONAL_RESULTS = [
@@ -334,7 +336,7 @@ export const NAV_LINKS = [
   { label: 'The Journey', target: 'making' },
   { label: 'In Action & Gallery', target: 'media' },
   { label: 'The Partnership', target: 'partnership' },
-  { label: 'Results', target: 'record' },
   { label: 'Mentors', target: 'coaches' },
   { label: 'Road Ahead', target: 'road' },
+  { label: 'Contact', target: 'contact' },
 ];

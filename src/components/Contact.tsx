@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, MapPin, Sparkles, Award, Globe, Copy, Check, ExternalLink, ShieldCheck, Flag, Users } from 'lucide-react';
+import { Mail, MapPin, Sparkles, Award, Globe, Copy, Check, ShieldCheck, Flag, Users } from 'lucide-react';
 import { useGsapReveal } from '@/hooks/useGsapAnimations';
 
 export default function Contact() {

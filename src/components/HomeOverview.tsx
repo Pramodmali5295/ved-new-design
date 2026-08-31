@@ -1,6 +1,7 @@
-import { Trophy, CheckCircle2, ShieldCheck, Medal, ArrowRight, Maximize2, Sparkles, Flag, HeartHandshake, Users } from 'lucide-react';
+import { Trophy, CheckCircle2, Medal, ArrowRight, Maximize2, Sparkles, Users } from 'lucide-react';
 import { GALLERY_ITEMS, NATIONAL_RESULTS } from '@/data';
 import Hero from '@/components/Hero';
+import Believers from '@/components/Believers';
 import { useGsapReveal, GsapCounter } from '@/hooks/useGsapAnimations';
 
 interface HomeOverviewProps {
@@ -38,10 +39,10 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
                 <span className="h-[1px] w-6 bg-[#a8895c] lg:hidden" />
               </div>
               <h2 className="mt-3 sm:mt-4 font-display text-2xl xs:text-3xl sm:text-4xl text-white lg:text-5xl text-center lg:text-left">
-                A 16-Year-Old on the World Equestrian Podium
+                16 yo. Youngest with Podium Finish.
               </h2>
               <p className="mt-3 sm:mt-4 font-sans text-xs sm:text-sm md:text-base leading-relaxed text-[#d9cdb8]/85 text-center lg:text-left">
-                Ved Sarma Sarkar is one of India&rsquo;s most promising equestrian athletes. At age 16, he became the youngest rider on the podium at the FEI World Eventing Challenge. Today, he is training and competing in Ocala, Florida &mdash; the epicenter of world equestrian sport &mdash; targeting the 2030 Asian Games and 2032 Olympics.
+                Ved Sarma Sarkar is one of India&rsquo;s most promising equestrian athletes. At 16, he became the youngest rider on the podium at the FEI World Eventing Challenge. Today he is competing in one of the world&rsquo;s most competitive equestrian destinations &mdash; Ocala, Florida, home to legendary riders like Buck Davidson and Wil Coleman. Ocala is said to be the epicentre of equestrian sport, where Ved is carving his pathway to the Asian Games 2030 and Olympic Games 2032.
               </p>
               <div className="mt-6 flex flex-col xs:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 w-full">
                 <button
@@ -52,24 +53,25 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
                   <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
                 </button>
                 <button
-                  onClick={() => onNavigate('record')}
+                  onClick={() => onNavigate('making')}
                   className="btn-shimmer group inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-black/40 px-5 py-2.5 font-sans text-xs uppercase tracking-wider text-[#d9cdb8] transition-all hover:border-[#a8895c] hover:text-[#e6c994] min-h-[42px]"
                 >
-                  <span>Official Record</span>
+                  <span>The Journey &amp; Record</span>
                   <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
                 </button>
               </div>
             </div>
 
             {/* Right: Key Highlights 4 Cards with Luxury Micro-Interactions */}
-            <div className="gsap-reveal-right lg:col-span-6 grid gap-3 sm:gap-4 grid-cols-2">
-              <div className="group/stat rounded-sm bg-[#251e16] border border-white/10 p-3.5 sm:p-5 shadow-xl transition-all duration-500 hover:-translate-y-1.5 hover:border-[#f0c775]/70 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8),0_0_25px_rgba(240,199,117,0.18)] flex flex-col justify-between cursor-default">
+            <div className="gsap-reveal-right lg:col-span-6 grid gap-2.5 xxs:gap-3 sm:gap-4 grid-cols-2">
+              <div className="group/stat rounded-sm bg-[#251e16] border border-white/10 p-2.5 xxs:p-3.5 sm:p-5 shadow-xl transition-all duration-500 hover:-translate-y-1.5 hover:border-[#f0c775]/70 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8),0_0_25px_rgba(240,199,117,0.18)] flex flex-col justify-between cursor-default">
                 <div className="flex items-center justify-between">
-                  <span className="font-display text-2xl xs:text-3xl sm:text-4xl text-[#e6c994] font-bold group-hover/stat:text-[#f0c775] transition-colors">
+                  <span className="font-display text-xl xxs:text-2xl xs:text-3xl sm:text-4xl text-[#e6c994] font-bold group-hover/stat:text-[#f0c775] transition-colors">
                     <GsapCounter end={16} />
                   </span>
-                  <div className="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#e6c994] group-hover/stat:scale-110 group-hover/stat:bg-[#a8895c]/35 transition-all duration-500">
-                    <Trophy size={16} />
+                  <div className="flex h-6 w-6 xxs:h-7 xxs:w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#e6c994] group-hover/stat:scale-110 group-hover/stat:bg-[#a8895c]/35 transition-all duration-500 shrink-0">
+                    <Trophy size={14} className="sm:hidden" />
+                    <Trophy size={16} className="hidden sm:block" />
                   </div>
                 </div>
                 <div>
@@ -104,18 +106,18 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
               <div className="group/stat rounded-sm bg-[#251e16] border border-white/10 p-3.5 sm:p-5 shadow-xl transition-all duration-500 hover:-translate-y-1.5 hover:border-[#f0c775]/70 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8),0_0_25px_rgba(240,199,117,0.18)] flex flex-col justify-between cursor-default">
                 <div className="flex items-center justify-between">
                   <span className="font-display text-2xl xs:text-3xl sm:text-4xl text-[#e6c994] font-bold group-hover/stat:text-[#f0c775] transition-colors">
-                    <GsapCounter end={0} />
+                    <GsapCounter end={1} />
                   </span>
                   <div className="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#e6c994] group-hover/stat:scale-110 group-hover/stat:bg-[#a8895c]/35 transition-all duration-500">
-                    <ShieldCheck size={16} />
+                    <Medal size={16} />
                   </div>
                 </div>
                 <div>
                   <p className="mt-2.5 sm:mt-3 font-sans text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-white">
-                    XC Jump Penalties
+                    International Podium
                   </p>
                   <p className="mt-0.5 sm:mt-1 font-sans text-[10px] sm:text-[11px] text-[#d9cdb8]/70">
-                    Zero jump penalties across courses
+                    FEI World Challenge &bull; Delhi
                   </p>
                 </div>
               </div>
@@ -374,7 +376,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
                   <h3 className="font-display text-xl sm:text-2xl text-white">National &amp; FEI Results</h3>
                 </div>
                 <button
-                  onClick={() => onNavigate('record')}
+                  onClick={() => onNavigate('making')}
                   className="font-sans text-xs uppercase tracking-wider text-[#e6c994] font-semibold hover:underline"
                 >
                   Full Record &rarr;
@@ -411,8 +413,8 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
                   <p className="font-sans text-[8px] sm:text-[9px] uppercase tracking-wider text-[#d9cdb8]/70">Completion</p>
                 </div>
                 <div className="bg-[#19140e] p-2 sm:p-2.5 rounded-sm border border-white/5">
-                  <p className="font-display text-base sm:text-lg text-[#e6c994] font-bold">0</p>
-                  <p className="font-sans text-[8px] sm:text-[9px] uppercase tracking-wider text-[#d9cdb8]/70">Penalties</p>
+                  <p className="font-display text-base sm:text-lg text-[#e6c994] font-bold">1</p>
+                  <p className="font-sans text-[8px] sm:text-[9px] uppercase tracking-wider text-[#d9cdb8]/70">Intl Podium</p>
                 </div>
               </div>
             </div>
@@ -478,8 +480,11 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
         </div>
       </section>
 
-      {/* 6. OLYMPIC ROADMAP BANNER */}
-      <section className="bg-[#19140e] text-[#ebe4d8] py-14 sm:py-20 lg:py-28 relative overflow-hidden">
+      {/* 6. FOUNDATIONAL SUPPORT & EARLY BELIEVERS */}
+      <Believers />
+
+      {/* 7. OLYMPIC ROADMAP BANNER */}
+      <section className="bg-[#1c1610] text-[#ebe4d8] py-14 sm:py-20 lg:py-28 relative overflow-hidden border-t border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
           <div className="reveal rounded-sm border border-[#a8895c]/40 bg-[#251e16] text-[#ebe4d8] p-5 sm:p-8 lg:p-10 shadow-2xl">
             <div className="flex flex-col items-center text-center md:flex-row md:items-center md:justify-between md:text-left border-b border-white/10 pb-5 gap-4">

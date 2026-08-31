@@ -1,18 +1,7 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Menu, X, ArrowRight, Mail } from 'lucide-react';
-
-export const NAV_LINKS = [
-  { label: 'Home', target: 'home' },
-  { label: 'About Ved', target: 'about' },
-  { label: 'The Journey', target: 'making' },
-  { label: 'In Action & Gallery', target: 'media' },
-  { label: 'The Partnership', target: 'partnership' },
-  { label: 'Results', target: 'record' },
-  { label: 'Mentors', target: 'coaches' },
-  { label: 'Road Ahead', target: 'road' },
-  { label: 'Contact', target: 'contact' },
-];
+import { NAV_LINKS } from '@/data';
 
 interface NavProps {
   currentPage: string;
@@ -122,9 +111,9 @@ export default function Nav({ currentPage, onNavigate }: NavProps) {
 
       {/* Full-Screen 100% Solid Opaque Mobile/Tablet Drawer Portal (No Background Bleed-Through) */}
       {open && typeof document !== 'undefined' && createPortal(
-        <div className="xl:hidden fixed inset-0 z-[999999] bg-[#120d08] flex flex-col justify-between h-[100dvh] w-full overflow-hidden animate-modal-enter">
+        <div className="xl:hidden fixed inset-0 z-[999999] bg-[#120d08] flex flex-col justify-between h-[100dvh] w-full overflow-hidden animate-modal-enter safe-top safe-bottom">
           {/* Solid Top Bar inside mobile menu with Logo and Close button */}
-          <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-white/15 shrink-0 bg-[#1a130c]">
+          <div className="flex items-center justify-between px-3.5 xxs:px-4 sm:px-6 py-3.5 sm:py-4 border-b border-white/15 shrink-0 bg-[#1a130c]">
             <button
               onClick={() => handleLinkClick('home')}
               className="font-display text-sm sm:text-base tracking-[0.14em] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] via-[#f0c775] to-[#e6c994] text-left"

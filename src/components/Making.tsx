@@ -4,20 +4,40 @@ import { useGsapReveal } from '@/hooks/useGsapAnimations';
 
 const TIMELINE = [
   {
-    phase: 'Early Years',
-    year: '2021',
-    title: 'The Beginning',
-    text: 'Ved began riding professionally in 2021, discovering Indian Olympian Mr. Imtiaz Anees at a show in Pune. A shy 14-year-old, he rose to the expectations and coaching of Mr. Anees.',
-    image: '/assets/ved-26.jpeg',
-    tag: 'Seahorse Equestrian',
+    phase: 'CSI 2★',
+    year: '2026',
+    title: 'CSI-2★ Accomplished',
+    text: 'World Equestrian Centre, Ocala is host to the best show jumping events and riders, sponsored often by brands such as Longines and Rolex. Accomplishing a 6th position amongst 33 riders was hugely applauded.',
+    image: '/assets/journey 2026(1).jpeg',
+    tag: '6th / 33 Riders &bull; WEC',
+    imgClass: 'aspect-[16/11] sm:aspect-[3/2] object-cover object-[center_28%]',
   },
   {
-    phase: 'National Level',
-    year: '2023',
-    title: 'National Medallist',
-    text: 'Team Silver at the Junior National Equestrian Championship in Eventing. Ved established himself on the national stage.',
-    image: '/assets/ved-2.jpeg',
-    tag: 'Team Silver',
+    phase: 'FEI CCI-1★',
+    year: '2026',
+    title: 'India Representation in FEI CCI-1★',
+    text: 'Tryon International, NC is one of the most prestigious circuits in the world, one that hosted World Equestrian Games in 2018. Ved’s entry into the arena, alongside professionals who claim world position #2, 11 and 23, was a major milestone for India. Placed #9th.',
+    image: '/assets/journey 2026(2).jpeg',
+    tag: 'Placed #9th &bull; Tryon',
+    imgClass: 'aspect-[16/10] sm:aspect-[4/3] object-cover object-center',
+  },
+  {
+    phase: 'US Circuit',
+    year: '2026',
+    title: 'Ocala Circuit',
+    text: 'Mecca of Equestrian world, Ocala, FL is one of the renowned competitive circuits in the world. Ved completed a commendable 6 competitions with 2 podium finishes!',
+    image: '/assets/journey 2026(3).jpeg',
+    tag: '2 Podium Finishes',
+    imgClass: 'aspect-[16/10] sm:aspect-[4/3] object-cover object-center',
+  },
+  {
+    phase: 'National Podium',
+    year: '2024',
+    title: 'National Medallist Again',
+    text: 'Individual Bronze at Junior National Equestrian Championship, Delhi. Ved made a powerful statement by claiming Individual Bronze — a remarkable podium finish two years in a row.',
+    image: '/assets/journey 2024(4).jpeg',
+    tag: 'Individual Bronze',
+    imgClass: 'aspect-[16/10] sm:aspect-[4/3] object-cover object-center',
   },
   {
     phase: 'FEI Podium',
@@ -26,38 +46,25 @@ const TIMELINE = [
     text: 'FEI World Eventing Challenge, New Delhi — at age 16, Ved was the youngest rider on the podium. World Eventing Challenge, is conducted throughout the world by the International body - FEI. Each zone has about 9-10 countries competing.',
     image: '/assets/ved-5.jpeg',
     tag: 'FEI 2023 Podium',
+    imgClass: 'aspect-[16/10] sm:aspect-[4/3] object-cover object-center',
   },
   {
-    phase: 'National Podium',
-    year: '2024',
-    title: 'National Medallist Again',
-    text: 'Individual Bronze at Junior National Equestrian Championship, Delhi. Ved made a powerful statement by claiming Individual Bronze — a remarkable podium finish two years in a row.',
-    image: '/assets/ved-21.jpeg',
-    tag: 'Individual Bronze',
+    phase: 'National Level',
+    year: '2023',
+    title: 'National Medallist',
+    text: 'Team Silver at the Junior National Equestrian Championship in Eventing. Ved established himself on the national stage.',
+    image: '/assets/ved-2.jpeg',
+    tag: 'Team Silver',
+    imgClass: 'aspect-[16/10] sm:aspect-[4/3] object-cover object-center',
   },
   {
-    phase: 'US Circuit',
-    year: '2026',
-    title: 'Ocala Circuit',
-    text: 'Mecca of Equestrian world, Ocala, FL is one of the renowned competitive circuits in the world. Ved completed a commendable 6 competitions with 2 podium finishes!',
-    image: '/assets/ved-16.jpeg',
-    tag: '2 Podium Finishes',
-  },
-  {
-    phase: 'FEI CCI-1★',
-    year: '2026',
-    title: 'India Representation in FEI CCI-1★',
-    text: 'Tryon International, NC is one of the most prestigious circuits in the world, one that hosted World Equestrian Games in 2018. Ved’s entry into the arena, alongside professionals who claim world position #2, 11 and 23, was a major milestone for India. Placed #9th.',
-    image: '/assets/ved-11.jpeg',
-    tag: 'Placed #9th &bull; Tryon',
-  },
-  {
-    phase: 'CSI 2★',
-    year: '2026',
-    title: 'CSI-2★ Accomplished',
-    text: 'World Equestrian Centre, Ocala is host to the best show jumping events and riders, sponsored often by brands such as Longines and Rolex. Accomplishing a 6th position amongst 33 riders was hugely applauded.',
-    image: '/assets/ved-30.jpeg',
-    tag: '6th / 33 Riders &bull; WEC',
+    phase: 'Early Years',
+    year: '2021',
+    title: 'The Beginning',
+    text: 'Ved began riding professionally in 2021, discovering Indian Olympian Mr. Imtiaz Anees at a show in Pune. A shy 14-year-old, he rose to the expectations and coaching of Mr. Anees.',
+    image: '/assets/journey 2021.jpeg',
+    tag: 'Seahorse Equestrian',
+    imgClass: 'aspect-[16/12] sm:aspect-[5/4] object-cover object-top',
   },
 ];
 
@@ -69,7 +76,7 @@ export default function Making() {
   }));
 
   return (
-    <section ref={sectionRef} id="making" className="bg-[#1c1610] text-[#ebe4d8] py-16 sm:py-24 lg:py-36 relative overflow-hidden">
+    <section ref={sectionRef} id="making" className="bg-[#1c1610] text-[#ebe4d8] pt-16 sm:pt-24 lg:pt-36 pb-6 sm:pb-8 lg:pb-10 relative overflow-hidden">
       {/* Ambient background glows */}
       <div className="absolute top-1/4 left-0 -z-0 h-96 w-96 rounded-full bg-[#a8895c]/10 blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/3 right-0 -z-0 h-96 w-96 rounded-full bg-[#a8895c]/10 blur-3xl pointer-events-none" />
@@ -107,7 +114,7 @@ export default function Making() {
                   <img
                     src={item.image}
                     alt={`${item.title} - ${item.year}`}
-                    className="w-full h-auto aspect-[16/10] sm:aspect-[4/3] object-cover object-center rounded-sm transition-transform duration-700 group-hover:scale-105"
+                    className={`w-full h-auto ${item.imgClass || 'aspect-[16/10] sm:aspect-[4/3] object-cover object-center'} rounded-sm transition-transform duration-700 group-hover:scale-105`}
                     loading="lazy"
                   />
                   <span className="absolute top-2.5 left-2.5 z-20 rounded-full bg-black/80 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#d9cdb8] backdrop-blur-sm border border-white/10">
@@ -140,29 +147,6 @@ export default function Making() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Action band - High Resolution Landscape Action Photo */}
-        <div className="gsap-reveal mt-16 sm:mt-24 relative overflow-hidden rounded-sm bg-[#120d08] border border-[#a8895c]/40 p-1.5 sm:p-2 shadow-2xl flex flex-col items-center">
-          <div className="w-full overflow-hidden bg-[#120d08] rounded-sm">
-            <img
-              src="/assets/ved-25.jpeg"
-              alt="Ved Sarma Sarkar galloping across cross-country water jump"
-              className="w-full h-auto aspect-[16/9] sm:aspect-[21/9] object-cover object-center rounded-sm transition-transform duration-700 hover:scale-102"
-              loading="lazy"
-            />
-          </div>
-          <div className="w-full bg-[#251e16] p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between text-white gap-3 border-t border-white/10 mt-1.5 sm:mt-2 rounded-sm">
-            <div>
-              <p className="font-sans text-[9px] sm:text-[10px] uppercase tracking-widest text-[#a8895c]">
-                Cross-Country Mastery &middot; Elite Performance
-              </p>
-              <p className="font-display text-lg sm:text-xl lg:text-2xl text-white">Precision, Pace &amp; Zero Jump Penalties</p>
-            </div>
-            <span className="rounded-full bg-black/60 border border-[#a8895c]/40 px-3.5 sm:px-4 py-1.5 font-sans text-[11px] sm:text-xs uppercase tracking-wider text-[#e6c994] self-start sm:self-auto shrink-0">
-              100% Competition Completion
-            </span>
-          </div>
         </div>
       </div>
     </section>
