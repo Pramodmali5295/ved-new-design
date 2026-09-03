@@ -32,7 +32,7 @@ const COACHES = [
     role: 'European 5★ Eventers',
     text: 'Ved’s cross-country training started under Mr. Declan Cullen and Mrs. Becky Cullen, European 5★ eventers. The learnings helped Ved later compete and win in Eventing. He gained knowledge about stable management, improving horse fitness through swimming, incline galloping, advanced equipment use, and nutrition.',
     link: 'cullenequinesolutions.com',
-    image: '/assets/mentor cullen.jpg',
+    image: '/assets/mentor cullen.jpeg',
   },
   {
     name: 'Sea Horse Equestrian',

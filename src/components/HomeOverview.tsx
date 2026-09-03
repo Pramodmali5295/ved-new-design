@@ -67,7 +67,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
               <div className="group/stat rounded-sm bg-[#251e16] border border-white/10 p-2.5 xxs:p-3.5 sm:p-5 shadow-xl transition-all duration-500 hover:-translate-y-1.5 hover:border-[#f0c775]/70 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8),0_0_25px_rgba(240,199,117,0.18)] flex flex-col justify-between cursor-default">
                 <div className="flex items-center justify-between">
                   <span className="font-display text-xl xxs:text-2xl xs:text-3xl sm:text-4xl text-[#e6c994] font-bold group-hover/stat:text-[#f0c775] transition-colors">
-                    <GsapCounter end={16} />
+                    <GsapCounter end={16} duration={0.6} />
                   </span>
                   <div className="flex h-6 w-6 xxs:h-7 xxs:w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#e6c994] group-hover/stat:scale-110 group-hover/stat:bg-[#a8895c]/35 transition-all duration-500 shrink-0">
                     <Trophy size={14} className="sm:hidden" />
@@ -87,7 +87,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
               <div className="group/stat rounded-sm bg-[#251e16] border border-white/10 p-3.5 sm:p-5 shadow-xl transition-all duration-500 hover:-translate-y-1.5 hover:border-[#f0c775]/70 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8),0_0_25px_rgba(240,199,117,0.18)] flex flex-col justify-between cursor-default">
                 <div className="flex items-center justify-between">
                   <span className="font-display text-2xl xs:text-3xl sm:text-4xl text-[#e6c994] font-bold group-hover/stat:text-[#f0c775] transition-colors">
-                    <GsapCounter end={100} suffix="%" />
+                    <GsapCounter end={100} suffix="%" duration={0.6} />
                   </span>
                   <div className="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#e6c994] group-hover/stat:scale-110 group-hover/stat:bg-[#a8895c]/35 transition-all duration-500">
                     <CheckCircle2 size={16} />
@@ -106,7 +106,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
               <div className="group/stat rounded-sm bg-[#251e16] border border-white/10 p-3.5 sm:p-5 shadow-xl transition-all duration-500 hover:-translate-y-1.5 hover:border-[#f0c775]/70 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8),0_0_25px_rgba(240,199,117,0.18)] flex flex-col justify-between cursor-default">
                 <div className="flex items-center justify-between">
                   <span className="font-display text-2xl xs:text-3xl sm:text-4xl text-[#e6c994] font-bold group-hover/stat:text-[#f0c775] transition-colors">
-                    <GsapCounter end={1} />
+                    <GsapCounter end={1} duration={0.6} />
                   </span>
                   <div className="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#e6c994] group-hover/stat:scale-110 group-hover/stat:bg-[#a8895c]/35 transition-all duration-500">
                     <Medal size={16} />
@@ -125,7 +125,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
               <div className="group/stat rounded-sm bg-[#251e16] border border-white/10 p-3.5 sm:p-5 shadow-xl transition-all duration-500 hover:-translate-y-1.5 hover:border-[#f0c775]/70 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8),0_0_25px_rgba(240,199,117,0.18)] flex flex-col justify-between cursor-default">
                 <div className="flex items-center justify-between">
                   <span className="font-display text-2xl xs:text-3xl sm:text-4xl text-[#e6c994] font-bold group-hover/stat:text-[#f0c775] transition-colors">
-                    <GsapCounter end={2} />
+                    <GsapCounter end={2} duration={0.6} />
                   </span>
                   <div className="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#e6c994] group-hover/stat:scale-110 group-hover/stat:bg-[#a8895c]/35 transition-all duration-500">
                     <Medal size={16} />
@@ -253,7 +253,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
             <div>
               <div className="inline-flex items-center justify-center md:justify-start gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
                 <span className="h-[1px] w-6 bg-[#a8895c]" />
-                In Action &amp; Gallery Preview
+                In the Game Preview
                 <span className="h-[1px] w-6 bg-[#a8895c] md:hidden" />
               </div>
               <h2 className="mt-3 font-display text-2xl xs:text-3xl sm:text-4xl text-white lg:text-5xl text-center md:text-left">
@@ -321,43 +321,55 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
                   onClick={() => onNavigate('partnership')}
                   className="group inline-flex items-center gap-2 rounded-full bg-[#a8895c] px-5 py-2.5 font-sans text-xs uppercase tracking-wider text-[#2d2418] font-bold transition-all hover:bg-[#c2a372] shadow-md hover:scale-105 active:scale-95 min-h-[42px]"
                 >
-                  <span>Explore Partner Horses</span>
+                  <span>Explore The Partnership</span>
                   <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
                 </button>
               </div>
             </div>
 
-            <div className="lg:col-span-7 grid gap-4 grid-cols-1 sm:grid-cols-2">
+            <div className="lg:col-span-7 grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2">
               <div
                 onClick={() => onNavigate('partnership')}
-                className="group cursor-pointer rounded-sm border border-white/10 bg-[#251e16] p-4 sm:p-5 shadow-xl transition-all duration-500 hover:border-[#f0c775]/70 hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_30px_rgba(240,199,117,0.18)]"
+                className="group cursor-pointer rounded-sm border border-white/10 bg-[#251e16] p-4 sm:p-5 shadow-xl transition-all duration-500 hover:border-[#f0c775]/70 hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_30px_rgba(240,199,117,0.18)] flex flex-col justify-between"
               >
-                <div className="h-44 sm:h-48 w-full bg-[#120d08] rounded-sm flex items-center justify-center overflow-hidden">
+                <div className="h-56 sm:h-64 w-full bg-[#100b07] rounded-sm flex items-center justify-center overflow-hidden border border-white/10 p-2 relative">
                   <img
-                    src="/assets/ved-20.jpeg"
-                    alt="Matteo"
-                    className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-106"
+                    src="/assets/matto.jpeg"
+                    alt="Fernhill Milchem Mateo"
+                    className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-104"
+                    loading="lazy"
                   />
+                  <span className="absolute top-2.5 left-2.5 rounded-full bg-black/85 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#e6c994] border border-[#a8895c]/40 backdrop-blur-sm">
+                    Matteo &bull; Equine Partner
+                  </span>
                 </div>
-                <h4 className="mt-3 font-display text-xl text-white group-hover:text-[#e6c994] transition-colors">Matteo</h4>
-                <p className="font-sans text-[10px] uppercase tracking-wider text-[#a8895c]">10yo &bull; CCI 2★ Irish Sport Horse</p>
-                <p className="mt-1 font-sans text-xs text-[#d9cdb8]/70">The powerhouse partner for international star eventing.</p>
+                <div className="mt-3">
+                  <h4 className="font-display text-xl text-white group-hover:text-[#e6c994] transition-colors">Fernhill Milchem Mateo</h4>
+                  <p className="font-sans text-[10px] uppercase tracking-wider text-[#a8895c]">10yo &bull; CCI 2★ Irish Sport Horse</p>
+                  <p className="mt-1 font-sans text-xs text-[#d9cdb8]/70">The powerhouse partner for international star eventing.</p>
+                </div>
               </div>
 
               <div
                 onClick={() => onNavigate('partnership')}
-                className="group cursor-pointer rounded-sm border border-white/10 bg-[#251e16] p-4 sm:p-5 shadow-xl transition-all duration-500 hover:border-[#f0c775]/70 hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_30px_rgba(240,199,117,0.18)]"
+                className="group cursor-pointer rounded-sm border border-white/10 bg-[#251e16] p-4 sm:p-5 shadow-xl transition-all duration-500 hover:border-[#f0c775]/70 hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_30px_rgba(240,199,117,0.18)] flex flex-col justify-between"
               >
-                <div className="h-44 sm:h-48 w-full bg-[#120d08] rounded-sm flex items-center justify-center overflow-hidden">
+                <div className="h-56 sm:h-64 w-full bg-[#100b07] rounded-sm flex items-center justify-center overflow-hidden border border-white/10 p-2 relative">
                   <img
-                    src="/assets/ved-24.jpeg"
-                    alt="Cuba"
-                    className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-106"
+                    src="/assets/ved-20.jpeg"
+                    alt="Matteo in Competition"
+                    className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-104"
+                    loading="lazy"
                   />
+                  <span className="absolute top-2.5 left-2.5 rounded-full bg-black/80 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#e6c994] border border-[#a8895c]/40 backdrop-blur-sm">
+                    Competition Action
+                  </span>
                 </div>
-                <h4 className="mt-3 font-display text-xl text-white group-hover:text-[#e6c994] transition-colors">Cuba</h4>
-                <p className="font-sans text-[10px] uppercase tracking-wider text-[#a8895c]">Partner &bull; Trail &amp; Arena Specialist</p>
-                <p className="mt-1 font-sans text-xs text-[#d9cdb8]/70">Endurance conditioning and rhythm training companion.</p>
+                <div className="mt-3">
+                  <h4 className="font-display text-xl text-white group-hover:text-[#e6c994] transition-colors">Matteo in Competition</h4>
+                  <p className="font-sans text-[10px] uppercase tracking-wider text-[#a8895c]">High Clearance Show Jumping</p>
+                  <p className="mt-1 font-sans text-xs text-[#d9cdb8]/70">Power, precision, and effortless jumping rhythm.</p>
+                </div>
               </div>
             </div>
           </div>

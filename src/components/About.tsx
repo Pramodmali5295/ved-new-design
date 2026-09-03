@@ -1,9 +1,33 @@
-import { Sparkles } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
+import { Sparkles, Maximize2, X } from 'lucide-react';
 import { PILLARS } from '../data';
 import { useGsapReveal } from '@/hooks/useGsapAnimations';
 
 export default function About() {
   const sectionRef = useGsapReveal<HTMLElement>();
+  const [selectedMedia, setSelectedMedia] = useState<{
+    type: 'video' | 'image';
+    src: string;
+    title: string;
+    caption: string;
+  } | null>(null);
+
+  // Lock scroll when modal is open
+  useEffect(() => {
+    if (selectedMedia) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') setSelectedMedia(null);
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [selectedMedia]);
 
   return (
     <section ref={sectionRef} id="about" className="bg-[#1c1610] text-[#ebe4d8] py-16 sm:py-24 lg:py-36 relative overflow-hidden">
@@ -35,11 +59,6 @@ export default function About() {
                   className="w-full h-auto aspect-[16/10] object-cover object-center transition-transform duration-500 hover:scale-105"
                   loading="lazy"
                 />
-                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent py-1 px-2 text-center">
-                  <span className="font-sans text-[8px] sm:text-[9px] uppercase tracking-widest text-[#e6c994] font-medium block truncate">
-                    Show Jumping Mastery
-                  </span>
-                </div>
               </div>
             </div>
 
@@ -92,7 +111,7 @@ export default function About() {
               <div className="h-8 w-[1px] bg-white/15 hidden xs:block" />
               <div>
                 <p className="font-display text-xl sm:text-2xl text-white">2030 &amp; 2032</p>
-                <p className="font-sans text-[9px] sm:text-[10px] uppercase tracking-wider text-[#a8895c]">Asian &amp; Olympic Vision</p>
+                <p className="font-sans text-[9px] sm:text-[10px] uppercase tracking-wider text-[#a8895c]">Asian and Olympic Games Vision</p>
               </div>
               <div className="h-8 w-[1px] bg-white/15 hidden xs:block" />
               <div className="flex items-center gap-2 text-[#e6c994] font-sans text-xs">
@@ -118,28 +137,239 @@ export default function About() {
           </p>
         </div>
 
-        {/* Pillars Grid */}
-        <div className="gsap-stagger-container mt-8 sm:mt-12 grid gap-6 sm:gap-x-10 sm:gap-y-10 lg:gap-x-12 grid-cols-1 sm:grid-cols-2">
-          {PILLARS.map((pillar, i) => (
-            <div
-              key={pillar.title}
-              className="gsap-stagger-item border-l-2 border-[#a8895c]/50 pl-4 sm:pl-6 bg-[#251e16]/50 p-4 sm:p-6 rounded-r-sm border-y border-r border-white/5 hover:border-[#a8895c] transition-colors"
-            >
-              <div className="flex items-baseline gap-3 sm:gap-4">
-                <span className="font-display text-2xl sm:text-3xl font-bold text-[#e6c994]">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <h3 className="font-display text-xl sm:text-2xl text-white lg:text-3xl">
-                  {pillar.title}
-                </h3>
+        {/* Pillars Alternating Horizontal Rows with Full Width Media */}
+        <div className="gsap-stagger-container mt-12 sm:mt-16 space-y-8 sm:space-y-10 lg:space-y-12">
+          {/* Pillar 1: Discipline (Image/Video on Left, Content on Right) */}
+          <div className="gsap-stagger-item rounded-sm border border-white/10 bg-[#251e16] shadow-xl overflow-hidden hover:border-[#a8895c]/70 transition-all duration-500 p-4 sm:p-6 lg:p-8">
+            <div className="flex flex-col lg:flex-row items-center gap-6 sm:gap-8 lg:gap-12">
+              {/* Media on Left - Full Width Stretched, Same Height */}
+              <div 
+                onClick={() => setSelectedMedia({
+                  type: 'video',
+                  src: '/assets/video-6.mp4',
+                  title: 'Discipline — Fitness & Conditioning',
+                  caption: 'Relentless preparation and conditioning through every phase of training.'
+                })}
+                className="w-full lg:w-1/2 h-60 sm:h-72 lg:h-80 overflow-hidden rounded-sm bg-[#100b07] border border-white/10 flex items-center justify-center cursor-pointer group relative"
+              >
+                <video
+                  src="/assets/video-6.mp4"
+                  preload="auto"
+                  muted
+                  loop
+                  autoPlay
+                  playsInline
+                  disablePictureInPicture
+                  className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-103"
+                />
+                <div className="absolute top-2.5 left-2.5 rounded-full bg-black/80 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#e6c994] border border-[#a8895c]/40 backdrop-blur-sm">
+                  01 &bull; Fitness &amp; Conditioning
+                </div>
+                <div className="absolute bottom-2.5 right-2.5 rounded-full bg-black/80 p-1.5 text-[#e6c994] opacity-0 group-hover:opacity-100 transition-opacity border border-[#a8895c]/40">
+                  <Maximize2 size={14} />
+                </div>
               </div>
-              <p className="mt-3 sm:mt-4 font-sans text-xs sm:text-sm leading-[1.8] text-[#d9cdb8]/80">
-                {pillar.text}
-              </p>
+
+              {/* Content on Right */}
+              <div className="w-full lg:w-1/2 flex flex-col justify-center">
+                <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-widest text-[#a8895c]">
+                  <span className="h-[1px] w-6 bg-[#a8895c]" />
+                  Pillar 01
+                </div>
+                <div className="mt-2 flex items-baseline gap-3">
+                  <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#e6c994]">01</span>
+                  <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl text-white">
+                    Discipline
+                  </h3>
+                </div>
+                <p className="mt-4 font-sans text-xs sm:text-sm lg:text-base leading-[1.85] text-[#d9cdb8]/85">
+                  Training has never been defined only by the days Ved rides. He has maintained the same commitment to fitness, conditioning and preparation through periods with no competition on the calendar and no horse to ride. Being ready was part of being an athlete — not something that began when a competition appeared.
+                </p>
+              </div>
             </div>
-          ))}
+          </div>
+
+          {/* Pillar 2: Adaptability (Content on Left, Image on Right - Full Width, Same Height) */}
+          <div className="gsap-stagger-item rounded-sm border border-white/10 bg-[#251e16] shadow-xl overflow-hidden hover:border-[#a8895c]/70 transition-all duration-500 p-4 sm:p-6 lg:p-8">
+            <div className="flex flex-col lg:flex-row-reverse items-center gap-6 sm:gap-8 lg:gap-12">
+              {/* Media on Right */}
+              <div 
+                onClick={() => setSelectedMedia({
+                  type: 'image',
+                  src: '/assets/ved-33.jpeg',
+                  title: 'Adaptability — Trust & Partnership',
+                  caption: 'Finding sync, patience, and mutual connection with each horse.'
+                })}
+                className="w-full lg:w-1/2 h-60 sm:h-72 lg:h-80 overflow-hidden rounded-sm bg-[#100b07] border border-white/10 flex items-center justify-center cursor-pointer group relative"
+              >
+                <img
+                  src="/assets/ved-33.jpeg"
+                  alt="Ved and horse in mutual bond and adaptability"
+                  className="h-full w-full object-cover object-[center_60%] transition-transform duration-700 group-hover:scale-104"
+                  loading="lazy"
+                />
+                <div className="absolute top-2.5 left-2.5 rounded-full bg-black/80 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#e6c994] border border-[#a8895c]/40 backdrop-blur-sm">
+                  02 &bull; Trust &amp; Partnership
+                </div>
+                <div className="absolute bottom-2.5 right-2.5 rounded-full bg-black/80 p-1.5 text-[#e6c994] opacity-0 group-hover:opacity-100 transition-opacity border border-[#a8895c]/40">
+                  <Maximize2 size={14} />
+                </div>
+              </div>
+
+              {/* Content on Left */}
+              <div className="w-full lg:w-1/2 flex flex-col justify-center">
+                <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-widest text-[#a8895c]">
+                  <span className="h-[1px] w-6 bg-[#a8895c]" />
+                  Pillar 02
+                </div>
+                <div className="mt-2 flex items-baseline gap-3">
+                  <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#e6c994]">02</span>
+                  <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl text-white">
+                    Adaptability
+                  </h3>
+                </div>
+                <p className="mt-4 font-sans text-xs sm:text-sm lg:text-base leading-[1.85] text-[#d9cdb8]/85">
+                  Eventing rarely gives you everything you want. Ved has learned to work with leased horses, understand what each one needs, and trust it. Different horses, environments and challenges have taught him to stay observant, composed, humble and willing to learn. For him, adaptability is not about changing direction — it is about finding a sync.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Pillar 3: Grit (Image on Left, Content on Right - Full Width, Same Height) */}
+          <div className="gsap-stagger-item rounded-sm border border-white/10 bg-[#251e16] shadow-xl overflow-hidden hover:border-[#a8895c]/70 transition-all duration-500 p-4 sm:p-6 lg:p-8">
+            <div className="flex flex-col lg:flex-row items-center gap-6 sm:gap-8 lg:gap-12">
+              {/* Media on Left */}
+              <div 
+                onClick={() => setSelectedMedia({
+                  type: 'image',
+                  src: '/assets/ved-13.jpeg',
+                  title: 'Grit — Focus & Determination',
+                  caption: 'Relentless dedication and perseverance through challenging competition courses.'
+                })}
+                className="w-full lg:w-1/2 h-60 sm:h-72 lg:h-80 overflow-hidden rounded-sm bg-[#100b07] border border-white/10 flex items-center justify-center cursor-pointer group relative"
+              >
+                <img
+                  src="/assets/ved-13.jpeg"
+                  alt="Ved focused and determined over obstacle"
+                  className="h-full w-full object-cover object-[center_18%] transition-transform duration-700 group-hover:scale-104"
+                  loading="lazy"
+                />
+                <div className="absolute top-2.5 left-2.5 rounded-full bg-black/80 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#e6c994] border border-[#a8895c]/40 backdrop-blur-sm">
+                  03 &bull; Focus &amp; Determination
+                </div>
+                <div className="absolute bottom-2.5 right-2.5 rounded-full bg-black/80 p-1.5 text-[#e6c994] opacity-0 group-hover:opacity-100 transition-opacity border border-[#a8895c]/40">
+                  <Maximize2 size={14} />
+                </div>
+              </div>
+
+              {/* Content on Right */}
+              <div className="w-full lg:w-1/2 flex flex-col justify-center">
+                <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-widest text-[#a8895c]">
+                  <span className="h-[1px] w-6 bg-[#a8895c]" />
+                  Pillar 03
+                </div>
+                <div className="mt-2 flex items-baseline gap-3">
+                  <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#e6c994]">03</span>
+                  <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl text-white">
+                    Grit
+                  </h3>
+                </div>
+                <p className="mt-4 font-sans text-xs sm:text-sm lg:text-base leading-[1.85] text-[#d9cdb8]/85">
+                  Ved’s journey has not always moved in a straight line. There have been periods of uncertainty, changing horses, interrupted plans and long stretches of preparation without knowing when the next opportunity would come. What has remained constant is his willingness to keep working. He keeps learning, keeps preparing and keeps moving forward.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Pillar 4: Coachability (Content on Left, Image on Right - Full Width, Same Height) */}
+          <div className="gsap-stagger-item rounded-sm border border-white/10 bg-[#251e16] shadow-xl overflow-hidden hover:border-[#a8895c]/70 transition-all duration-500 p-4 sm:p-6 lg:p-8">
+            <div className="flex flex-col lg:flex-row-reverse items-center gap-6 sm:gap-8 lg:gap-12">
+              {/* Media on Right */}
+              <div 
+                onClick={() => setSelectedMedia({
+                  type: 'image',
+                  src: '/assets/ved-2.jpeg',
+                  title: 'Coachability — Receptive Excellence',
+                  caption: 'Absorbing and applying elite international coaching techniques into winning performances.'
+                })}
+                className="w-full lg:w-1/2 h-60 sm:h-72 lg:h-80 overflow-hidden rounded-sm bg-[#100b07] border border-white/10 flex items-center justify-center cursor-pointer group relative"
+              >
+                <img
+                  src="/assets/ved-2.jpeg"
+                  alt="Ved in championship eventing applying elite coaching"
+                  className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-104"
+                  loading="lazy"
+                />
+                <div className="absolute top-2.5 left-2.5 rounded-full bg-black/80 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#e6c994] border border-[#a8895c]/40 backdrop-blur-sm">
+                  04 &bull; Receptive Excellence
+                </div>
+                <div className="absolute bottom-2.5 right-2.5 rounded-full bg-black/80 p-1.5 text-[#e6c994] opacity-0 group-hover:opacity-100 transition-opacity border border-[#a8895c]/40">
+                  <Maximize2 size={14} />
+                </div>
+              </div>
+
+              {/* Content on Left */}
+              <div className="w-full lg:w-1/2 flex flex-col justify-center">
+                <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-widest text-[#a8895c]">
+                  <span className="h-[1px] w-6 bg-[#a8895c]" />
+                  Pillar 04
+                </div>
+                <div className="mt-2 flex items-baseline gap-3">
+                  <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#e6c994]">04</span>
+                  <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl text-white">
+                    Coachability
+                  </h3>
+                </div>
+                <p className="mt-4 font-sans text-xs sm:text-sm lg:text-base leading-[1.85] text-[#d9cdb8]/85">
+                  At this stage of an athlete’s journey, talent is only part of the equation. The ability to listen, absorb and apply is what allows talent to develop. Ved actively seeks feedback and is willing to change his approach when it makes him a better rider. Working with different coaches and horses has taught him to remain curious, receptive and focused on learning.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* 100% Fullscreen Lightbox Modal for Pillars */}
+      {selectedMedia && typeof document !== 'undefined' && createPortal(
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md p-4 sm:p-6"
+          onClick={() => setSelectedMedia(null)}
+        >
+          {/* Close Button */}
+          <button
+            onClick={() => setSelectedMedia(null)}
+            className="absolute top-4 right-4 z-50 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white/10 text-white hover:bg-[#a8895c] hover:text-[#2d2418] transition-colors"
+            aria-label="Close modal"
+          >
+            <X size={22} />
+          </button>
+
+          <div
+            className="relative max-h-[90vh] max-w-4xl w-full flex flex-col items-center justify-center bg-[#140e08] rounded-sm border border-[#a8895c]/40 p-2 sm:p-4 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {selectedMedia.type === 'video' ? (
+              <video
+                src={selectedMedia.src}
+                controls
+                autoPlay
+                className="max-h-[70vh] w-full object-contain rounded-sm"
+              />
+            ) : (
+              <img
+                src={selectedMedia.src}
+                alt={selectedMedia.title}
+                className="max-h-[70vh] w-full object-contain rounded-sm"
+              />
+            )}
+            <div className="w-full mt-3 p-3 bg-[#1c1610] rounded-sm border border-white/10 text-center">
+              <h4 className="font-display text-lg sm:text-xl text-[#e6c994]">{selectedMedia.title}</h4>
+              <p className="mt-1 font-sans text-xs text-[#d9cdb8]/80">{selectedMedia.caption}</p>
+            </div>
+          </div>
+        </div>,
+        document.body
+      )}
     </section>
   );
 }

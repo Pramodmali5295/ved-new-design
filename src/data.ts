@@ -25,12 +25,18 @@ export const IMAGES = {
 
 export const VIDEOS = [
   {
+    id: 'video-3',
+    src: '/assets/video-3.mp4',
+    title: 'Flatwork & Form Alignment',
+    category: 'Dressage & Flatwork',
+    description: 'Developing connection, impulsion, and supple responsiveness with the horse.',
+  },
+  {
     id: 'video-1',
     src: '/assets/video-1.mp4',
     title: 'Cross-Country Power & Rhythm',
     category: 'Cross Country',
     description: 'Ved navigating open terrain with cadence, balance and precision pacing.',
-    poster: '/assets/ved-1.jpeg',
   },
   {
     id: 'video-2',
@@ -38,15 +44,6 @@ export const VIDEOS = [
     title: 'Arena Precision & Stride Control',
     category: 'Arena Work',
     description: 'Technical line approaches and balanced take-off over competition fences.',
-    poster: '/assets/ved-8.jpeg',
-  },
-  {
-    id: 'video-3',
-    src: '/assets/video-3.mp4',
-    title: 'Flatwork & Form Alignment',
-    category: 'Dressage & Flatwork',
-    description: 'Developing connection, impulsion, and supple responsiveness with the horse.',
-    poster: '/assets/ved-7.jpeg',
   },
   {
     id: 'video-4',
@@ -54,7 +51,6 @@ export const VIDEOS = [
     title: 'Full Course Jump Execution',
     category: 'Show Jumping',
     description: 'Clean clearance across high competition obstacles with zero penalties.',
-    poster: '/assets/ved-8.jpeg',
   },
   {
     id: 'video-5',
@@ -62,7 +58,6 @@ export const VIDEOS = [
     title: 'Cross-Country Speed & Lines',
     category: 'Eventing Circuit',
     description: 'Speed control, straightness and obstacle navigation at full gallop.',
-    poster: '/assets/ved-1.jpeg',
   },
   {
     id: 'video-6',
@@ -70,7 +65,6 @@ export const VIDEOS = [
     title: 'Technical Obstacle Sequence',
     category: 'Technical Training',
     description: 'Combination fences, quick recovery and balanced stride discipline.',
-    poster: '/assets/ved-6.jpeg',
   },
   {
     id: 'video-7',
@@ -78,11 +72,19 @@ export const VIDEOS = [
     title: 'Championship Course Execution',
     category: 'Show Jumping',
     description: 'Dynamic pacing, technical obstacle navigation, and clean line execution.',
-    poster: '/assets/ved-20.jpeg',
+  },
+  {
+    id: 'video-matteo',
+    src: '/assets/matto.mp4',
+    title: 'Matteo — Training & Conditioning in Ocala',
+    category: 'The Partnership',
+    description: 'Dynamic training rounds with Matteo at the BDJ Equestrian training facility in Florida.',
   },
 ];
 
 export const GALLERY_ITEMS = [
+  { id: 'g-35', src: '/assets/ved-35.jpeg', title: 'The Times of India Feature', category: 'Milestones' },
+  { id: 'g-36', src: '/assets/ved-36.jpeg', title: 'High-Clearance Cross-Country Jump', category: 'Competition' },
   { id: 'g-1', src: '/assets/ved-1.jpeg', title: 'Cross-Country Precision & Speed', category: 'Competition' },
   { id: 'g-2', src: '/assets/ved-2.jpeg', title: 'Junior National Championship Silver', category: 'Milestones' },
   { id: 'g-3', src: '/assets/ved-3.jpeg', title: 'Foundations at Seahorse Academy', category: 'The Bond' },
@@ -90,7 +92,7 @@ export const GALLERY_ITEMS = [
   { id: 'g-5', src: '/assets/ved-5.jpeg', title: 'FEI World Challenge Podium', category: 'Milestones' },
   { id: 'g-6', src: '/assets/ved-6.jpeg', title: 'Endurance & Trail Conditioning', category: 'Portraits' },
   { id: 'g-7', src: '/assets/ved-7.jpeg', title: 'Formal Equestrian Athlete Portrait', category: 'Portraits' },
-  { id: 'g-8', src: '/assets/ved-8.jpeg', title: 'Show Jumping Mastery', category: 'Competition' },
+  { id: 'g-8', src: '/assets/ved-8.jpeg', title: 'Show Jumping Precision', category: 'Competition' },
   { id: 'g-9', src: '/assets/ved-9.jpeg', title: 'Hillside Training Horizons', category: 'Landscapes' },
   { id: 'g-10', src: '/assets/ved-10.jpeg', title: 'The American Circuit & Facilities', category: 'Landscapes' },
   { id: 'g-11', src: '/assets/ved-11.jpeg', title: 'Archival Photography 11', category: 'Competition' },
@@ -143,6 +145,14 @@ export const TIMELINE = [
     text: 'Mecca of Equestrian world, Ocala, FL is one of the renowned competitive circuits in the world. Ved completed a commendable 6 competitions with 2 podium finishes!',
     image: '/assets/journey 2026(3).jpeg',
     tag: '2 Podium Finishes',
+  },
+  {
+    phase: 'Asian Youth Games',
+    year: '2025',
+    title: 'Asian Youth Games Shortlist',
+    text: 'Shortlisted to represent India in The Asian Youth Games, Bahrain Oct 2025, Ved was a prominent Elite rider the country was looking out for',
+    image: '/assets/ved-17.jpeg',
+    tag: 'Bahrain &bull; Oct 2025',
   },
   {
     phase: 'National Podium',
@@ -204,7 +214,7 @@ export const COACHES = [
     role: '5★ Eventer — Coach',
     text: 'A world-renowned eventer, training very selectively at BDJ Equestrian Centre in Ocala, FL and Chesterland, PA — the “Mecca of Eventing.” With five decades of top 5★ experience, Buck Davidson held world #3 and US #1 for a long period, and has coached numerous eventers to Olympics and World Championships. Son of legendary four-time Olympian Bruce Davidson Sr.',
     link: 'www.bdjequestrian.com',
-    image: 'IMAGES.coachBruce',
+    image: '/assets/mentor Bruce.webp',
   },
   {
     name: 'Donna Smith',
@@ -212,7 +222,7 @@ export const COACHES = [
     role: '5★ Eventer — Coach',
     text: 'An acclaimed 5★ eventer, winner of 11 national titles, who has represented New Zealand eleven times internationally. An expert in training horses from lower levels to 5★, she is a sought-after coach and her country’s future Performance Potential Squad member. She trained Ved to higher difficulties of cross country, and in the huge importance of core strength and body balance.',
     link: 'www.donnasmitheventing.com',
-    image: 'IMAGES.coachDonna',
+    image: '/assets/mentor donna.webp',
   },
   {
     name: 'Le Cadre Noir',
@@ -220,7 +230,7 @@ export const COACHES = [
     role: 'Elite Equine Institute',
     text: 'Internationally one of the most respected equine institutes, supported by the French Government. The lessons from the Ecuyers — especially Mr. David — set the quality and detailing of Ved’s riding. A deep learning on covering higher fences with ease and using the body effectively.',
     link: 'le-cadre-noir.com',
-    image: 'IMAGES.coachCadre',
+    image: '/assets/mentor noir.jpg',
   },
   {
     name: 'Cullen Equine Solutions',
@@ -228,7 +238,7 @@ export const COACHES = [
     role: 'European 5★ Eventers',
     text: 'Ved’s cross-country training started under Mr. Declan Cullen and Mrs. Becky Cullen, European 5★ eventers. The learnings helped Ved later compete and win in Eventing. He gained knowledge about stable management, improving horse fitness through swimming, incline galloping, advanced equipment use, and nutrition.',
     link: 'cullenequine.com',
-    image: 'IMAGES.coachCullen',
+    image: '/assets/mentor cullen.jpeg',
   },
   {
     name: 'Sea Horse Equestrian',
@@ -236,7 +246,7 @@ export const COACHES = [
     role: 'Mr. Imtiaz Anees — Indian Olympian',
     text: 'Indian equestrian is well aware of the legendary Mr. Imtiaz Anees, the second Indian Olympian to participate in the Olympic Games, Sydney 2000, and winner of innumerable medals for India across the world. A certified instructor, coach and author, through Mr. Anees’ guidance, Ved developed technical knowledge of the game and the values required of a sportsman — resilience against set-backs and the attitude of a winner.',
     link: 'imtiazanees.com',
-    image: 'IMAGES.coachImtiaz',
+    image: '/assets/mentor imtiaz.jpg',
   },
 ];
 
@@ -271,11 +281,11 @@ export const KPI = [
   { metric: 'Eventing Competitions', value: '6' },
   { metric: 'CSI 2★ Competitions', value: '1' },
   { metric: 'USEA Levels Completed', value: '5' },
-  { metric: 'Wins & 1st Place', value: '1' },
-  { metric: 'Top-5 Finishes', value: '2' },
+  { metric: 'Wins & 1st Place', value: '3' },
+  { metric: 'Top 5 Finish', value: '3' },
   { metric: 'Top-10 Finishes', value: '5' },
   { metric: 'Competition Completion Rate', value: '100%' },
-  { metric: 'International Podium Finishes', value: '1' },
+  { metric: 'Podium Finish', value: '2' },
 ];
 
 export const NATIONAL_RESULTS = [

@@ -28,7 +28,7 @@ export default function Record() {
             <span className="h-[1px] w-6 bg-[#a8895c]" />
           </div>
           <h2 className="mt-3 sm:mt-4 font-display text-3xl xs:text-4xl sm:text-5xl lg:text-6xl text-white">
-            Proven Results &amp; Milestones
+            Results and Accomplishments
           </h2>
           <p className="mt-3 sm:mt-4 font-serif text-base sm:text-lg italic text-[#d9cdb8]/80 text-center">
             A track record of precision &mdash; multiple national medals, international podium finishes, and a 100% course completion record.
@@ -197,7 +197,7 @@ export default function Record() {
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-white/10 pb-4 sm:pb-5">
             <div>
               <h3 className="font-display text-xl sm:text-2xl lg:text-3xl text-white">
-                Competitive Performance Matrix
+                Competitive Performance Matrix: February–June 2026
               </h3>
               <p className="font-sans text-xs text-[#d9cdb8]/70 mt-1">
                 Verified Season Key Performance Indicators

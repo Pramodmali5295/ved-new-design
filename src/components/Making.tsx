@@ -31,6 +31,15 @@ const TIMELINE = [
     imgClass: 'aspect-[16/10] sm:aspect-[4/3] object-cover object-center',
   },
   {
+    phase: 'Asian Youth Games',
+    year: '2025',
+    title: 'Asian Youth Games Shortlist',
+    text: 'Shortlisted to represent India in The Asian Youth Games, Bahrain Oct 2025, Ved was a prominent Elite rider the country was looking out for',
+    image: '/assets/ved-17.jpeg',
+    tag: 'Bahrain &bull; Oct 2025',
+    imgClass: 'aspect-[16/10] sm:aspect-[4/3] object-cover object-center',
+  },
+  {
     phase: 'National Podium',
     year: '2024',
     title: 'National Medallist Again',
@@ -93,11 +102,11 @@ export default function Making() {
             From Pune to the World Stage
           </h1>
           <p className="mt-3 sm:mt-4 font-serif text-base sm:text-lg italic text-[#d9cdb8]/85 text-center">
-            7 defining career milestones forged through dedication, elite international training, and unwavering resilience.
+            8 defining career milestones forged through dedication, elite international training, and unwavering resilience.
           </p>
           <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#a8895c]/30 bg-black/40 px-4 py-1.5 text-xs text-[#a8895c]">
             <Sparkles size={14} className="text-[#f0c775]" />
-            <span>7 Milestones &bull; 2021 &ndash; 2026</span>
+            <span>8 Milestones &bull; 2021 &ndash; 2026</span>
           </div>
         </div>
 

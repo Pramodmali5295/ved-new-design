@@ -5,7 +5,7 @@ import { useGsapReveal } from '@/hooks/useGsapAnimations';
 export default function Contact() {
   const sectionRef = useGsapReveal<HTMLElement>();
   const [copied, setCopied] = useState(false);
-  const email = 'vedsarkar.equestrian@gmail.com';
+  const email = 'vedsarkar07@gmail.com';
 
   const copyEmail = () => {
     navigator.clipboard.writeText(email);

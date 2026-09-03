@@ -150,11 +150,11 @@ export default function Footer({ onNavigate }: FooterProps) {
               </p>
               
               <a
-                href="mailto:vedsarkar.equestrian@gmail.com"
+                href="mailto:vedsarkar07@gmail.com"
                 className="mt-3 group flex items-center gap-2 rounded-sm bg-[#251e16] border border-white/10 p-3 text-xs font-sans text-[#e6c994] hover:border-[#a8895c] hover:text-white transition-all break-all"
               >
                 <Mail size={14} className="text-[#a8895c] shrink-0" />
-                <span className="truncate">vedsarkar.equestrian@gmail.com</span>
+                <span className="truncate">vedsarkar07@gmail.com</span>
               </a>
             </div>
 

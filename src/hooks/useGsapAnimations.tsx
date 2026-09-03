@@ -155,7 +155,7 @@ export function GsapCounter({
   end,
   suffix = '',
   prefix = '',
-  duration = 1.8,
+  duration = 0.7,
   className = '',
 }: {
   end: number;
@@ -172,16 +172,21 @@ export function GsapCounter({
     const obj = { val: 0 };
     gsap.to(obj, {
       val: end,
-      duration: duration || 2.2,
-      ease: 'power3.out',
+      duration: duration ?? 0.7,
+      ease: 'power2.out',
       scrollTrigger: {
         trigger: countRef.current,
-        start: 'top 92%',
+        start: 'top 95%',
         toggleActions: 'play none none none',
       },
       onUpdate: () => {
         if (countRef.current) {
           countRef.current.textContent = `${prefix}${Math.floor(obj.val)}${suffix}`;
+        }
+      },
+      onComplete: () => {
+        if (countRef.current) {
+          countRef.current.textContent = `${prefix}${end}${suffix}`;
         }
       },
     });
