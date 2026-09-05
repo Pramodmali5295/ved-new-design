@@ -21,7 +21,7 @@ export default function Contact() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         {/* Section Header - Centered */}
-        <div className="reveal text-center max-w-3xl mx-auto flex flex-col items-center">
+        <div className="gsap-reveal text-center max-w-3xl mx-auto flex flex-col items-center">
           <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
             <span className="h-[1px] w-6 bg-[#a8895c]" />
             Connect &bull; Partnerships &bull; Official Inquiries
@@ -41,9 +41,9 @@ export default function Contact() {
         </div>
 
         {/* Primary Contact Channels Grid */}
-        <div className="mt-12 sm:mt-16 grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="gsap-stagger-container mt-12 sm:mt-16 grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {/* Card 1: Official Email & Communications */}
-          <div className="reveal rounded-sm border border-white/10 bg-[#251e16] p-6 sm:p-8 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-[#a8895c]/60 flex flex-col justify-between" style={{ transitionDelay: '0.05s' }}>
+          <div className="gsap-stagger-item rounded-sm border border-white/10 bg-[#251e16] p-6 sm:p-8 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-[#a8895c]/60 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-4">
                 <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#e6c994]">
@@ -91,7 +91,7 @@ export default function Contact() {
           </div>
 
           {/* Card 2: International Training Headquarters */}
-          <div className="reveal rounded-sm border border-white/10 bg-[#251e16] p-6 sm:p-8 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-[#a8895c]/60 flex flex-col justify-between" style={{ transitionDelay: '0.1s' }}>
+          <div className="gsap-stagger-item rounded-sm border border-white/10 bg-[#251e16] p-6 sm:p-8 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-[#a8895c]/60 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-4">
                 <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#e6c994]">
@@ -121,7 +121,7 @@ export default function Contact() {
           </div>
 
           {/* Card 3: Home Base & National Representation */}
-          <div className="reveal rounded-sm border border-white/10 bg-[#251e16] p-6 sm:p-8 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-[#a8895c]/60 flex flex-col justify-between" style={{ transitionDelay: '0.15s' }}>
+          <div className="gsap-stagger-item rounded-sm border border-white/10 bg-[#251e16] p-6 sm:p-8 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-[#a8895c]/60 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-4">
                 <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#e6c994]">
@@ -152,7 +152,7 @@ export default function Contact() {
         </div>
 
         {/* Detailed Collaboration & Sponsorship Information Banner */}
-        <div className="reveal mt-12 sm:mt-16 overflow-hidden rounded-sm border border-[#a8895c]/40 bg-gradient-to-br from-[#251e16] via-[#1f1811] to-[#17120c] p-6 sm:p-10 shadow-2xl">
+        <div className="gsap-reveal-scale mt-12 sm:mt-16 overflow-hidden rounded-sm border border-[#a8895c]/40 bg-gradient-to-br from-[#251e16] via-[#1f1811] to-[#17120c] p-6 sm:p-10 shadow-2xl">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8">
               <div className="inline-flex items-center gap-2 font-sans text-[10px] uppercase tracking-widest text-[#a8895c] font-semibold">

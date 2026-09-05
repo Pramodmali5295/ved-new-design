@@ -173,15 +173,17 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
           </div>
 
           {/* 3 Milestone Teaser Cards - Landscape Gallery Images that Fit Edge-to-Edge */}
-          <div className="mt-10 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="gsap-stagger-container mt-10 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             <div
               onClick={() => onNavigate('making')}
-              className="group cursor-pointer rounded-sm border border-white/10 bg-[#251e16] p-4 sm:p-5 shadow-xl transition-all duration-500 hover:border-[#f0c775]/70 hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_30px_rgba(240,199,117,0.18)]"
+              className="gsap-stagger-item group cursor-pointer rounded-sm border border-white/10 bg-[#251e16] p-4 sm:p-5 shadow-xl transition-all duration-500 hover:border-[#f0c775]/70 hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_30px_rgba(240,199,117,0.18)]"
             >
               <div className="relative h-44 sm:h-48 w-full overflow-hidden rounded-sm bg-[#120d08] flex items-center justify-center">
                 <img
                   src="/assets/ved-14.jpeg"
                   alt="Seahorse Equestrian 2021 Foundations"
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-106"
                 />
                 <span className="absolute top-2.5 left-2.5 rounded-full bg-black/85 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#d9cdb8] border border-white/10 shadow-md">
@@ -199,12 +201,14 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
 
             <div
               onClick={() => onNavigate('making')}
-              className="group cursor-pointer rounded-sm border border-white/10 bg-[#251e16] p-4 sm:p-5 shadow-xl transition-all duration-500 hover:border-[#f0c775]/70 hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_30px_rgba(240,199,117,0.18)]"
+              className="gsap-stagger-item group cursor-pointer rounded-sm border border-white/10 bg-[#251e16] p-4 sm:p-5 shadow-xl transition-all duration-500 hover:border-[#f0c775]/70 hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_30px_rgba(240,199,117,0.18)]"
             >
               <div className="relative h-44 sm:h-48 w-full overflow-hidden rounded-sm bg-[#120d08] flex items-center justify-center">
                 <img
                   src="/assets/ved-16.jpeg"
                   alt="FEI World Challenge 2023 Podium"
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-106"
                 />
                 <span className="absolute top-2.5 left-2.5 rounded-full bg-black/85 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#d9cdb8] border border-white/10 shadow-md">
@@ -222,12 +226,14 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
 
             <div
               onClick={() => onNavigate('making')}
-              className="group cursor-pointer rounded-sm border border-white/10 bg-[#251e16] p-4 sm:p-5 shadow-xl transition-all duration-500 hover:border-[#f0c775]/70 hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_30px_rgba(240,199,117,0.18)] sm:col-span-2 lg:col-span-1"
+              className="gsap-stagger-item group cursor-pointer rounded-sm border border-white/10 bg-[#251e16] p-4 sm:p-5 shadow-xl transition-all duration-500 hover:border-[#f0c775]/70 hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_30px_rgba(240,199,117,0.18)] sm:col-span-2 lg:col-span-1"
             >
               <div className="relative h-44 sm:h-48 w-full overflow-hidden rounded-sm bg-[#120d08] flex items-center justify-center">
                 <img
                   src="/assets/ved-20.jpeg"
                   alt="US Circuit & Tryon 2026"
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-106"
                 />
                 <span className="absolute top-2.5 left-2.5 rounded-full bg-black/85 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#d9cdb8] border border-white/10 shadow-md">
@@ -249,7 +255,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
       {/* 3. MEDIA SPOTLIGHT PREVIEW */}
       <section className="bg-[#1c1610] py-14 sm:py-20 lg:py-28 text-[#ebe4d8] border-b border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-          <div className="reveal flex flex-col items-center text-center md:flex-row md:items-end md:justify-between md:text-left gap-6">
+          <div className="gsap-reveal flex flex-col items-center text-center md:flex-row md:items-end md:justify-between md:text-left gap-6">
             <div>
               <div className="inline-flex items-center justify-center md:justify-start gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
                 <span className="h-[1px] w-6 bg-[#a8895c]" />
@@ -274,12 +280,12 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
           </div>
 
           {/* 3 Featured Photos - High Resolution Horizontal Action Photos */}
-          <div className="mt-6 sm:mt-8 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="gsap-stagger-container mt-6 sm:mt-8 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {featuredPhotos.map((photo, pIdx) => (
               <div
                 key={photo.id}
                 onClick={() => onNavigate('media')}
-                className={`relative group cursor-pointer overflow-hidden rounded-sm border border-white/10 bg-[#120d08] transition-all duration-500 hover:border-[#a8895c]/70 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] ${
+                className={`gsap-stagger-item relative group cursor-pointer overflow-hidden rounded-sm border border-white/10 bg-[#120d08] transition-all duration-500 hover:border-[#a8895c]/70 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] ${
                   pIdx === 2 ? 'sm:col-span-2 lg:col-span-1' : ''
                 }`}
               >
@@ -288,6 +294,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
                   alt={photo.title}
                   className="w-full h-auto aspect-[16/10] sm:aspect-[4/3] object-cover object-center rounded-sm transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                   <div className="rounded-full bg-black/70 p-2.5 text-[#d9cdb8] border border-[#a8895c]/50">
@@ -303,8 +310,8 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
       {/* 4. THE PARTNERSHIP TEASER (Equine Partners Matteo & Cuba) */}
       <section className="bg-[#19140e] text-[#ebe4d8] py-14 sm:py-20 lg:py-28 border-b border-white/10 relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-          <div className="reveal grid items-center gap-10 lg:grid-cols-12">
-            <div className="lg:col-span-5 flex flex-col items-center text-center lg:items-start lg:text-left">
+          <div className="grid items-center gap-10 lg:grid-cols-12">
+            <div className="gsap-reveal-left lg:col-span-5 flex flex-col items-center text-center lg:items-start lg:text-left">
               <div className="inline-flex items-center justify-center lg:justify-start gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
                 <span className="h-[1px] w-6 bg-[#a8895c]" />
                 Athlete &amp; Horse Connection
@@ -327,17 +334,18 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
               </div>
             </div>
 
-            <div className="lg:col-span-7 grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2">
+            <div className="gsap-stagger-container lg:col-span-7 grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2">
               <div
                 onClick={() => onNavigate('partnership')}
-                className="group cursor-pointer rounded-sm border border-white/10 bg-[#251e16] p-4 sm:p-5 shadow-xl transition-all duration-500 hover:border-[#f0c775]/70 hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_30px_rgba(240,199,117,0.18)] flex flex-col justify-between"
+                className="gsap-stagger-item group cursor-pointer rounded-sm border border-white/10 bg-[#251e16] p-4 sm:p-5 shadow-xl transition-all duration-500 hover:border-[#f0c775]/70 hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_30px_rgba(240,199,117,0.18)] flex flex-col justify-between"
               >
-                <div className="h-56 sm:h-64 w-full bg-[#100b07] rounded-sm flex items-center justify-center overflow-hidden border border-white/10 p-2 relative">
+                <div className="h-56 sm:h-64 w-full bg-[#100b07] rounded-sm flex items-center justify-center overflow-hidden border border-white/10 relative">
                   <img
-                    src="/assets/matto.jpeg"
+                    src="/assets/matto-1.jpg"
                     alt="Fernhill Milchem Mateo"
-                    className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-104"
+                    className="h-full w-full object-cover object-[60%_80%] scale-[1.65] transition-transform duration-700 ease-out group-hover:scale-[1.75]"
                     loading="lazy"
+                    decoding="async"
                   />
                   <span className="absolute top-2.5 left-2.5 rounded-full bg-black/85 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#e6c994] border border-[#a8895c]/40 backdrop-blur-sm">
                     Matteo &bull; Equine Partner
@@ -352,7 +360,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
 
               <div
                 onClick={() => onNavigate('partnership')}
-                className="group cursor-pointer rounded-sm border border-white/10 bg-[#251e16] p-4 sm:p-5 shadow-xl transition-all duration-500 hover:border-[#f0c775]/70 hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_30px_rgba(240,199,117,0.18)] flex flex-col justify-between"
+                className="gsap-stagger-item group cursor-pointer rounded-sm border border-white/10 bg-[#251e16] p-4 sm:p-5 shadow-xl transition-all duration-500 hover:border-[#f0c775]/70 hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(0,0,0,0.85),0_0_30px_rgba(240,199,117,0.18)] flex flex-col justify-between"
               >
                 <div className="h-56 sm:h-64 w-full bg-[#100b07] rounded-sm flex items-center justify-center overflow-hidden border border-white/10 p-2 relative">
                   <img
@@ -360,6 +368,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
                     alt="Matteo in Competition"
                     className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-104"
                     loading="lazy"
+                    decoding="async"
                   />
                   <span className="absolute top-2.5 left-2.5 rounded-full bg-black/80 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#e6c994] border border-[#a8895c]/40 backdrop-blur-sm">
                     Competition Action
@@ -381,7 +390,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
           <div className="grid gap-8 sm:gap-10 lg:grid-cols-2 lg:items-start">
             {/* Results Snapshot */}
-            <div className="reveal rounded-sm border border-white/10 bg-[#251e16] p-5 sm:p-8 shadow-xl">
+            <div className="gsap-reveal-left rounded-sm border border-white/10 bg-[#251e16] p-5 sm:p-8 shadow-xl">
               <div className="flex flex-wrap items-center justify-between border-b border-white/10 pb-4 gap-2">
                 <div className="flex items-center gap-2">
                   <Trophy size={18} className="text-[#a8895c]" />
@@ -432,7 +441,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
             </div>
 
             {/* Mentors & Believers Snapshot */}
-            <div className="reveal rounded-sm border border-white/10 bg-[#251e16] p-5 sm:p-8 shadow-xl">
+            <div className="gsap-reveal-right rounded-sm border border-white/10 bg-[#251e16] p-5 sm:p-8 shadow-xl">
               <div className="flex flex-wrap items-center justify-between border-b border-white/10 pb-4 gap-2">
                 <div className="flex items-center gap-2">
                   <Users size={18} className="text-[#a8895c]" />
@@ -498,7 +507,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
       {/* 7. OLYMPIC ROADMAP BANNER */}
       <section className="bg-[#1c1610] text-[#ebe4d8] py-14 sm:py-20 lg:py-28 relative overflow-hidden border-t border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-          <div className="reveal rounded-sm border border-[#a8895c]/40 bg-[#251e16] text-[#ebe4d8] p-5 sm:p-8 lg:p-10 shadow-2xl">
+          <div className="gsap-reveal-scale rounded-sm border border-[#a8895c]/40 bg-[#251e16] text-[#ebe4d8] p-5 sm:p-8 lg:p-10 shadow-2xl">
             <div className="flex flex-col items-center text-center md:flex-row md:items-center md:justify-between md:text-left border-b border-white/10 pb-5 gap-4">
               <div className="flex flex-col sm:flex-row items-center gap-2.5 text-center sm:text-left">
                 <Sparkles size={20} className="text-[#a8895c] shrink-0" />
@@ -517,28 +526,28 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
             </div>
 
             {/* 5-Phase Mini Stepper - Responsive Grid */}
-            <div className="mt-8 grid gap-3 sm:gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 text-center">
-              <div className="bg-[#19140e] p-3 sm:p-3.5 rounded-sm border border-white/10">
+            <div className="gsap-stagger-container mt-8 grid gap-3 sm:gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 text-center">
+              <div className="gsap-stagger-item bg-[#19140e] p-3 sm:p-3.5 rounded-sm border border-white/10">
                 <span className="font-display text-base sm:text-lg font-bold text-[#e6c994]">2026</span>
                 <p className="font-sans text-xs text-white font-medium mt-1">Ocala Circuit</p>
                 <p className="font-sans text-[10px] text-[#d9cdb8]/60 mt-0.5">USEA / FEI 1★</p>
               </div>
-              <div className="bg-[#19140e] p-3 sm:p-3.5 rounded-sm border border-white/10">
+              <div className="gsap-stagger-item bg-[#19140e] p-3 sm:p-3.5 rounded-sm border border-white/10">
                 <span className="font-display text-base sm:text-lg font-bold text-[#e6c994]">2027</span>
                 <p className="font-sans text-xs text-white font-medium mt-1">FEI Star Levels</p>
                 <p className="font-sans text-[10px] text-[#d9cdb8]/60 mt-0.5">2★ / 3★ Progression</p>
               </div>
-              <div className="bg-[#19140e] p-3 sm:p-3.5 rounded-sm border border-white/10">
+              <div className="gsap-stagger-item bg-[#19140e] p-3 sm:p-3.5 rounded-sm border border-white/10">
                 <span className="font-display text-base sm:text-lg font-bold text-[#e6c994]">2028</span>
                 <p className="font-sans text-xs text-white font-medium mt-1">U25 Pathway</p>
                 <p className="font-sans text-[10px] text-[#d9cdb8]/60 mt-0.5">World Championship</p>
               </div>
-              <div className="bg-[#19140e] p-3 sm:p-3.5 rounded-sm border border-white/10">
+              <div className="gsap-stagger-item bg-[#19140e] p-3 sm:p-3.5 rounded-sm border border-white/10">
                 <span className="font-display text-base sm:text-lg font-bold text-[#e6c994]">2030</span>
                 <p className="font-sans text-xs text-white font-medium mt-1">Asian Games</p>
                 <p className="font-sans text-[10px] text-[#d9cdb8]/60 mt-0.5">Team India</p>
               </div>
-              <div className="bg-[#19140e] p-3 sm:p-3.5 rounded-sm border border-[#a8895c]/50 bg-gradient-to-b from-[#a8895c]/10 to-transparent col-span-2 sm:col-span-1">
+              <div className="gsap-stagger-item bg-[#19140e] p-3 sm:p-3.5 rounded-sm border border-[#a8895c]/50 bg-gradient-to-b from-[#a8895c]/10 to-transparent col-span-2 sm:col-span-1">
                 <span className="font-display text-base sm:text-lg font-bold text-[#e6c994]">2032</span>
                 <p className="font-sans text-xs text-[#e6c994] font-bold mt-1">Olympic Games</p>
                 <p className="font-sans text-[10px] text-[#d9cdb8]/80 mt-0.5">Olympic Vision</p>
@@ -546,7 +555,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
             </div>
 
             <blockquote className="mt-8 font-serif text-lg sm:text-xl md:text-2xl italic leading-relaxed text-white text-center px-2">
-              &ldquo;I am determined to represent India in the Asian Games in 2030 and the Olympics in 2032, and multiple times thereafter &mdash; making India a formidable name in equestrian sport.&rdquo;
+              &ldquo;I am determined to represent India in the World Equestrian Championship (U25) 2027/28, the Asian Games in 2030, and the Olympics in 2032, and multiple times thereafter &mdash; making India a formidable name in equestrian sport.&rdquo;
             </blockquote>
 
             <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs font-sans text-[#d9cdb8]/70 gap-2 text-center sm:text-left">

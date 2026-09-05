@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { gsap, ScrollTrigger, useGSAP } from '@/utils/gsapConfig';
-import { useGsapReveal } from '@/hooks/useGsapAnimations';
 import Nav from '@/components/Nav';
 import HomeOverview from '@/components/HomeOverview';
 import Footer from '@/components/Footer';
@@ -32,7 +31,6 @@ function PageLoadingSkeleton() {
 function App() {
   // Always land on 'home' page upon browser refresh
   const [currentPage, setCurrentPage] = useState<string>('home');
-  const containerRef = useGsapReveal<HTMLDivElement>([currentPage]);
   const pageContentRef = useRef<HTMLDivElement>(null);
 
   // Clean URL hash and reset to Home on initial page load / refresh
@@ -70,10 +68,9 @@ function App() {
     document.body.scrollTop = 0;
   }, [currentPage]);
 
-  // GSAP Smooth Page Transition on Page Change
+  // Fast & Clean Page Fade Transition on Page Change
   useGSAP(
     () => {
-      // Ensure scroll is at top
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
@@ -81,12 +78,11 @@ function App() {
       if (pageContentRef.current) {
         gsap.fromTo(
           pageContentRef.current,
-          { opacity: 0, y: 18 },
+          { opacity: 0 },
           {
             opacity: 1,
-            y: 0,
-            duration: 0.55,
-            ease: 'power3.out',
+            duration: 0.2,
+            ease: 'power1.out',
             onComplete: () => {
               ScrollTrigger.refresh();
             },
@@ -156,7 +152,7 @@ function App() {
   };
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-[#19140e] flex flex-col justify-between relative">
+    <div className="min-h-screen bg-[#19140e] flex flex-col justify-between relative">
       <Nav currentPage={currentPage} onNavigate={navigateTo} />
 
       <main className="flex-1">

@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { Sparkles, Maximize2, X } from 'lucide-react';
 import { PILLARS } from '../data';
 import { useGsapReveal } from '@/hooks/useGsapAnimations';
+import LazyVideo from '@/components/LazyVideo';
 
 export default function About() {
   const sectionRef = useGsapReveal<HTMLElement>();
@@ -47,6 +48,7 @@ export default function About() {
                 alt="Ved Sarma Sarkar with horse"
                 className="w-full h-auto aspect-[16/10] sm:aspect-[4/3] object-cover object-center rounded-sm transition-transform duration-700 hover:scale-102"
                 loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -58,6 +60,7 @@ export default function About() {
                   alt="Ved competing in show jumping over high fences"
                   className="w-full h-auto aspect-[16/10] object-cover object-center transition-transform duration-500 hover:scale-105"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -152,14 +155,8 @@ export default function About() {
                 })}
                 className="w-full lg:w-1/2 h-60 sm:h-72 lg:h-80 overflow-hidden rounded-sm bg-[#100b07] border border-white/10 flex items-center justify-center cursor-pointer group relative"
               >
-                <video
+                <LazyVideo
                   src="/assets/video-6.mp4"
-                  preload="auto"
-                  muted
-                  loop
-                  autoPlay
-                  playsInline
-                  disablePictureInPicture
                   className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-103"
                 />
                 <div className="absolute top-2.5 left-2.5 rounded-full bg-black/80 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#e6c994] border border-[#a8895c]/40 backdrop-blur-sm">
@@ -207,6 +204,7 @@ export default function About() {
                   alt="Ved and horse in mutual bond and adaptability"
                   className="h-full w-full object-cover object-[center_60%] transition-transform duration-700 group-hover:scale-104"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute top-2.5 left-2.5 rounded-full bg-black/80 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#e6c994] border border-[#a8895c]/40 backdrop-blur-sm">
                   02 &bull; Trust &amp; Partnership
@@ -251,8 +249,9 @@ export default function About() {
                 <img
                   src="/assets/ved-13.jpeg"
                   alt="Ved focused and determined over obstacle"
-                  className="h-full w-full object-cover object-[center_18%] transition-transform duration-700 group-hover:scale-104"
+                  className="h-full w-full object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-103"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute top-2.5 left-2.5 rounded-full bg-black/80 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#e6c994] border border-[#a8895c]/40 backdrop-blur-sm">
                   03 &bull; Focus &amp; Determination
@@ -287,18 +286,16 @@ export default function About() {
               {/* Media on Right */}
               <div 
                 onClick={() => setSelectedMedia({
-                  type: 'image',
-                  src: '/assets/ved-2.jpeg',
+                  type: 'video',
+                  src: '/assets/video-11.mp4',
                   title: 'Coachability — Receptive Excellence',
                   caption: 'Absorbing and applying elite international coaching techniques into winning performances.'
                 })}
                 className="w-full lg:w-1/2 h-60 sm:h-72 lg:h-80 overflow-hidden rounded-sm bg-[#100b07] border border-white/10 flex items-center justify-center cursor-pointer group relative"
               >
-                <img
-                  src="/assets/ved-2.jpeg"
-                  alt="Ved in championship eventing applying elite coaching"
-                  className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-104"
-                  loading="lazy"
+                <LazyVideo
+                  src="/assets/video-11.mp4"
+                  className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-103"
                 />
                 <div className="absolute top-2.5 left-2.5 rounded-full bg-black/80 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#e6c994] border border-[#a8895c]/40 backdrop-blur-sm">
                   04 &bull; Receptive Excellence

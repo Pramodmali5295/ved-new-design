@@ -126,7 +126,7 @@ export default function Record() {
         {/* Detailed Results Grid */}
         <div className="mt-12 sm:mt-16 grid gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-14">
           {/* National Championships Card */}
-          <div className="reveal rounded-sm border border-white/10 bg-[#251e16] p-5 sm:p-8 shadow-xl">
+          <div className="gsap-reveal-left rounded-sm border border-white/10 bg-[#251e16] p-5 sm:p-8 shadow-xl">
             <div className="flex items-center gap-3 border-b border-white/10 pb-4 sm:pb-5">
               <Flag size={20} className="text-[#a8895c] shrink-0" />
               <div>
@@ -159,7 +159,7 @@ export default function Record() {
           </div>
 
           {/* International Circuit Performances Card */}
-          <div className="reveal rounded-sm border border-white/10 bg-[#251e16] p-5 sm:p-8 shadow-xl" style={{ transitionDelay: '0.1s' }}>
+          <div className="gsap-reveal-right rounded-sm border border-white/10 bg-[#251e16] p-5 sm:p-8 shadow-xl">
             <div className="flex items-center gap-3 border-b border-white/10 pb-4 sm:pb-5">
               <Star size={20} className="text-[#a8895c] shrink-0" />
               <div>
@@ -193,7 +193,7 @@ export default function Record() {
         </div>
 
         {/* Performance Matrix (Clean KPI Grid) */}
-        <div className="reveal mt-12 sm:mt-16 rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-5 sm:p-8 lg:p-10 shadow-2xl">
+        <div className="gsap-reveal mt-12 sm:mt-16 rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-5 sm:p-8 lg:p-10 shadow-2xl">
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-white/10 pb-4 sm:pb-5">
             <div>
               <h3 className="font-display text-xl sm:text-2xl lg:text-3xl text-white">
@@ -208,11 +208,11 @@ export default function Record() {
             </span>
           </div>
 
-          <div className="mt-6 sm:mt-8 grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="gsap-stagger-container mt-6 sm:mt-8 grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {KPI.map((kpi) => (
               <div
                 key={kpi.metric}
-                className="flex items-center justify-between rounded-sm border border-white/10 bg-[#1c1610] p-3.5 sm:p-4.5 transition-all hover:border-[#a8895c]/50"
+                className="gsap-stagger-item flex items-center justify-between rounded-sm border border-white/10 bg-[#1c1610] p-3.5 sm:p-4.5 transition-all hover:border-[#a8895c]/50"
               >
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#a8895c]" />
@@ -227,13 +227,14 @@ export default function Record() {
         </div>
 
         {/* Action band - High Resolution Landscape Action Photo at the end of the page */}
-        <div className="reveal mt-14 sm:mt-20 relative overflow-hidden rounded-sm bg-[#120d08] border border-[#a8895c]/40 p-1.5 sm:p-2 shadow-2xl flex flex-col items-center">
+        <div className="gsap-reveal-scale mt-14 sm:mt-20 relative overflow-hidden rounded-sm bg-[#120d08] border border-[#a8895c]/40 p-1.5 sm:p-2 shadow-2xl flex flex-col items-center">
           <div className="w-full overflow-hidden bg-[#120d08] rounded-sm">
             <img
               src="/assets/ved-25.jpeg"
               alt="Ved Sarma Sarkar galloping across cross-country course"
               className="w-full h-auto aspect-[16/9] sm:aspect-[21/9] object-cover object-center rounded-sm transition-transform duration-700 hover:scale-102"
               loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="w-full bg-[#251e16] p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between text-white gap-3 border-t border-white/10 mt-1.5 sm:mt-2 rounded-sm">

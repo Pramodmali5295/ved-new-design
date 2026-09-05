@@ -55,7 +55,7 @@ export default function Coaches() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         {/* Header - Centered */}
-        <div className="reveal text-center max-w-3xl mx-auto flex flex-col items-center">
+        <div className="gsap-reveal text-center max-w-3xl mx-auto flex flex-col items-center">
           <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
             <span className="h-[1px] w-6 bg-[#a8895c]" />
             World-Class Mentorship
@@ -75,14 +75,13 @@ export default function Coaches() {
         </div>
 
         {/* Coach List Cards */}
-        <div className="mt-12 sm:mt-16 flex flex-col gap-8 sm:gap-12 lg:gap-16">
+        <div className="gsap-stagger-container mt-12 sm:mt-16 flex flex-col gap-8 sm:gap-12 lg:gap-16">
           {COACHES.map((coach, i) => (
             <div
               key={coach.name}
-              className={`reveal rounded-sm border border-white/10 bg-[#251e16] p-5 sm:p-8 lg:p-10 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-[#a8895c]/60 grid items-center gap-6 sm:gap-8 lg:grid-cols-12 lg:gap-12 ${
+              className={`gsap-stagger-item rounded-sm border border-white/10 bg-[#251e16] p-5 sm:p-8 lg:p-10 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-[#a8895c]/60 grid items-center gap-6 sm:gap-8 lg:grid-cols-12 lg:gap-12 ${
                 i % 2 === 1 ? 'lg:[&>div:first-child]:order-2' : ''
               }`}
-              style={{ transitionDelay: `${i * 0.08}s` }}
             >
               {/* Image Container with Fallback - 100% Uncropped with object-contain */}
               <div className="lg:col-span-5 overflow-hidden rounded-sm bg-[#120d08] border border-white/10 shadow-lg relative group aspect-[4/3] sm:aspect-[16/11] flex items-center justify-center p-2">
@@ -94,6 +93,7 @@ export default function Coaches() {
                   }}
                   className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-104"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute top-3 left-3 rounded-full bg-black/80 px-2.5 sm:px-3 py-1 font-sans text-[8px] sm:text-[9px] uppercase tracking-widest text-[#e6c994] backdrop-blur-md border border-[#a8895c]/30">
                   {coach.location}

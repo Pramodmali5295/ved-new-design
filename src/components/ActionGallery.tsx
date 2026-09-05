@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { Play, Maximize2, X, ChevronLeft, ChevronRight, Film, Image as ImageIcon, Sparkles } from 'lucide-react';
 import { VIDEOS, GALLERY_ITEMS } from '@/data';
 import { useGsapReveal } from '@/hooks/useGsapAnimations';
+import LazyVideo from '@/components/LazyVideo';
 
 
 export default function ActionGallery() {
@@ -170,15 +171,8 @@ export default function ActionGallery() {
                 className="group relative cursor-pointer overflow-hidden rounded-lg border-2 border-[#a8895c]/60 bg-black shadow-2xl transition-all duration-500 hover:-translate-y-1.5 hover:border-[#f0c775] hover:shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_30px_rgba(240,199,117,0.3)] w-full max-w-4xl flex flex-col"
               >
                 <div className="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden">
-                  <video
+                  <LazyVideo
                     src={VIDEOS[0]?.src || '/assets/video-3.mp4'}
-                    preload="auto"
-                    muted
-                    loop
-                    autoPlay
-                    playsInline
-                    disablePictureInPicture
-                    disableRemotePlayback
                     className="h-full w-full object-contain pointer-events-none"
                   />
 
@@ -207,8 +201,8 @@ export default function ActionGallery() {
               </div>
             </div>
 
-            {/* Remaining Videos Grid - 100% Uncut Videos */}
-            <div className="gsap-stagger-container mt-10 grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Remaining Videos Grid - 4 Columns per row on Desktop */}
+            <div className="gsap-stagger-container mt-10 grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {VIDEOS.slice(1).map((vid, i) => (
                 <div
                   key={vid.id}
@@ -216,39 +210,32 @@ export default function ActionGallery() {
                   className="gsap-stagger-item group relative cursor-pointer overflow-hidden rounded-lg border border-white/15 bg-[#120d08] shadow-xl transition-all duration-500 hover:-translate-y-1.5 hover:border-[#a8895c] hover:shadow-[0_15px_35px_rgba(0,0,0,0.8)] flex flex-col"
                 >
                   <div className="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden">
-                    <video
+                    <LazyVideo
                       src={vid.src}
-                      preload="auto"
-                      muted
-                      loop
-                      autoPlay
-                      playsInline
-                      disablePictureInPicture
-                      disableRemotePlayback
                       className="h-full w-full object-contain pointer-events-none"
                     />
 
                     {/* Category pill on top corner */}
-                    <div className="absolute top-2.5 left-2.5 pointer-events-none z-10">
-                      <span className="font-sans text-[9px] uppercase tracking-wider text-[#e6c994] bg-black/80 px-2 py-0.5 rounded border border-[#a8895c]/40 backdrop-blur-sm">
+                    <div className="absolute top-2 left-2 pointer-events-none z-10">
+                      <span className="font-sans text-[8px] sm:text-[9px] uppercase tracking-wider text-[#e6c994] bg-black/80 px-2 py-0.5 rounded border border-[#a8895c]/40 backdrop-blur-sm">
                         {vid.category}
                       </span>
                     </div>
 
                     {/* Play Button Badge */}
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none bg-black/10 group-hover:bg-black/30 transition-colors">
-                      <div className="play-ripple flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#a8895c] text-[#2d2418] shadow-2xl transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#f0c775]">
-                        <Play size={18} className="fill-[#2d2418] ml-0.5" />
+                      <div className="play-ripple flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-[#a8895c] text-[#2d2418] shadow-2xl transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#f0c775]">
+                        <Play size={16} className="fill-[#2d2418] ml-0.5" />
                       </div>
                     </div>
                   </div>
 
                   {/* Info card placed below the video so video frame is 100% visible and uncropped */}
-                  <div className="p-3.5 bg-[#17100a] border-t border-white/10 flex flex-col justify-between flex-grow">
-                    <h4 className="font-display text-sm sm:text-base text-white group-hover:text-[#e6c994] transition-colors line-clamp-1">
+                  <div className="p-3 sm:p-3.5 bg-[#17100a] border-t border-white/10 flex flex-col justify-between flex-grow">
+                    <h4 className="font-display text-xs sm:text-sm font-semibold text-white group-hover:text-[#e6c994] transition-colors line-clamp-1">
                       {vid.title}
                     </h4>
-                    <p className="font-sans text-[11px] text-[#d9cdb8]/75 line-clamp-2 mt-1">
+                    <p className="font-sans text-[10px] sm:text-[11px] text-[#d9cdb8]/75 line-clamp-2 mt-1 leading-snug">
                       {vid.description}
                     </p>
                   </div>

@@ -12,8 +12,11 @@ export function useGsapReveal<T extends HTMLElement = HTMLDivElement>(dependenci
     () => {
       if (!containerRef.current) return;
 
-      // Ensure ScrollTrigger refreshes accurately after layout
-      ScrollTrigger.refresh();
+      const refreshTriggers = () => {
+        ScrollTrigger.refresh();
+      };
+
+      requestAnimationFrame(refreshTriggers);
 
       // 1. Standard Upwards Reveal (.gsap-reveal, .gsap-reveal-up, .reveal)
       const upElements = containerRef.current.querySelectorAll(
@@ -22,15 +25,16 @@ export function useGsapReveal<T extends HTMLElement = HTMLDivElement>(dependenci
       upElements.forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, y: 28 },
+          { opacity: 0, y: 14, willChange: 'opacity, transform' },
           {
             opacity: 1,
             y: 0,
-            duration: 0.75,
-            ease: 'power3.out',
+            duration: 0.35,
+            ease: 'power2.out',
+            clearProps: 'willChange',
             scrollTrigger: {
               trigger: el,
-              start: 'top 94%',
+              start: 'top 98%',
               toggleActions: 'play none none none',
             },
           }
@@ -42,15 +46,16 @@ export function useGsapReveal<T extends HTMLElement = HTMLDivElement>(dependenci
       leftElements.forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, x: -32 },
+          { opacity: 0, x: -16, willChange: 'opacity, transform' },
           {
             opacity: 1,
             x: 0,
-            duration: 0.8,
-            ease: 'power3.out',
+            duration: 0.35,
+            ease: 'power2.out',
+            clearProps: 'willChange',
             scrollTrigger: {
               trigger: el,
-              start: 'top 94%',
+              start: 'top 98%',
               toggleActions: 'play none none none',
             },
           }
@@ -62,36 +67,38 @@ export function useGsapReveal<T extends HTMLElement = HTMLDivElement>(dependenci
       rightElements.forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, x: 32 },
+          { opacity: 0, x: 16, willChange: 'opacity, transform' },
           {
             opacity: 1,
             x: 0,
-            duration: 0.8,
-            ease: 'power3.out',
+            duration: 0.35,
+            ease: 'power2.out',
+            clearProps: 'willChange',
             scrollTrigger: {
               trigger: el,
-              start: 'top 94%',
+              start: 'top 98%',
               toggleActions: 'play none none none',
             },
           }
         );
       });
 
-      // 4. Subtle Scale & Lift (.gsap-reveal-scale, .reveal-scale)
+      // 4. Subtle Scale & Luxury Elevation Lift (.gsap-reveal-scale, .reveal-scale)
       const scaleElements = containerRef.current.querySelectorAll('.gsap-reveal-scale, .reveal-scale');
       scaleElements.forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, scale: 0.94, y: 22 },
+          { opacity: 0, scale: 0.98, y: 10, willChange: 'opacity, transform' },
           {
             opacity: 1,
             scale: 1,
             y: 0,
-            duration: 0.75,
-            ease: 'power3.out',
+            duration: 0.35,
+            ease: 'power2.out',
+            clearProps: 'willChange',
             scrollTrigger: {
               trigger: el,
-              start: 'top 94%',
+              start: 'top 98%',
               toggleActions: 'play none none none',
             },
           }
@@ -105,17 +112,17 @@ export function useGsapReveal<T extends HTMLElement = HTMLDivElement>(dependenci
         if (items.length > 0) {
           gsap.fromTo(
             items,
-            { opacity: 0, y: 26, scale: 0.95 },
+            { opacity: 0, y: 12, willChange: 'opacity, transform' },
             {
               opacity: 1,
               y: 0,
-              scale: 1,
-              duration: 0.7,
-              stagger: 0.08,
-              ease: 'power3.out',
+              duration: 0.35,
+              stagger: 0.04,
+              ease: 'power2.out',
+              clearProps: 'willChange',
               scrollTrigger: {
                 trigger: parent,
-                start: 'top 92%',
+                start: 'top 98%',
                 toggleActions: 'play none none none',
               },
             }
@@ -123,20 +130,21 @@ export function useGsapReveal<T extends HTMLElement = HTMLDivElement>(dependenci
         }
       });
 
-      // 6. Ambient Subtle Parallax (.gsap-parallax)
-      const parallaxElements = containerRef.current.querySelectorAll('.gsap-parallax');
-      parallaxElements.forEach((el) => {
+      // 6. Simple Fade In (.gsap-fade)
+      const fadeElements = containerRef.current.querySelectorAll('.gsap-fade');
+      fadeElements.forEach((el) => {
         gsap.fromTo(
           el,
-          { y: -20 },
+          { opacity: 0, willChange: 'opacity' },
           {
-            y: 20,
-            ease: 'none',
+            opacity: 1,
+            duration: 0.3,
+            ease: 'power2.out',
+            clearProps: 'willChange',
             scrollTrigger: {
               trigger: el,
-              start: 'top bottom',
-              end: 'bottom top',
-              scrub: 1.5,
+              start: 'top 98%',
+              toggleActions: 'play none none none',
             },
           }
         );

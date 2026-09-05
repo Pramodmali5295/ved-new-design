@@ -9,8 +9,8 @@ const TIMELINE = [
     title: 'CSI-2★ Accomplished',
     text: 'World Equestrian Centre, Ocala is host to the best show jumping events and riders, sponsored often by brands such as Longines and Rolex. Accomplishing a 6th position amongst 33 riders was hugely applauded.',
     image: '/assets/journey 2026(1).jpeg',
-    tag: '6th / 33 Riders &bull; WEC',
-    imgClass: 'aspect-[16/11] sm:aspect-[3/2] object-cover object-[center_28%]',
+    tag: '6th / 33 Riders • WEC',
+    imgClass: 'aspect-[16/11] sm:aspect-[4/3] object-cover rotate-90 scale-[1.15] translate-y-4',
   },
   {
     phase: 'FEI CCI-1★',
@@ -18,8 +18,8 @@ const TIMELINE = [
     title: 'India Representation in FEI CCI-1★',
     text: 'Tryon International, NC is one of the most prestigious circuits in the world, one that hosted World Equestrian Games in 2018. Ved’s entry into the arena, alongside professionals who claim world position #2, 11 and 23, was a major milestone for India. Placed #9th.',
     image: '/assets/journey 2026(2).jpeg',
-    tag: 'Placed #9th &bull; Tryon',
-    imgClass: 'aspect-[16/10] sm:aspect-[4/3] object-cover object-center',
+    tag: 'Placed #9th • Tryon',
+    imgClass: 'aspect-[16/10] sm:aspect-[4/3] object-cover rotate-90 scale-[1.15] translate-y-4',
   },
   {
     phase: 'US Circuit',
@@ -36,7 +36,7 @@ const TIMELINE = [
     title: 'Asian Youth Games Shortlist',
     text: 'Shortlisted to represent India in The Asian Youth Games, Bahrain Oct 2025, Ved was a prominent Elite rider the country was looking out for',
     image: '/assets/ved-17.jpeg',
-    tag: 'Bahrain &bull; Oct 2025',
+    tag: 'Bahrain • Oct 2025',
     imgClass: 'aspect-[16/10] sm:aspect-[4/3] object-cover object-center',
   },
   {
@@ -119,12 +119,13 @@ export default function Making() {
             >
               {/* Photo thumbnail - Naturally Formatted Landscape Photo */}
               {item.image && (
-                <div className="relative w-full overflow-hidden bg-[#120d08]">
+                <div className="relative w-full overflow-hidden bg-[#120d08] flex items-center justify-center">
                   <img
                     src={item.image}
                     alt={`${item.title} - ${item.year}`}
                     className={`w-full h-auto ${item.imgClass || 'aspect-[16/10] sm:aspect-[4/3] object-cover object-center'} rounded-sm transition-transform duration-700 group-hover:scale-105`}
                     loading="lazy"
+                    decoding="async"
                   />
                   <span className="absolute top-2.5 left-2.5 z-20 rounded-full bg-black/80 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#d9cdb8] backdrop-blur-sm border border-white/10">
                     {item.phase}

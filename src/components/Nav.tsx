@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Menu, X, ArrowRight, Mail } from 'lucide-react';
 import { NAV_LINKS } from '@/data';
+import { gsap, useGSAP } from '@/utils/gsapConfig';
 
 interface NavProps {
   currentPage: string;
@@ -11,6 +12,51 @@ interface NavProps {
 export default function Nav({ currentPage, onNavigate }: NavProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+  const brandRef = useRef<HTMLButtonElement>(null);
+  const menuListRef = useRef<HTMLUListElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
+
+  // Smooth Header Entrance Timeline on Initial Load
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      if (brandRef.current) {
+        tl.fromTo(
+          brandRef.current,
+          { opacity: 0, x: -20 },
+          { opacity: 1, x: 0, duration: 0.75 },
+          0.1
+        );
+      }
+
+      if (menuListRef.current) {
+        tl.fromTo(
+          menuListRef.current.children,
+          { opacity: 0, y: -12 },
+          { opacity: 1, y: 0, duration: 0.55, stagger: 0.05 },
+          0.2
+        );
+      }
+    },
+    { scope: navRef }
+  );
+
+  // Stagger Mobile Drawer Items when open
+  useGSAP(
+    () => {
+      if (open && drawerRef.current) {
+        const items = drawerRef.current.querySelectorAll('li');
+        gsap.fromTo(
+          items,
+          { opacity: 0, x: 24 },
+          { opacity: 1, x: 0, duration: 0.4, stagger: 0.04, ease: 'power2.out' }
+        );
+      }
+    },
+    { dependencies: [open] }
+  );
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -49,6 +95,7 @@ export default function Nav({ currentPage, onNavigate }: NavProps) {
 
   return (
     <header
+      ref={navRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled || currentPage !== 'home'
           ? 'bg-[#140e08]/95 backdrop-blur-md py-3 shadow-xl border-b border-white/10'
@@ -58,6 +105,7 @@ export default function Nav({ currentPage, onNavigate }: NavProps) {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-3.5 sm:px-6 lg:px-10">
         {/* Brand Name / Logo */}
         <button
+          ref={brandRef}
           onClick={() => handleLinkClick('home')}
           className="font-display text-sm sm:text-base lg:text-lg tracking-[0.14em] sm:tracking-[0.2em] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] via-[#f0c775] to-[#e6c994] hover:from-[#ffffff] hover:via-[#ffe4a0] hover:to-[#f0c775] transition-all text-left whitespace-nowrap shrink-0 drop-shadow-[0_2px_14px_rgba(240,199,117,0.4)] flex items-center gap-2 mr-6 sm:mr-8 xl:mr-12"
         >
@@ -65,7 +113,7 @@ export default function Nav({ currentPage, onNavigate }: NavProps) {
         </button>
 
         {/* Desktop nav (xl screens 1280px+) */}
-        <ul className="hidden xl:flex items-center gap-1.5 2xl:gap-2">
+        <ul ref={menuListRef} className="hidden xl:flex items-center gap-1.5 2xl:gap-2">
           {NAV_LINKS.map((link) => {
             const isActive = currentPage === link.target;
             return (
@@ -111,7 +159,7 @@ export default function Nav({ currentPage, onNavigate }: NavProps) {
 
       {/* Full-Screen 100% Solid Opaque Mobile/Tablet Drawer Portal (No Background Bleed-Through) */}
       {open && typeof document !== 'undefined' && createPortal(
-        <div className="xl:hidden fixed inset-0 z-[999999] bg-[#120d08] flex flex-col justify-between h-[100dvh] w-full overflow-hidden animate-modal-enter safe-top safe-bottom">
+        <div ref={drawerRef} className="xl:hidden fixed inset-0 z-[999999] bg-[#120d08] flex flex-col justify-between h-[100dvh] w-full overflow-hidden animate-modal-enter safe-top safe-bottom">
           {/* Solid Top Bar inside mobile menu with Logo and Close button */}
           <div className="flex items-center justify-between px-3.5 xxs:px-4 sm:px-6 py-3.5 sm:py-4 border-b border-white/15 shrink-0 bg-[#1a130c]">
             <button

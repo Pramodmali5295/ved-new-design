@@ -1,24 +1,27 @@
 import { ArrowUp, Mail, MapPin, Trophy } from 'lucide-react';
+import { useGsapReveal } from '@/hooks/useGsapAnimations';
 
 interface FooterProps {
   onNavigate: (pageId: string) => void;
 }
 
 export default function Footer({ onNavigate }: FooterProps) {
+  const footerRef = useGsapReveal<HTMLElement>();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <footer className="bg-[#140e08] text-[#ebe4d8] border-t border-white/10 safe-bottom relative overflow-hidden">
+    <footer ref={footerRef} className="bg-[#140e08] text-[#ebe4d8] border-t border-white/10 safe-bottom relative overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute top-0 right-1/4 -z-0 h-80 w-80 rounded-full bg-[#a8895c]/5 blur-3xl pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 py-14 sm:py-20">
         {/* Main 4-Column Grid */}
-        <div className="grid gap-10 sm:gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 pb-12 sm:pb-16 border-b border-white/10">
+        <div className="gsap-stagger-container grid gap-10 sm:gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 pb-12 sm:pb-16 border-b border-white/10">
           {/* Column 1: Brand & Athlete Bio (5 cols) */}
-          <div className="lg:col-span-5 flex flex-col justify-between">
+          <div className="gsap-stagger-item lg:col-span-5 flex flex-col justify-between">
             <div>
               <button
                 onClick={() => onNavigate('home')}
@@ -50,7 +53,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           </div>
 
           {/* Column 2: Navigation - Story & Media (2 cols) */}
-          <div className="lg:col-span-2">
+          <div className="gsap-stagger-item lg:col-span-2">
             <h4 className="font-sans text-[11px] uppercase tracking-[0.22em] text-[#a8895c] font-bold pb-3 border-b border-white/10">
               Story &amp; Media
             </h4>
@@ -99,7 +102,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           </div>
 
           {/* Column 3: Navigation - Performance & Vision (2 cols) */}
-          <div className="lg:col-span-2">
+          <div className="gsap-stagger-item lg:col-span-2">
             <h4 className="font-sans text-[11px] uppercase tracking-[0.22em] text-[#a8895c] font-bold pb-3 border-b border-white/10">
               Track Record
             </h4>
@@ -140,7 +143,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           </div>
 
           {/* Column 4: Direct Connect & Back to Top (3 cols) */}
-          <div className="lg:col-span-3 flex flex-col justify-between">
+          <div className="gsap-stagger-item lg:col-span-3 flex flex-col justify-between">
             <div>
               <h4 className="font-sans text-[11px] uppercase tracking-[0.22em] text-[#a8895c] font-bold pb-3 border-b border-white/10">
                 Direct Inquiries

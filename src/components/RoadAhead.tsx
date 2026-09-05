@@ -81,6 +81,7 @@ export default function RoadAhead() {
                     alt={`${step.title} - ${step.year}`}
                     className="w-full h-auto aspect-[16/10] sm:aspect-[4/3] object-cover object-center rounded-sm transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                   
@@ -122,7 +123,7 @@ export default function RoadAhead() {
         </div>
 
         {/* Featured Mission & Athlete Pledge Spotlight */}
-        <div className="reveal mt-12 sm:mt-16 overflow-hidden rounded-sm border border-[#a8895c]/40 bg-[#251e16] shadow-2xl">
+        <div className="gsap-reveal-scale mt-12 sm:mt-16 overflow-hidden rounded-sm border border-[#a8895c]/40 bg-[#251e16] shadow-2xl">
           <div className="grid lg:grid-cols-12 items-center">
             {/* Left Image Showcase - Full-bleed landscape photo */}
             <div className="lg:col-span-5 relative h-72 sm:h-96 lg:h-full min-h-[300px] sm:min-h-[380px] overflow-hidden border-b lg:border-b-0 lg:border-r border-white/10">
@@ -131,6 +132,7 @@ export default function RoadAhead() {
                 alt="Ved Sarma Sarkar in official Team India podium attire"
                 className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-104"
                 loading="lazy"
+                decoding="async"
               />
               <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex items-center gap-2 rounded-full bg-black/80 px-3.5 py-1.5 text-xs font-sans text-white backdrop-blur-md border border-[#a8895c]/40 shadow-lg">
                 <Flag size={14} className="text-[#a8895c]" />
@@ -145,7 +147,7 @@ export default function RoadAhead() {
               </span>
               
               <blockquote className="mt-3 sm:mt-4 font-serif text-xl sm:text-2xl lg:text-3xl italic leading-relaxed text-white">
-                &ldquo;I am determined to represent India in the Asian Games in 2030 and the Olympics in 2032, and multiple times thereafter &mdash; making India a formidable name in the world of equestrian sport.&rdquo;
+                &ldquo;I am determined to represent India in the World Equestrian Championship (U25) 2027/28, the Asian Games in 2030, and the Olympics in 2032, and multiple times thereafter &mdash; making India a formidable name in the world of equestrian sport.&rdquo;
               </blockquote>
 
               <div className="mt-5 sm:mt-6 pt-4 sm:pt-6 border-t border-white/10 flex items-center justify-between gap-2">

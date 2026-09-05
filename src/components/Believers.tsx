@@ -26,7 +26,7 @@ export default function Believers() {
     <section ref={sectionRef} id="believers" className="bg-[#19140e] text-[#ebe4d8] py-16 sm:py-20 lg:py-32 relative overflow-hidden border-t border-white/10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         {/* Header - Centered */}
-        <div className="reveal max-w-3xl mx-auto text-center flex flex-col items-center">
+        <div className="gsap-reveal max-w-3xl mx-auto text-center flex flex-col items-center">
           <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
             <span className="h-[1px] w-6 bg-[#a8895c]" />
             Foundational Support
@@ -41,14 +41,13 @@ export default function Believers() {
         </div>
 
         {/* 3-Card Grid */}
-        <div className="mt-10 sm:mt-14 grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="gsap-stagger-container mt-10 sm:mt-14 grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {BELIEVERS.map((b, i) => (
             <div
               key={b.name}
-              className={`reveal rounded-sm border border-white/10 bg-[#251e16] p-6 sm:p-8 lg:p-10 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-[#a8895c]/60 flex flex-col justify-between ${
+              className={`gsap-stagger-item rounded-sm border border-white/10 bg-[#251e16] p-6 sm:p-8 lg:p-10 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-[#a8895c]/60 flex flex-col justify-between ${
                 i === 2 ? 'sm:col-span-2 lg:col-span-1' : ''
               }`}
-              style={{ transitionDelay: `${i * 0.08}s` }}
             >
               <div>
                 <div className="flex items-center justify-between border-b border-white/10 pb-4">
