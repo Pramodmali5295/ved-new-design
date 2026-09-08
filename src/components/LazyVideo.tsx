@@ -39,8 +39,8 @@ export const LazyVideo = forwardRef<HTMLVideoElement, LazyVideoProps>(
           });
         },
         {
-          threshold: 0.15,
-          rootMargin: '100px',
+          threshold: 0.05,
+          rootMargin: '400px',
         }
       );
 

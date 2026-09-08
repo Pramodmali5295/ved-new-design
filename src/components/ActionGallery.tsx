@@ -173,6 +173,7 @@ export default function ActionGallery() {
                 <div className="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden">
                   <LazyVideo
                     src={VIDEOS[0]?.src || '/assets/video-3.mp4'}
+                    poster={VIDEOS[0]?.poster || '/assets/ved-3.jpeg'}
                     className="h-full w-full object-contain pointer-events-none"
                   />
 
@@ -212,6 +213,7 @@ export default function ActionGallery() {
                   <div className="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden">
                     <LazyVideo
                       src={vid.src}
+                      poster={vid.poster}
                       className="h-full w-full object-contain pointer-events-none"
                     />
 

@@ -32,7 +32,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               
               <div className="mt-2.5 flex items-center gap-2 font-sans text-[10px] uppercase tracking-[0.2em] text-[#a8895c] font-semibold">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#a8895c]" />
-                <span>FEI Eventing Athlete &bull; Team India</span>
+                <span>Indian Equestrian Athlete &bull; FEI Eventing</span>
               </div>
 
               <p className="mt-4 font-serif text-sm sm:text-base italic text-[#d9cdb8]/80 leading-relaxed max-w-md">
@@ -79,7 +79,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                   onClick={() => onNavigate('making')}
                   className="text-[#d9cdb8]/75 hover:text-white transition-colors"
                 >
-                  The Journey (7 Milestones)
+                  The Journey (8 Milestones)
                 </button>
               </li>
               <li>

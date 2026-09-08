@@ -136,7 +136,7 @@ export default function RoadAhead() {
               />
               <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex items-center gap-2 rounded-full bg-black/80 px-3.5 py-1.5 text-xs font-sans text-white backdrop-blur-md border border-[#a8895c]/40 shadow-lg">
                 <Flag size={14} className="text-[#a8895c]" />
-                <span className="text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold">Team India Athlete</span>
+                <span className="text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold">Indian Equestrian Athlete</span>
               </div>
             </div>
 

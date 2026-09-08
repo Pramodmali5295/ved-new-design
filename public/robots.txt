@@ -1,0 +1,7 @@
+# Robots.txt for Ved Sarma Sarkar Official Website
+User-agent: *
+Allow: /
+Disallow: /scratch/
+
+# Sitemap
+Sitemap: https://vedsarmasarkar.com/sitemap.xml

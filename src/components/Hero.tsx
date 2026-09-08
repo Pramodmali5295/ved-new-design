@@ -136,6 +136,7 @@ export default function Hero({ onNavigate }: HeroProps) {
         <video
           ref={videoRef}
           src={HERO_VIDEO_SRC}
+          preload="auto"
           autoPlay
           loop
           muted
@@ -156,7 +157,7 @@ export default function Hero({ onNavigate }: HeroProps) {
           <div className="animate-breathe inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-[#f0c775]/80 bg-black/85 px-2.5 xxs:px-3 sm:px-4 py-1 sm:py-1.5 backdrop-blur-md shadow-[0_4px_25px_rgba(240,199,117,0.35)] transition-all duration-500 hover:scale-105 hover:border-[#f0c775]">
             <span className="h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full bg-[#f0c775] animate-pulse shrink-0 shadow-[0_0_8px_#f0c775]" />
             <span className="font-sans text-[8px] xxs:text-[9px] xs:text-[10px] sm:text-xs uppercase tracking-[0.14em] sm:tracking-[0.22em] text-[#fcefd2] font-bold whitespace-nowrap">
-              Eventing &middot; Team India Athlete
+              Indian Equestrian Athlete
             </span>
           </div>
 

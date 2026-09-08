@@ -29,6 +29,7 @@ export const VIDEOS = [
   {
     id: 'video-3',
     src: '/assets/video-3.mp4',
+    poster: '/assets/ved-3.jpeg',
     title: "Let's Go Partner",
     category: 'Dressage & Flatwork',
     description: 'Developing connection, impulsion, and supple responsiveness with the horse.',
@@ -36,6 +37,7 @@ export const VIDEOS = [
   {
     id: 'video-8',
     src: '/assets/video-8.mp4',
+    poster: '/assets/ved-8.jpeg',
     title: 'Cross-Country Power & Rhythm',
     category: 'Cross Country',
     description: 'Ved navigating open terrain with cadence, balance and precision pacing.',
@@ -43,6 +45,7 @@ export const VIDEOS = [
   {
     id: 'video-9',
     src: '/assets/video-9.mp4',
+    poster: '/assets/ved-9.jpeg',
     title: 'Arena Precision & Stride Control',
     category: 'Arena Work',
     description: 'Technical line approaches and balanced take-off over competition fences.',
@@ -50,6 +53,7 @@ export const VIDEOS = [
   {
     id: 'video-4',
     src: '/assets/video-4.mp4',
+    poster: '/assets/ved-4.jpeg',
     title: 'Full Course Jump Execution',
     category: 'Show Jumping',
     description: 'Clean clearance across high competition obstacles with zero penalties.',
@@ -57,6 +61,7 @@ export const VIDEOS = [
   {
     id: 'video-5',
     src: '/assets/video-5.mp4',
+    poster: '/assets/ved-5.jpeg',
     title: 'Fitness, Discipline & Commitment',
     category: 'Eventing Circuit',
     description: 'Speed control, straightness and obstacle navigation at full gallop.',
@@ -64,6 +69,7 @@ export const VIDEOS = [
   {
     id: 'video-10',
     src: '/assets/video-10.mp4',
+    poster: '/assets/ved-10.jpeg',
     title: 'Technical Obstacle Sequence',
     category: 'Technical Training',
     description: 'Combination fences, quick recovery and balanced stride discipline.',
@@ -71,6 +77,7 @@ export const VIDEOS = [
   {
     id: 'video-13',
     src: '/assets/video-13.mp4',
+    poster: '/assets/ved-13.jpeg',
     title: 'Championship Course Execution',
     category: 'Show Jumping',
     description: 'Dynamic pacing, technical obstacle navigation, and clean line execution.',
@@ -78,6 +85,7 @@ export const VIDEOS = [
   {
     id: 'video-12',
     src: '/assets/video-12.mp4',
+    poster: '/assets/ved-12.jpeg',
     title: 'Flatwork & Rhythm',
     category: 'Dressage',
     description: 'Disciplined flatwork, rhythm regulation, and balanced cadence in dressage.',
@@ -85,6 +93,7 @@ export const VIDEOS = [
   {
     id: 'video-matteo',
     src: '/assets/matto.mp4',
+    poster: '/assets/matto.jpeg',
     title: 'All Work and No Play',
     category: 'The Partnership',
     description: 'All work and no play.',

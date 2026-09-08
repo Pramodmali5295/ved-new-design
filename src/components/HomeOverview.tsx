@@ -167,7 +167,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
               onClick={() => onNavigate('making')}
               className="group inline-flex items-center gap-2 rounded-full bg-[#a8895c] px-5 sm:px-6 py-2.5 font-sans text-xs uppercase tracking-wider text-[#2d2418] font-bold transition-all hover:bg-[#c2a372] shadow-lg self-center md:self-auto hover:scale-105 active:scale-95 min-h-[42px]"
             >
-              <span>Explore All 7 Milestones</span>
+              <span>Explore All 8 Milestones</span>
               <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
             </button>
           </div>
@@ -181,7 +181,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
               <div className="relative h-44 sm:h-48 w-full overflow-hidden rounded-sm bg-[#120d08] flex items-center justify-center">
                 <img
                   src="/assets/ved-14.jpeg"
-                  alt="Seahorse Equestrian 2021 Foundations"
+                  alt="Ved Sarma Sarkar - Pune Indian Equestrian Athlete early foundations at Seahorse Academy"
                   loading="lazy"
                   decoding="async"
                   className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-106"
@@ -206,7 +206,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
               <div className="relative h-44 sm:h-48 w-full overflow-hidden rounded-sm bg-[#120d08] flex items-center justify-center">
                 <img
                   src="/assets/ved-16.jpeg"
-                  alt="FEI World Challenge 2023 Podium"
+                  alt="Ved Sarma Sarkar - Youngest Indian rider on FEI World Eventing Challenge podium"
                   loading="lazy"
                   decoding="async"
                   className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-106"
@@ -231,7 +231,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
               <div className="relative h-44 sm:h-48 w-full overflow-hidden rounded-sm bg-[#120d08] flex items-center justify-center">
                 <img
                   src="/assets/ved-20.jpeg"
-                  alt="US Circuit & Tryon 2026"
+                  alt="Ved Sarma Sarkar - Indian Equestrian Athlete competing in Ocala Florida and Tryon NC"
                   loading="lazy"
                   decoding="async"
                   className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-106"
@@ -342,7 +342,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
                 <div className="h-56 sm:h-64 w-full bg-[#100b07] rounded-sm flex items-center justify-center overflow-hidden border border-white/10 relative">
                   <img
                     src="/assets/matto-1.jpg"
-                    alt="Fernhill Milchem Mateo"
+                    alt="Ved Sarma Sarkar with Fernhill Milchem Mateo - Indian Equestrian Athlete from Pune"
                     className="h-full w-full object-cover object-[60%_80%] scale-[1.65] transition-transform duration-700 ease-out group-hover:scale-[1.75]"
                     loading="lazy"
                     decoding="async"
@@ -365,7 +365,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
                 <div className="h-56 sm:h-64 w-full bg-[#100b07] rounded-sm flex items-center justify-center overflow-hidden border border-white/10 p-2 relative">
                   <img
                     src="/assets/ved-20.jpeg"
-                    alt="Matteo in Competition"
+                    alt="Ved Sarma Sarkar high-clearance competition show jumping in Florida"
                     className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-104"
                     loading="lazy"
                     decoding="async"
@@ -559,7 +559,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
             </blockquote>
 
             <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs font-sans text-[#d9cdb8]/70 gap-2 text-center sm:text-left">
-              <span className="font-display text-sm sm:text-base text-[#e6c994]">Ved Sarma Sarkar &bull; Team India Athlete</span>
+              <span className="font-display text-sm sm:text-base text-[#e6c994]">Ved Sarma Sarkar &bull; Indian Equestrian Athlete</span>
               <span className="uppercase tracking-wider text-[10px] sm:text-xs text-[#a8895c]">Target: Asian Games 2030 &bull; Olympics 2032</span>
             </div>
           </div>

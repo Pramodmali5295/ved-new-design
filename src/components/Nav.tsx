@@ -214,7 +214,7 @@ export default function Nav({ currentPage, onNavigate }: NavProps) {
           <div className="p-4 sm:p-6 border-t border-white/15 bg-[#1a130c] shrink-0 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
             <div>
               <p className="font-sans text-[10px] uppercase tracking-widest text-[#f0c775] font-bold">
-                Team India Athlete &bull; Eventing
+                Indian Equestrian Athlete &bull; Eventing
               </p>
               <p className="font-serif text-xs italic text-[#d9cdb8]/80 mt-0.5">
                 Targeting 2030 Asian Games &amp; 2032 Olympics

@@ -145,7 +145,7 @@ export default function Contact() {
             </div>
 
             <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-[11px] font-sans uppercase tracking-wider text-[#a8895c]">
-              <span>Team India Athlete</span>
+              <span>Indian Equestrian Athlete</span>
               <span className="h-1.5 w-1.5 rounded-full bg-[#a8895c]" />
             </div>
           </div>

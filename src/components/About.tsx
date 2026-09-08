@@ -77,7 +77,7 @@ export default function About() {
                 Who is Ved
               </div>
               <span className="h-1.5 w-1.5 rounded-full bg-[#a8895c]" />
-              <span className="font-sans text-[10px] uppercase tracking-wider text-[#e6c994]">Team India Athlete</span>
+              <span className="font-sans text-[10px] uppercase tracking-wider text-[#e6c994]">Indian Equestrian Athlete</span>
             </div>
             
             <h1 className="mt-4 sm:mt-5 font-display text-3xl xs:text-4xl sm:text-5xl lg:text-6xl leading-tight">
@@ -157,6 +157,7 @@ export default function About() {
               >
                 <LazyVideo
                   src="/assets/video-6.mp4"
+                  poster="/assets/ved-6.jpeg"
                   className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-103"
                 />
                 <div className="absolute top-2.5 left-2.5 rounded-full bg-black/80 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#e6c994] border border-[#a8895c]/40 backdrop-blur-sm">
@@ -295,6 +296,7 @@ export default function About() {
               >
                 <LazyVideo
                   src="/assets/video-11.mp4"
+                  poster="/assets/ved-11.jpeg"
                   className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-103"
                 />
                 <div className="absolute top-2.5 left-2.5 rounded-full bg-black/80 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#e6c994] border border-[#a8895c]/40 backdrop-blur-sm">

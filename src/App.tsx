@@ -1,32 +1,19 @@
-import { useState, useEffect, useRef, lazy, Suspense } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger, useGSAP } from '@/utils/gsapConfig';
 import Nav from '@/components/Nav';
 import HomeOverview from '@/components/HomeOverview';
 import Footer from '@/components/Footer';
-
-// Code-split dynamic page imports for lightning-fast initial load
-const About = lazy(() => import('@/components/About'));
-const Making = lazy(() => import('@/components/Making'));
-const ActionGallery = lazy(() => import('@/components/ActionGallery'));
-const Partnership = lazy(() => import('@/components/Partnership'));
-const Coaches = lazy(() => import('@/components/Coaches'));
-const Believers = lazy(() => import('@/components/Believers'));
-const Record = lazy(() => import('@/components/Record'));
-const RoadAhead = lazy(() => import('@/components/RoadAhead'));
-const Contact = lazy(() => import('@/components/Contact'));
+import About from '@/components/About';
+import Making from '@/components/Making';
+import ActionGallery from '@/components/ActionGallery';
+import Partnership from '@/components/Partnership';
+import Coaches from '@/components/Coaches';
+import Believers from '@/components/Believers';
+import Record from '@/components/Record';
+import RoadAhead from '@/components/RoadAhead';
+import Contact from '@/components/Contact';
 
 const validPages = new Set(['home', 'about', 'making', 'media', 'partnership', 'coaches', 'road', 'contact']);
-
-function PageLoadingSkeleton() {
-  return (
-    <div className="min-h-[70vh] flex flex-col items-center justify-center py-24">
-      <div className="h-10 w-10 animate-spin rounded-full border-2 border-[#a8895c]/20 border-t-[#e6c994]" />
-      <span className="mt-4 font-sans text-xs uppercase tracking-[0.2em] text-[#a8895c] animate-pulse">
-        Loading...
-      </span>
-    </div>
-  );
-}
 
 function App() {
   // Always land on 'home' page upon browser refresh
@@ -156,11 +143,9 @@ function App() {
       <Nav currentPage={currentPage} onNavigate={navigateTo} />
 
       <main className="flex-1">
-        {/* Page Content with GSAP smooth transition and lazy code splitting */}
+        {/* Page Content with GSAP smooth instant transition */}
         <div ref={pageContentRef} key={currentPage}>
-          <Suspense fallback={<PageLoadingSkeleton />}>
-            {renderContent()}
-          </Suspense>
+          {renderContent()}
         </div>
       </main>
 
