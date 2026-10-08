@@ -42,7 +42,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
                 16 yo. Youngest with Podium Finish.
               </h2>
               <p className="mt-3 sm:mt-4 font-sans text-xs sm:text-sm md:text-base leading-relaxed text-[#d9cdb8]/85 text-center lg:text-left">
-                Ved Sarma Sarkar is one of India&rsquo;s most promising equestrian athletes. At 16, he became the youngest rider on the podium at the FEI World Eventing Challenge. Today he is competing in one of the world&rsquo;s most competitive equestrian destinations &mdash; Ocala, Florida, home to legendary riders like Buck Davidson and Wil Coleman. Ocala is said to be the epicentre of equestrian sport, where Ved is carving his pathway to the Asian Games 2030 and Olympic Games 2032.
+                Ved Sarma Sarkar is one of India&rsquo;s most promising equestrian athletes. At 16, he became the youngest rider on the podium at the FEI World Eventing Challenge. After a fantastic competitive season in India he tested waters in one of the world&rsquo;s most competitive equestrian destinations &mdash; Ocala, Florida, home to legendary riders like Buck Davidson and Wil Coleman. Competing in tough International circuits, Ved is carving his pathway to the Asian Games 2030 and Olympic Games 2032.
               </p>
               <div className="mt-6 flex flex-col xs:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 w-full">
                 <button
@@ -159,7 +159,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
                 The Journey &amp; Milestones
               </h2>
               <p className="mt-3 max-w-xl font-serif text-sm sm:text-base italic text-[#d9cdb8]/80 text-center md:text-left mx-auto md:mx-0">
-                From learning under Indian Olympian Imtiaz Anees to competing in world-class 2★ and FEI circuits in Ocala, FL and Tryon, NC.
+                From learning under Indian Olympian Imtiaz Anees to competing in world-class 2★ and FEI international circuits including Tryon, NC.
               </p>
             </div>
 
@@ -231,18 +231,18 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
               <div className="relative h-44 sm:h-48 w-full overflow-hidden rounded-sm bg-[#120d08] flex items-center justify-center">
                 <img
                   src="/assets/ved-20.jpeg"
-                  alt="Ved Sarma Sarkar - Indian Equestrian Athlete competing in Ocala Florida and Tryon NC"
+                  alt="Ved Sarma Sarkar - Indian Equestrian Athlete competing in international circuits and Tryon NC"
                   loading="lazy"
                   decoding="async"
                   className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-106"
                 />
                 <span className="absolute top-2.5 left-2.5 rounded-full bg-black/85 px-2.5 py-0.5 font-sans text-[9px] uppercase tracking-widest text-[#d9cdb8] border border-white/10 shadow-md">
-                  US Circuit
+                  International Stint
                 </span>
                 <span className="absolute bottom-2.5 right-2.5 font-display text-xl font-bold text-[#e6c994] drop-shadow-md">2026</span>
               </div>
               <h3 className="mt-4 font-display text-lg text-white group-hover:text-[#e6c994] transition-colors text-center sm:text-left">
-                Ocala Circuit &bull; Tryon CCI 1★
+                International Circuit &bull; Tryon CCI 1★
               </h3>
               <p className="mt-1 font-sans text-xs text-[#d9cdb8]/70 line-clamp-2 text-center sm:text-left">
                 Placed #9th at Tryon International Three-Day Event alongside the world&rsquo;s top riders.
@@ -459,7 +459,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
                 <div className="flex items-center justify-between p-3 sm:p-3.5 bg-[#19140e] rounded-sm border border-white/10 gap-2">
                   <div>
                     <p className="font-display text-sm sm:text-base text-white">Bruce Davidson Jr. (Buck)</p>
-                    <p className="font-sans text-[9px] sm:text-[10px] uppercase tracking-wider text-[#a8895c]">5★ Eventer &bull; Ocala, FL</p>
+                    <p className="font-sans text-[9px] sm:text-[10px] uppercase tracking-wider text-[#a8895c]">5★ Eventer &bull; Coach</p>
                   </div>
                   <span className="rounded bg-black/60 border border-[#a8895c]/30 px-2 py-1 text-[9px] sm:text-[10px] font-sans text-[#e6c994] shrink-0">
                     Coach
@@ -488,7 +488,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
               </div>
 
               <div className="mt-6 pt-4 border-t border-white/10 flex flex-col xs:flex-row xs:items-center justify-between gap-3">
-                <span className="font-sans text-xs text-[#d9cdb8]/70">5 International Coaches &bull; 3 Supporting Patrons</span>
+                <span className="font-sans text-xs text-[#d9cdb8]/70">6 International Coaches &bull; 3 Supporting Patrons</span>
                 <button
                   onClick={() => onNavigate('coaches')}
                   className="rounded-full bg-[#a8895c] px-4 py-1.5 text-xs font-sans uppercase font-bold text-[#2d2418] hover:bg-[#c2a372] self-start xs:self-auto min-h-[36px]"
@@ -529,8 +529,8 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
             <div className="gsap-stagger-container mt-8 grid gap-3 sm:gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 text-center">
               <div className="gsap-stagger-item bg-[#19140e] p-3 sm:p-3.5 rounded-sm border border-white/10">
                 <span className="font-display text-base sm:text-lg font-bold text-[#e6c994]">2026</span>
-                <p className="font-sans text-xs text-white font-medium mt-1">Ocala Circuit</p>
-                <p className="font-sans text-[10px] text-[#d9cdb8]/60 mt-0.5">USEA / FEI 1★</p>
+                <p className="font-sans text-xs text-white font-medium mt-1">International 2★</p>
+                <p className="font-sans text-[10px] text-[#d9cdb8]/60 mt-0.5">FEI 1★ &amp; 2★ Stints</p>
               </div>
               <div className="gsap-stagger-item bg-[#19140e] p-3 sm:p-3.5 rounded-sm border border-white/10">
                 <span className="font-display text-base sm:text-lg font-bold text-[#e6c994]">2027</span>

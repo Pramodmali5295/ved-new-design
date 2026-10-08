@@ -73,7 +73,7 @@ export default function Partnership() {
           </div>
           <div className="bg-[#251e16] p-2.5 sm:p-3 text-center border-t border-white/10 mt-1.5 sm:mt-2 rounded-sm">
             <p className="font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.18em] sm:tracking-[0.2em] text-[#d9cdb8]">
-              Daily Trust &amp; Connection &middot; Ocala, Florida
+              Daily Trust &amp; Connection
             </p>
           </div>
         </div>
@@ -133,21 +133,21 @@ export default function Partnership() {
             </div>
           </div>
 
-          {/* Matteo Media Showcase: 3 Photographs + 1 Video Reel (100% Full Uncropped, Balanced Height) */}
+          {/* Media Showcase: 3 Photographs + 1 Video Reel */}
           <div className="gsap-stagger-container mt-8 sm:mt-10 grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 items-stretch">
-            {/* Photo 1: Matteo in Pasture */}
+            {/* Photo 1: Pasture & Conditioning */}
             <div className="gsap-stagger-item relative overflow-hidden rounded-sm bg-[#120d08] border border-white/10 shadow-xl group flex flex-col justify-between p-3">
               <div 
                 onClick={() => setSelectedPhoto({
                   src: '/assets/matto.jpeg',
-                  title: 'Fernhill Milchem Mateo (Matteo)',
-                  subtitle: 'Pasture & Conditioning · Ocala, Florida',
+                  title: 'Pasture & Conditioning',
+                  subtitle: 'Daily conditioning and recovery in open paddocks',
                 })}
                 className="relative w-full flex-1 flex items-center justify-center overflow-hidden min-h-[240px] sm:min-h-[260px] max-h-[300px] bg-[#0c0805] rounded-sm cursor-pointer"
               >
                 <img
                   src="/assets/matto.jpeg"
-                  alt="Fernhill Milchem Mateo in pasture"
+                  alt="Pasture & Conditioning"
                   className="w-full h-auto max-h-[300px] object-contain rounded-sm transition-transform duration-700 group-hover:scale-103"
                   loading="lazy"
                   decoding="async"
@@ -161,25 +161,25 @@ export default function Partnership() {
               </div>
               <div className="w-full bg-[#1c1610] p-3 mt-3 border-t border-white/10 rounded-sm">
                 <p className="font-sans text-[10px] sm:text-xs uppercase tracking-wider text-[#e6c994] font-medium">
-                  Fernhill Milchem Mateo
+                  Pasture &amp; Conditioning
                 </p>
-                <p className="font-sans text-[9px] text-[#d9cdb8]/70">Pasture &amp; Conditioning &middot; Ocala, Florida</p>
+                <p className="font-sans text-[9px] text-[#d9cdb8]/70">Open Field Conditioning</p>
               </div>
             </div>
 
-            {/* Photo 2: Matteo Image 1 (matto-1.jpg) */}
+            {/* Photo 2: Athletic Form & Balance */}
             <div className="gsap-stagger-item relative overflow-hidden rounded-sm bg-[#120d08] border border-white/10 shadow-xl group flex flex-col justify-between p-3">
               <div 
                 onClick={() => setSelectedPhoto({
                   src: '/assets/matto-1.jpg',
                   title: 'Athletic Form & Balance',
-                  subtitle: 'CCI 2★ Irish Sport Horse · Ocala, Florida',
+                  subtitle: 'CCI 2★ Irish Sport Horse precision form',
                 })}
                 className="relative w-full flex-1 flex items-center justify-center overflow-hidden min-h-[240px] sm:min-h-[260px] max-h-[300px] bg-[#0c0805] rounded-sm cursor-pointer"
               >
                 <img
                   src="/assets/matto-1.jpg"
-                  alt="Matteo athletic form"
+                  alt="Athletic form"
                   className="w-full h-auto max-h-[300px] object-contain rounded-sm sm:h-full sm:w-full sm:object-cover sm:object-[center_bottom] sm:scale-[3.2] sm:-translate-y-40 sm:-translate-x-8 transition-transform duration-700 ease-out group-hover:scale-103 sm:group-hover:scale-[3.3]"
                   loading="lazy"
                   decoding="async"
@@ -195,23 +195,23 @@ export default function Partnership() {
                 <p className="font-sans text-[10px] sm:text-xs uppercase tracking-wider text-[#e6c994] font-medium">
                   Athletic Form &amp; Balance
                 </p>
-                <p className="font-sans text-[9px] text-[#d9cdb8]/70">Matteo 1 &middot; Ocala, Florida</p>
+                <p className="font-sans text-[9px] text-[#d9cdb8]/70">CCI 2★ Equine Form</p>
               </div>
             </div>
 
-            {/* Photo 3: Matteo Image 2 (matto-2.jpeg) */}
+            {/* Photo 3: Daily Handling & Trust */}
             <div className="gsap-stagger-item relative overflow-hidden rounded-sm bg-[#120d08] border border-white/10 shadow-xl group flex flex-col justify-between p-3">
               <div 
                 onClick={() => setSelectedPhoto({
                   src: '/assets/matto-2.jpeg',
                   title: 'Daily Handling & Trust',
-                  subtitle: 'Matteo 2 · Ocala, Florida',
+                  subtitle: 'Developing mutual trust and focus',
                 })}
                 className="relative w-full flex-1 flex items-center justify-center overflow-hidden min-h-[240px] sm:min-h-[260px] max-h-[300px] bg-[#0c0805] rounded-sm cursor-pointer"
               >
                 <img
                   src="/assets/matto-2.jpeg"
-                  alt="Matteo daily handling"
+                  alt="Daily handling"
                   className="w-full h-auto max-h-[300px] object-contain rounded-sm transition-transform duration-700 group-hover:scale-103"
                   loading="lazy"
                   decoding="async"
@@ -227,7 +227,7 @@ export default function Partnership() {
                 <p className="font-sans text-[10px] sm:text-xs uppercase tracking-wider text-[#e6c994] font-medium">
                   Daily Handling &amp; Trust
                 </p>
-                <p className="font-sans text-[9px] text-[#d9cdb8]/70">Matteo 2 &middot; Ocala, Florida</p>
+                <p className="font-sans text-[9px] text-[#d9cdb8]/70">Mutual Trust &amp; Care</p>
               </div>
             </div>
 
@@ -269,7 +269,7 @@ export default function Partnership() {
                   <p className="font-sans text-[10px] sm:text-xs uppercase tracking-wider text-[#e6c994] font-medium">
                     Pasture Turnout &amp; Free Movement
                   </p>
-                  <p className="font-sans text-[9px] text-[#d9cdb8]/70">Paddock Freedom &amp; Leisure &middot; Ocala, Florida</p>
+                  <p className="font-sans text-[9px] text-[#d9cdb8]/70">Paddock Freedom &amp; Leisure</p>
                 </div>
                 <button
                   type="button"

@@ -6,7 +6,7 @@ const COACHES = [
     name: 'Bruce Davidson Jr.',
     location: 'BDJ Equestrian, Ocala FL',
     role: '5★ Eventer — Coach',
-    text: 'A world-renowned eventer, training very selectively at BDJ Equestrian Centre in Ocala, FL and Chesterland, PA — the “Mecca of Eventing.” With five decades of top 5★ experience, Buck Davidson held world #3 and US #1 for a long period, and has coached numerous eventers to Olympics and World Championships. Son of legendary four-time Olympian Bruce Davidson Sr.',
+    text: 'A world-renowned eventer, training very selectively at BDJ Equestrian Centre in Ocala, FL and Chesterland, PA — the “Mecca of Eventing.” With five decades of top 5★ experience, Davidson Jr. held world #3 and US #1 for a long period, and has coached numerous eventers to Olympics and World Championships. He is son of legendary four-time Olympian Bruce Davidson Sr.',
     link: 'www.bdjequestrian.com',
     image: '/assets/mentor Bruce.webp',
   },
@@ -33,6 +33,14 @@ const COACHES = [
     text: 'Ved’s cross-country training started under Mr. Declan Cullen and Mrs. Becky Cullen, European 5★ eventers. The learnings helped Ved later compete and win in Eventing. He gained knowledge about stable management, improving horse fitness through swimming, incline galloping, advanced equipment use, and nutrition.',
     link: 'cullenequinesolutions.com',
     image: '/assets/mentor cullen.jpeg',
+  },
+  {
+    name: 'Pietro Grandis',
+    location: 'Soltau, Germany',
+    role: 'International Eventing Rider — Coach',
+    text: 'An accomplished Italian international eventing rider with numerous notable placements across the world circuit. Having trained directly under World #1 and multi-Olympic champion Michael Jung, Pietro brings world-class precision, modern European methodology, and elite tactical depth to Ved’s international eventing progression.',
+    link: 'www.fei.org/athlete/10068607/GRANDIS-Pietro',
+    image: '/assets/mentor Pietro.png',
   },
   {
     name: 'Sea Horse Equestrian',
@@ -65,7 +73,7 @@ export default function Coaches() {
             The People Who Shaped the Rider
           </h1>
           <p className="mt-3 sm:mt-4 font-serif text-base sm:text-lg italic text-[#d9cdb8]/85 text-center">
-            From Indian Olympian Imtiaz Anees to five-star international masters in New Zealand, France, Northern Ireland, and the United States.
+            From Indian Olympian Imtiaz Anees to five-star international masters in New Zealand, France, Northern Ireland, United States and Germany.
           </p>
 
           <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#a8895c]/40 bg-[#251e16] px-4 py-1.5 text-xs font-sans text-[#e6c994] shadow-lg">
@@ -130,7 +138,9 @@ export default function Coaches() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-[#a8895c]/40 bg-black/40 px-3 sm:px-4 py-2 font-sans text-[10px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.15em] text-[#e6c994] font-medium hover:bg-[#a8895c] hover:text-[#2d2418] hover:border-[#a8895c] transition-all group min-h-[38px] max-w-full"
                   >
-                    <span className="truncate max-w-[200px] xxs:max-w-[240px] xs:max-w-none">Visit {coach.link}</span>
+                    <span className="truncate max-w-[200px] xxs:max-w-[240px] xs:max-w-none">
+                      {coach.link.includes('fei.org') ? 'View FEI Athlete Profile' : `Visit ${coach.link}`}
+                    </span>
                     <ExternalLink size={13} className="transition-transform group-hover:translate-x-0.5 shrink-0" />
                   </a>
 

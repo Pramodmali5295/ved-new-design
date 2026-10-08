@@ -41,7 +41,7 @@ export default function Contact() {
         </div>
 
         {/* Primary Contact Channels Grid */}
-        <div className="gsap-stagger-container mt-12 sm:mt-16 grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="gsap-stagger-container mt-12 sm:mt-16 grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto">
           {/* Card 1: Official Email & Communications */}
           <div className="gsap-stagger-item rounded-sm border border-white/10 bg-[#251e16] p-6 sm:p-8 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-[#a8895c]/60 flex flex-col justify-between">
             <div>
@@ -90,37 +90,7 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Card 2: International Training Headquarters */}
-          <div className="gsap-stagger-item rounded-sm border border-white/10 bg-[#251e16] p-6 sm:p-8 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-[#a8895c]/60 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#a8895c]/20 text-[#e6c994]">
-                  <MapPin size={20} />
-                </div>
-                <span className="font-sans text-[10px] uppercase tracking-widest text-[#a8895c] font-semibold bg-black/50 px-2.5 py-1 rounded-full border border-[#a8895c]/30">
-                  United States
-                </span>
-              </div>
-
-              <h3 className="mt-6 font-display text-xl sm:text-2xl text-white">Training Base</h3>
-              <p className="mt-1 font-sans text-[11px] uppercase tracking-wider text-[#a8895c] font-semibold">
-                Ocala, Florida, USA
-              </p>
-              
-              <div className="mt-4 space-y-2 text-xs font-sans text-[#d9cdb8]/80 leading-relaxed">
-                <p>&bull; <strong>Facility:</strong> BDJ Equestrian Center</p>
-                <p>&bull; <strong>Coach:</strong> Bruce Davidson Jr. (5★ Eventer)</p>
-                <p>&bull; <strong>Circuit:</strong> World Equestrian Center (WEC) Ocala</p>
-              </div>
-            </div>
-
-            <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-[11px] font-sans uppercase tracking-wider text-[#a8895c]">
-              <span>Active Circuit</span>
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            </div>
-          </div>
-
-          {/* Card 3: Home Base & National Representation */}
+          {/* Card 2: Home Base & National Representation */}
           <div className="gsap-stagger-item rounded-sm border border-white/10 bg-[#251e16] p-6 sm:p-8 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-[#a8895c]/60 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-white/10 pb-4">

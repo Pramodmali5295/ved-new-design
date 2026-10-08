@@ -43,10 +43,6 @@ export default function Footer({ onNavigate }: FooterProps) {
             <div className="mt-6 flex flex-wrap items-center gap-3 font-sans text-[10px] uppercase tracking-wider text-[#d9cdb8]/70">
               <span className="flex items-center gap-1.5 bg-[#251e16] px-3 py-1 rounded-full border border-white/10">
                 <MapPin size={12} className="text-[#a8895c]" />
-                <span>Ocala, Florida, USA</span>
-              </span>
-              <span className="flex items-center gap-1.5 bg-[#251e16] px-3 py-1 rounded-full border border-white/10">
-                <MapPin size={12} className="text-[#a8895c]" />
                 <span>Pune, India</span>
               </span>
             </div>
@@ -189,8 +185,6 @@ export default function Footer({ onNavigate }: FooterProps) {
             <span>FEI Registered</span>
             <span>&bull;</span>
             <span>EFI National Medallist</span>
-            <span>&bull;</span>
-            <span>USEA Circuit</span>
           </div>
         </div>
       </div>

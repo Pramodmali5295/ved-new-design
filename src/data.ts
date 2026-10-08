@@ -230,7 +230,7 @@ export const COACHES = [
     name: 'Bruce Davidson Jr.',
     location: 'BDJ Equestrian, Ocala FL',
     role: '5★ Eventer — Coach',
-    text: 'A world-renowned eventer, training very selectively at BDJ Equestrian Centre in Ocala, FL and Chesterland, PA — the “Mecca of Eventing.” With five decades of top 5★ experience, Buck Davidson held world #3 and US #1 for a long period, and has coached numerous eventers to Olympics and World Championships. Son of legendary four-time Olympian Bruce Davidson Sr.',
+    text: 'A world-renowned eventer, training very selectively at BDJ Equestrian Centre in Ocala, FL and Chesterland, PA — the “Mecca of Eventing.” With five decades of top 5★ experience, Davidson Jr. held world #3 and US #1 for a long period, and has coached numerous eventers to Olympics and World Championships. He is son of legendary four-time Olympian Bruce Davidson Sr.',
     link: 'www.bdjequestrian.com',
     image: '/assets/mentor Bruce.webp',
   },
@@ -257,6 +257,14 @@ export const COACHES = [
     text: 'Ved’s cross-country training started under Mr. Declan Cullen and Mrs. Becky Cullen, European 5★ eventers. The learnings helped Ved later compete and win in Eventing. He gained knowledge about stable management, improving horse fitness through swimming, incline galloping, advanced equipment use, and nutrition.',
     link: 'cullenequine.com',
     image: '/assets/mentor cullen.jpeg',
+  },
+  {
+    name: 'Pietro Grandis',
+    location: 'Soltau, Germany',
+    role: 'International Eventing Rider — Coach',
+    text: 'An accomplished Italian international eventing rider with numerous notable placements across the world circuit. Having trained directly under World #1 and multi-Olympic champion Michael Jung, Pietro brings world-class precision, modern European methodology, and elite tactical depth to Ved’s international eventing progression.',
+    link: 'www.fei.org/athlete/10068607/GRANDIS-Pietro',
+    image: '/assets/mentor Pietro.png',
   },
   {
     name: 'Sea Horse Equestrian',
@@ -313,20 +321,20 @@ export const NATIONAL_RESULTS = [
 
 export const INTERNATIONAL_RESULTS = [
   { date: '2023', event: 'FEI World Equestrian Challenge', result: 'Podium Finish', medal: 'gold' },
-  { date: '5 Feb 2026', event: 'Majestic Oaks Ocala H.T.', result: 'Gold', medal: 'gold' },
   { date: '4 Mar 2026', event: 'Rocking Horse Spring H.T.', result: 'Bronze', medal: 'bronze' },
   { date: '16 Apr 2026', event: 'Ocala International', result: 'Silver', medal: 'silver' },
-  { date: '6 May 2026', event: 'Tryon International Three-Day Event — CCI 1★', result: '9th', medal: 'none' },
-  { date: '12 Jun 2026', event: 'Ocala World Equestrian Centre — CCI 2★', result: '6th', medal: 'none' },
+  { date: '2 May 2026', event: 'Majestic Oaks Ocala H.T.', result: 'Gold', medal: 'gold' },
+  { date: '8 May 2026', event: 'Tryon International Three-Day Event — CCI 1★', result: '9th', medal: 'none' },
+  { date: '12 Jun 2026', event: 'Ocala World Equestrian Centre — CSI 2★', result: '6th', medal: 'none' },
 ];
 
 export const ROADMAP = [
   {
     year: '2026',
     title: 'International Circuit',
-    text: 'Competing in the American eventing circuit in Ocala, FL and building elite FEI experience.',
+    text: 'Completed competitive training stints in the American eventing circuit, building elite FEI experience.',
     image: '/assets/ved-10.jpeg',
-    tag: 'Ocala Circuit',
+    tag: 'International Circuit',
   },
   {
     year: '2027',

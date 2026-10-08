@@ -99,19 +99,14 @@ export default function About() {
                 has consistently excelled across Junior National Championships and international arenas.
               </p>
               <p>
-                Trained under Indian Olympian Imtiaz Anees and currently advancing on the prestigious
-                international equestrian circuit in Ocala, Florida, Ved is fiercely dedicated to representing
+                Trained under Indian Olympian Imtiaz Anees, Ved advanced substantially in the prestigious
+                international equestrian event Tryon International, NC. Ved is fiercely dedicated to representing
                 Team India at the 2030 Asian Games and the 2032 Olympic Games &mdash; establishing India
                 as a commanding force in world equestrian sport.
               </p>
             </div>
 
             <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-white/10 flex flex-wrap items-center gap-4 sm:gap-6">
-              <div>
-                <p className="font-display text-xl sm:text-2xl text-white">Ocala, FL</p>
-                <p className="font-sans text-[9px] sm:text-[10px] uppercase tracking-wider text-[#a8895c]">Competition Base</p>
-              </div>
-              <div className="h-8 w-[1px] bg-white/15 hidden xs:block" />
               <div>
                 <p className="font-display text-xl sm:text-2xl text-white">2030 &amp; 2032</p>
                 <p className="font-sans text-[9px] sm:text-[10px] uppercase tracking-wider text-[#a8895c]">Asian and Olympic Games Vision</p>

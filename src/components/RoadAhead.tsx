@@ -5,9 +5,9 @@ const ROADMAP = [
   {
     year: '2026',
     title: 'International 2★ Foundation',
-    text: 'Completing the Florida winter circuit and establishing baseline qualification scores at CCI 2★.',
+    text: 'Completed competitive training stints in the US and international circuits, establishing baseline qualification scores at 2★ level.',
     image: '/assets/ved-16.jpeg',
-    tag: 'Ocala Circuit',
+    tag: 'International Circuit',
   },
   {
     year: '2027',

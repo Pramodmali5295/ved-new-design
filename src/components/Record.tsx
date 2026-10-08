@@ -164,7 +164,7 @@ export default function Record() {
               <Star size={20} className="text-[#a8895c] shrink-0" />
               <div>
                 <h3 className="font-display text-xl sm:text-2xl text-white">International &amp; US Circuit</h3>
-                <p className="font-sans text-xs text-[#d9cdb8]/70">FEI, USEA &amp; WEC Ocala Competitions</p>
+                <p className="font-sans text-xs text-[#d9cdb8]/70">FEI &amp; WEC Ocala Competitions</p>
               </div>
             </div>
 
