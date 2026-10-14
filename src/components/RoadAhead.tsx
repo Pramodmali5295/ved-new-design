@@ -4,8 +4,8 @@ import { useGsapReveal } from '@/hooks/useGsapAnimations';
 const ROADMAP = [
   {
     year: '2026',
-    title: 'International 2★ Foundation',
-    text: 'Completed competitive training stints in the US and international circuits, establishing baseline qualification scores at 2★ level.',
+    title: 'International Foundation',
+    text: 'Completed extensive training with recognized international coaches, establishing baseline qualification in FEI events.',
     image: '/assets/ved-16.jpeg',
     tag: 'International Circuit',
   },
@@ -147,7 +147,7 @@ export default function RoadAhead() {
               </span>
               
               <blockquote className="mt-3 sm:mt-4 font-serif text-xl sm:text-2xl lg:text-3xl italic leading-relaxed text-white">
-                &ldquo;I am determined to represent India in the World Equestrian Championship (U25) 2027/28, the Asian Games in 2030, and the Olympics in 2032, and multiple times thereafter &mdash; making India a formidable name in the world of equestrian sport.&rdquo;
+                &ldquo;I am eager to represent India in the World Equestrian Championship (U25) in 2028, the Asian Games in 2030, and the Olympics in 2032, and multiple times thereafter &mdash; making India a formidable name in the world of equestrian sport. My effort and focus is 100%&rdquo;
               </blockquote>
 
               <div className="mt-5 sm:mt-6 pt-4 sm:pt-6 border-t border-white/10 flex items-center justify-between gap-2">

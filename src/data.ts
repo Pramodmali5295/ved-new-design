@@ -141,28 +141,20 @@ export const GALLERY_ITEMS = [
 
 export const TIMELINE = [
   {
-    phase: 'CSI 2★',
+    phase: 'WEC Ocala',
     year: '2026',
-    title: 'CSI-2★ Accomplished',
-    text: 'World Equestrian Centre, Ocala is host to the best show jumping events and riders, sponsored often by brands such as Longines and Rolex. Accomplishing a 6th position amongst 33 riders was hugely applauded.',
+    title: 'WEC Summer Series',
+    text: 'Competing at the WEC, Summer Series by FEI, Ved secured 6th place in the 1.15 m Junior/Amateur Classic, national class. Also he is 6/26 riders.',
     image: '/assets/journey 2026(1).jpeg',
-    tag: '6th / 33 Riders • WEC',
+    tag: '6th / 26 Riders • WEC',
   },
   {
     phase: 'FEI CCI-1★',
     year: '2026',
     title: 'India Representation in FEI CCI-1★',
-    text: 'Tryon International, NC is one of the most prestigious circuits in the world, one that hosted World Equestrian Games in 2018. Ved’s entry into the arena, alongside professionals who claim world position #2, 11 and 23, was a major milestone for India. Placed #9th.',
+    text: 'Tryon International, NC- a venue that has hosted World Equestrian Games in 2018. Ved’s entry into the arena, alongside professionals who claim world position #2, 11 and 23, was a major milestone for India. Upgraded placement #9th.',
     image: '/assets/journey 2026(2).jpeg',
-    tag: 'Placed #9th • Tryon',
-  },
-  {
-    phase: 'US Circuit',
-    year: '2026',
-    title: 'Ocala Circuit',
-    text: 'Mecca of Equestrian world, Ocala, FL is one of the renowned competitive circuits in the world. Ved completed a commendable 6 competitions with 2 podium finishes!',
-    image: '/assets/journey 2026(3).jpeg',
-    tag: '2 Podium Finishes',
+    tag: 'U-Plc #9',
   },
   {
     phase: 'Asian Youth Games',
@@ -235,7 +227,7 @@ export const COACHES = [
     image: '/assets/mentor Bruce.webp',
   },
   {
-    name: 'Donna Smith',
+    name: 'Donna Edward Smith',
     location: 'Waikato, New Zealand',
     role: '5★ Eventer — Coach',
     text: 'An acclaimed 5★ eventer, winner of 11 national titles, who has represented New Zealand eleven times internationally. An expert in training horses from lower levels to 5★, she is a sought-after coach and her country’s future Performance Potential Squad member. She trained Ved to higher difficulties of cross country, and in the huge importance of core strength and body balance.',
@@ -305,7 +297,7 @@ export const STATS = [
 export const KPI = [
   { metric: 'Total Competitions', value: '7' },
   { metric: 'Eventing Competitions', value: '6' },
-  { metric: 'CSI 2★ Competitions', value: '1' },
+  { metric: 'WEC Competitions', value: '1' },
   { metric: 'USEA Levels Completed', value: '5' },
   { metric: 'Wins & 1st Place', value: '3' },
   { metric: 'Top 5 Finish', value: '3' },
@@ -320,19 +312,16 @@ export const NATIONAL_RESULTS = [
 ];
 
 export const INTERNATIONAL_RESULTS = [
-  { date: '2023', event: 'FEI World Equestrian Challenge', result: 'Podium Finish', medal: 'gold' },
-  { date: '4 Mar 2026', event: 'Rocking Horse Spring H.T.', result: 'Bronze', medal: 'bronze' },
-  { date: '16 Apr 2026', event: 'Ocala International', result: 'Silver', medal: 'silver' },
-  { date: '2 May 2026', event: 'Majestic Oaks Ocala H.T.', result: 'Gold', medal: 'gold' },
-  { date: '8 May 2026', event: 'Tryon International Three-Day Event — CCI 1★', result: '9th', medal: 'none' },
-  { date: '12 Jun 2026', event: 'Ocala World Equestrian Centre — CSI 2★', result: '6th', medal: 'none' },
+  { date: 'Oct 2023', event: 'FEI Eventing Challenge, New Delhi', result: 'Category A : Podium finish', medal: 'gold' },
+  { date: 'May 2026', event: 'Tryon International Three-Day Event', result: 'CCI1*-S · U-Plc 9th', medal: 'none' },
+  { date: 'June 2026', event: 'WEC Ocala Summer Series', result: '1.15 m Junior/Amateur Classic · 6th', medal: 'none' },
 ];
 
 export const ROADMAP = [
   {
     year: '2026',
     title: 'International Circuit',
-    text: 'Completed competitive training stints in the American eventing circuit, building elite FEI experience.',
+    text: 'Completed extensive training with recognized international coaches, establishing baseline qualification in FEI events.',
     image: '/assets/ved-10.jpeg',
     tag: 'International Circuit',
   },

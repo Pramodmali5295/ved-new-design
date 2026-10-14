@@ -4,31 +4,22 @@ import { useGsapReveal } from '@/hooks/useGsapAnimations';
 
 const TIMELINE = [
   {
-    phase: 'CSI 2★',
+    phase: 'WEC Ocala',
     year: '2026',
-    title: 'CSI-2★ Accomplished',
-    text: 'World Equestrian Centre, Ocala is host to the best show jumping events and riders, sponsored often by brands such as Longines and Rolex. Accomplishing a 6th position amongst 33 riders was hugely applauded.',
+    title: 'WEC Summer Series',
+    text: 'Competing at the WEC, Summer Series by FEI, Ved secured 6th place in the 1.15 m Junior/Amateur Classic, national class. Also he is 6/26 riders.',
     image: '/assets/journey 2026(1).jpeg',
-    tag: '6th / 33 Riders • WEC',
+    tag: '6th / 26 Riders • WEC',
     imgClass: 'aspect-[16/11] sm:aspect-[4/3] object-cover rotate-90 scale-[1.15] translate-y-4',
   },
   {
     phase: 'FEI CCI-1★',
     year: '2026',
     title: 'India Representation in FEI CCI-1★',
-    text: 'Tryon International, NC is one of the most prestigious circuits in the world, one that hosted World Equestrian Games in 2018. Ved’s entry into the arena, alongside professionals who claim world position #2, 11 and 23, was a major milestone for India. Placed #9th.',
+    text: 'Tryon International, NC- a venue that has hosted World Equestrian Games in 2018. Ved’s entry into the arena, alongside professionals who claim world position #2, 11 and 23, was a major milestone for India. Upgraded placement #9th.',
     image: '/assets/journey 2026(2).jpeg',
-    tag: 'Placed #9th • Tryon',
+    tag: 'U-Plc #9',
     imgClass: 'aspect-[16/10] sm:aspect-[4/3] object-cover rotate-90 scale-[1.15] translate-y-4',
-  },
-  {
-    phase: 'US Circuit',
-    year: '2026',
-    title: 'Ocala Circuit',
-    text: 'Mecca of Equestrian world, Ocala, FL is one of the renowned competitive circuits in the world. Ved completed a commendable 6 competitions with 2 podium finishes!',
-    image: '/assets/journey 2026(3).jpeg',
-    tag: '2 Podium Finishes',
-    imgClass: 'aspect-[16/10] sm:aspect-[4/3] object-cover object-center',
   },
   {
     phase: 'Asian Youth Games',
@@ -102,11 +93,11 @@ export default function Making() {
             From Pune to the World Stage
           </h1>
           <p className="mt-3 sm:mt-4 font-serif text-base sm:text-lg italic text-[#d9cdb8]/85 text-center">
-            8 defining career milestones forged through dedication, elite international training, and unwavering resilience.
+            7 defining career milestones forged through dedication, elite international training, and unwavering resilience.
           </p>
           <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#a8895c]/30 bg-black/40 px-4 py-1.5 text-xs text-[#a8895c]">
             <Sparkles size={14} className="text-[#f0c775]" />
-            <span>8 Milestones &bull; 2021 &ndash; 2026</span>
+            <span>7 Milestones &bull; 2021 &ndash; 2026</span>
           </div>
         </div>
 

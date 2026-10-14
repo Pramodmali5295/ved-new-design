@@ -11,7 +11,7 @@ const COACHES = [
     image: '/assets/mentor Bruce.webp',
   },
   {
-    name: 'Donna Smith',
+    name: 'Donna Edward Smith',
     location: 'Waikato, New Zealand',
     role: '5★ Eventer — Coach',
     text: 'An acclaimed 5★ eventer, winner of 11 national titles, who has represented New Zealand eleven times internationally. An expert in training horses from lower levels to 5★, she is a sought-after coach and her country’s future Performance Potential Squad member. She trained Ved to higher difficulties of cross country, and in the huge importance of core strength and body balance.',

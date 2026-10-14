@@ -41,9 +41,14 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
               <h2 className="mt-3 sm:mt-4 font-display text-2xl xs:text-3xl sm:text-4xl text-white lg:text-5xl text-center lg:text-left">
                 16 yo. Youngest with Podium Finish.
               </h2>
-              <p className="mt-3 sm:mt-4 font-sans text-xs sm:text-sm md:text-base leading-relaxed text-[#d9cdb8]/85 text-center lg:text-left">
-                Ved Sarma Sarkar is one of India&rsquo;s most promising equestrian athletes. At 16, he became the youngest rider on the podium at the FEI World Eventing Challenge. After a fantastic competitive season in India he tested waters in one of the world&rsquo;s most competitive equestrian destinations &mdash; Ocala, Florida, home to legendary riders like Buck Davidson and Wil Coleman. Competing in tough International circuits, Ved is carving his pathway to the Asian Games 2030 and Olympic Games 2032.
-              </p>
+              <div className="mt-3 sm:mt-4 space-y-3 font-sans text-xs sm:text-sm md:text-base leading-relaxed text-[#d9cdb8]/85 text-center lg:text-left">
+                <p>
+                  Ved Sarma Sarkar is one of India&rsquo;s promising equestrian athletes. At 16, he became the youngest rider on the podium at the FEI Eventing Challenge. With two national-level medals and an international podium finish, he was shortlisted by the Equestrian Federation of India to represent India at the 2025 Asian Youth Games in Bahrain.
+                </p>
+                <p>
+                  Following a strong finish in CCI1* at Tryon International, NC, Ved remains focused on advancing his competitive career, with the ambition of representing India at the 2030 Asian Games and the 2032 Olympic Games.
+                </p>
+              </div>
               <div className="mt-6 flex flex-col xs:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 w-full">
                 <button
                   onClick={() => onNavigate('about')}
@@ -159,7 +164,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
                 The Journey &amp; Milestones
               </h2>
               <p className="mt-3 max-w-xl font-serif text-sm sm:text-base italic text-[#d9cdb8]/80 text-center md:text-left mx-auto md:mx-0">
-                From learning under Indian Olympian Imtiaz Anees to competing in world-class 2★ and FEI international circuits including Tryon, NC.
+                From learning under Indian Olympian Imtiaz Anees to achieving national and international results, Ved continues to build his career in equestrian eventing, with ambitions to compete at the highest international levels.
               </p>
             </div>
 
@@ -167,7 +172,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
               onClick={() => onNavigate('making')}
               className="group inline-flex items-center gap-2 rounded-full bg-[#a8895c] px-5 sm:px-6 py-2.5 font-sans text-xs uppercase tracking-wider text-[#2d2418] font-bold transition-all hover:bg-[#c2a372] shadow-lg self-center md:self-auto hover:scale-105 active:scale-95 min-h-[42px]"
             >
-              <span>Explore All 8 Milestones</span>
+              <span>Explore All 7 Milestones</span>
               <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
             </button>
           </div>
@@ -205,7 +210,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
             >
               <div className="relative h-44 sm:h-48 w-full overflow-hidden rounded-sm bg-[#120d08] flex items-center justify-center">
                 <img
-                  src="/assets/ved-16.jpeg"
+                  src="/assets/ved-5.jpeg"
                   alt="Ved Sarma Sarkar - Youngest Indian rider on FEI World Eventing Challenge podium"
                   loading="lazy"
                   decoding="async"
@@ -354,7 +359,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
                 <div className="mt-3">
                   <h4 className="font-display text-xl text-white group-hover:text-[#e6c994] transition-colors">Fernhill Milchem Mateo</h4>
                   <p className="font-sans text-[10px] uppercase tracking-wider text-[#a8895c]">10yo &bull; CCI 2★ Irish Sport Horse</p>
-                  <p className="mt-1 font-sans text-xs text-[#d9cdb8]/70">The powerhouse partner for international star eventing.</p>
+                  <p className="mt-1 font-sans text-xs text-[#d9cdb8]/70">Equine partner in eventing, sharing the demands of training and competition.</p>
                 </div>
               </div>
 
@@ -445,7 +450,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
               <div className="flex flex-wrap items-center justify-between border-b border-white/10 pb-4 gap-2">
                 <div className="flex items-center gap-2">
                   <Users size={18} className="text-[#a8895c]" />
-                  <h3 className="font-display text-xl sm:text-2xl text-white">Mentors &amp; Early Believers</h3>
+                  <h3 className="font-display text-xl sm:text-2xl text-white">Coaches &amp; Mentors</h3>
                 </div>
                 <button
                   onClick={() => onNavigate('coaches')}
@@ -458,16 +463,6 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
               <div className="mt-5 space-y-3">
                 <div className="flex items-center justify-between p-3 sm:p-3.5 bg-[#19140e] rounded-sm border border-white/10 gap-2">
                   <div>
-                    <p className="font-display text-sm sm:text-base text-white">Bruce Davidson Jr. (Buck)</p>
-                    <p className="font-sans text-[9px] sm:text-[10px] uppercase tracking-wider text-[#a8895c]">5★ Eventer &bull; Coach</p>
-                  </div>
-                  <span className="rounded bg-black/60 border border-[#a8895c]/30 px-2 py-1 text-[9px] sm:text-[10px] font-sans text-[#e6c994] shrink-0">
-                    Coach
-                  </span>
-                </div>
-
-                <div className="flex items-center justify-between p-3 sm:p-3.5 bg-[#19140e] rounded-sm border border-white/10 gap-2">
-                  <div>
                     <p className="font-display text-sm sm:text-base text-white">Mr. Imtiaz Anees</p>
                     <p className="font-sans text-[9px] sm:text-[10px] uppercase tracking-wider text-[#a8895c]">Indian Olympian &bull; Sydney 2000</p>
                   </div>
@@ -478,22 +473,31 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
 
                 <div className="flex items-center justify-between p-3 sm:p-3.5 bg-[#19140e] rounded-sm border border-white/10 gap-2">
                   <div>
-                    <p className="font-display text-sm sm:text-base text-white">Dr. Cyrus Poonawalla &bull; Bajaj Auto</p>
-                    <p className="font-sans text-[9px] sm:text-[10px] uppercase tracking-wider text-[#a8895c]">Visionary Patrons &bull; CSR Support</p>
+                    <p className="font-display text-sm sm:text-base text-white">Bruce Davidson Jr. (Buck)</p>
+                    <p className="font-sans text-[9px] sm:text-[10px] uppercase tracking-wider text-[#a8895c]">5★ Eventer &bull; Coach</p>
                   </div>
                   <span className="rounded bg-black/60 border border-[#a8895c]/30 px-2 py-1 text-[9px] sm:text-[10px] font-sans text-[#e6c994] shrink-0">
-                    Believers
+                    Coach
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-between p-3 sm:p-3.5 bg-[#19140e] rounded-sm border border-white/10 gap-2">
+                  <div>
+                    <p className="font-display text-sm sm:text-base text-white">Donna Edward Smith</p>
+                    <p className="font-sans text-[9px] sm:text-[10px] uppercase tracking-wider text-[#a8895c]">5★ Eventer &bull; Coach</p>
+                  </div>
+                  <span className="rounded bg-black/60 border border-[#a8895c]/30 px-2 py-1 text-[9px] sm:text-[10px] font-sans text-[#e6c994] shrink-0">
+                    Coach
                   </span>
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-white/10 flex flex-col xs:flex-row xs:items-center justify-between gap-3">
-                <span className="font-sans text-xs text-[#d9cdb8]/70">6 International Coaches &bull; 3 Supporting Patrons</span>
+              <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-end">
                 <button
                   onClick={() => onNavigate('coaches')}
-                  className="rounded-full bg-[#a8895c] px-4 py-1.5 text-xs font-sans uppercase font-bold text-[#2d2418] hover:bg-[#c2a372] self-start xs:self-auto min-h-[36px]"
+                  className="rounded-full bg-[#a8895c] px-5 py-2 text-xs font-sans uppercase font-bold text-[#2d2418] hover:bg-[#c2a372] min-h-[36px]"
                 >
-                  Meet Mentors
+                  Meet Coaches
                 </button>
               </div>
             </div>
@@ -555,7 +559,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
             </div>
 
             <blockquote className="mt-8 font-serif text-lg sm:text-xl md:text-2xl italic leading-relaxed text-white text-center px-2">
-              &ldquo;I am determined to represent India in the World Equestrian Championship (U25) 2027/28, the Asian Games in 2030, and the Olympics in 2032, and multiple times thereafter &mdash; making India a formidable name in equestrian sport.&rdquo;
+              &ldquo;I am working hard to represent India in the World Equestrian Championship (U25) 2028, the Asian Games in 2030, and the Olympics in 2032, and multiple times thereafter&rdquo;
             </blockquote>
 
             <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs font-sans text-[#d9cdb8]/70 gap-2 text-center sm:text-left">

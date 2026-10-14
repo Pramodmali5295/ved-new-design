@@ -1,5 +1,5 @@
 import { Trophy, Medal, CheckCircle2, Sparkles, Flag, Star } from 'lucide-react';
-import { KPI, NATIONAL_RESULTS, INTERNATIONAL_RESULTS } from '@/data';
+import { NATIONAL_RESULTS, INTERNATIONAL_RESULTS } from '@/data';
 import { useGsapReveal, GsapCounter } from '@/hooks/useGsapAnimations';
 
 
@@ -35,7 +35,7 @@ export default function Record() {
           </p>
           <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#a8895c]/40 bg-[#251e16] px-4 py-1.5 text-xs font-sans text-[#e6c994] shadow-lg">
             <Sparkles size={14} className="text-[#a8895c]" />
-            <span>FEI &bull; National &bull; US Circuit</span>
+            <span>FEI &bull; National</span>
           </div>
         </div>
 
@@ -158,71 +158,40 @@ export default function Record() {
             </div>
           </div>
 
-          {/* International Circuit Performances Card */}
+          {/* Key International Results Card */}
           <div className="gsap-reveal-right rounded-sm border border-white/10 bg-[#251e16] p-5 sm:p-8 shadow-xl">
             <div className="flex items-center gap-3 border-b border-white/10 pb-4 sm:pb-5">
               <Star size={20} className="text-[#a8895c] shrink-0" />
               <div>
-                <h3 className="font-display text-xl sm:text-2xl text-white">International &amp; US Circuit</h3>
-                <p className="font-sans text-xs text-[#d9cdb8]/70">FEI &amp; WEC Ocala Competitions</p>
+                <h3 className="font-display text-xl sm:text-2xl text-white">Key International Results</h3>
+                <p className="font-sans text-xs text-[#d9cdb8]/70">Oct 2023 &ndash; Jun 2026</p>
               </div>
             </div>
 
-            <div className="mt-5 sm:mt-6 flex flex-col gap-3 max-h-[380px] overflow-y-auto pr-1">
+            <div className="mt-5 sm:mt-6 flex flex-col gap-3">
               {INTERNATIONAL_RESULTS.map((r) => {
                 const badge = medalBadge[r.medal] || medalBadge.none;
                 return (
                   <div
                     key={`${r.date}-${r.event}`}
-                    className="flex items-center justify-between rounded-sm border border-white/10 bg-[#1c1610] px-3.5 sm:px-4 py-2.5 sm:py-3 transition-colors hover:border-[#a8895c]/50 gap-2"
+                    className="flex flex-col sm:flex-row sm:items-center justify-between rounded-sm border border-white/10 bg-[#1c1610] px-3.5 sm:px-4 py-3 sm:py-3.5 transition-colors hover:border-[#a8895c]/50 gap-2"
                   >
-                    <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-                      <span className={`inline-flex items-center justify-center rounded-full border px-2 sm:px-2.5 py-0.5 text-[9px] sm:text-[10px] font-sans font-semibold uppercase tracking-wider shrink-0 ${badge.bg}`}>
+                    <div className="flex flex-col gap-1 min-w-0">
+                      <div className="flex items-center gap-2">
+                        <span className="shrink-0 font-sans text-[10px] sm:text-[11px] uppercase tracking-wider text-[#a8895c] font-bold">
+                          {r.date}
+                        </span>
+                        <span className="text-white/30">&bull;</span>
+                        <p className="font-sans text-xs sm:text-sm font-semibold text-white/95 truncate">{r.event}</p>
+                      </div>
+                      <span className={`inline-flex items-center self-start rounded-full border px-2 sm:px-2.5 py-0.5 text-[9px] sm:text-[10px] font-sans font-semibold uppercase tracking-wider ${badge.bg}`}>
                         {r.result}
                       </span>
-                      <p className="font-sans text-xs font-medium text-white/95 truncate">{r.event}</p>
                     </div>
-                    <span className="shrink-0 font-sans text-[10px] sm:text-[11px] uppercase tracking-wider text-[#a8895c]">
-                      {r.date}
-                    </span>
                   </div>
                 );
               })}
             </div>
-          </div>
-        </div>
-
-        {/* Performance Matrix (Clean KPI Grid) */}
-        <div className="gsap-reveal mt-12 sm:mt-16 rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-5 sm:p-8 lg:p-10 shadow-2xl">
-          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-white/10 pb-4 sm:pb-5">
-            <div>
-              <h3 className="font-display text-xl sm:text-2xl lg:text-3xl text-white">
-                Competitive Performance Matrix: February–June 2026
-              </h3>
-              <p className="font-sans text-xs text-[#d9cdb8]/70 mt-1">
-                Verified Season Key Performance Indicators
-              </p>
-            </div>
-            <span className="font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.18em] sm:tracking-[0.2em] text-[#a8895c] border border-[#a8895c]/40 px-3 py-1 rounded-full self-start">
-              100% Completion Record
-            </span>
-          </div>
-
-          <div className="gsap-stagger-container mt-6 sm:mt-8 grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {KPI.map((kpi) => (
-              <div
-                key={kpi.metric}
-                className="gsap-stagger-item flex items-center justify-between rounded-sm border border-white/10 bg-[#1c1610] p-3.5 sm:p-4.5 transition-all hover:border-[#a8895c]/50"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#a8895c]" />
-                  <span className="font-sans text-xs font-medium text-[#d9cdb8]/80">{kpi.metric}</span>
-                </div>
-                <span className="font-display text-xl sm:text-2xl font-bold text-white ml-3 shrink-0">
-                  {kpi.value}
-                </span>
-              </div>
-            ))}
           </div>
         </div>
 

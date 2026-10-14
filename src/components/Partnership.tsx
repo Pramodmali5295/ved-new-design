@@ -193,9 +193,9 @@ export default function Partnership() {
               </div>
               <div className="w-full bg-[#1c1610] p-3 mt-3 border-t border-white/10 rounded-sm">
                 <p className="font-sans text-[10px] sm:text-xs uppercase tracking-wider text-[#e6c994] font-medium">
-                  Athletic Form &amp; Balance
+                  Fernhill Milchem Mateo
                 </p>
-                <p className="font-sans text-[9px] text-[#d9cdb8]/70">CCI 2★ Equine Form</p>
+                <p className="font-sans text-[9px] text-[#d9cdb8]/70">Equine partner in eventing, sharing the demands of training and competition</p>
               </div>
             </div>
 

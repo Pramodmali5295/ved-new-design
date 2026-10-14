@@ -151,7 +151,83 @@ export default function ActionGallery() {
           </div>
         </div>
 
-        {/* VIDEOS SUB-SECTION */}
+        {/* TOP SPOTLIGHT: NATIONAL PRESS FEATURE / THE TIMES OF INDIA COVERAGE */}
+        {(activeMediaTab === 'all' || activeMediaTab === 'photos') && (
+          <div className="reveal mt-8 sm:mt-12 rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-5 sm:p-8 lg:p-10 shadow-2xl">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4 sm:pb-5">
+              <div>
+                <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
+                  <span className="h-[1px] w-6 bg-[#a8895c]" />
+                  National Press Feature
+                </div>
+                <h3 className="mt-1 font-display text-2xl sm:text-3xl text-white">
+                  The Times of India Coverage
+                </h3>
+              </div>
+              <span className="rounded-full bg-black/60 border border-[#a8895c]/40 px-3.5 py-1.5 font-sans text-[10px] sm:text-[11px] uppercase tracking-wider text-[#e6c994] self-start sm:self-auto">
+                National Daily &middot; Print Edition
+              </span>
+            </div>
+
+            <div className="mt-6 sm:mt-8 grid gap-6 sm:gap-8 lg:grid-cols-12 items-center">
+              {/* Clickable Newspaper Article Clipping with Caption */}
+              <div className="lg:col-span-6 flex flex-col">
+                <div
+                  onClick={() => {
+                    const idx = filteredPhotos.findIndex((p) => p.src === '/assets/ved-35.jpeg');
+                    if (idx !== -1) openLightbox(idx);
+                    else openLightbox(0);
+                  }}
+                  className="cursor-pointer overflow-hidden rounded-sm bg-[#120d08] border border-white/15 shadow-xl group p-2 flex items-center justify-center relative hover:border-[#a8895c] transition-colors"
+                >
+                  <img
+                    src="/assets/ved-35.jpeg"
+                    alt="The Times of India - Pune's equestrian rider Ved eyeing to scale new heights"
+                    className="w-full h-auto max-h-[480px] object-contain rounded-sm transition-transform duration-700 group-hover:scale-102"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="flex items-center gap-2 rounded-full bg-black/85 px-4 py-2 font-sans text-xs uppercase tracking-wider text-[#e6c994] border border-[#a8895c]/50 shadow-xl">
+                      <Maximize2 size={14} /> Click to View Full Article
+                    </span>
+                  </div>
+                </div>
+
+                {/* Photo Caption */}
+                <div className="w-full bg-[#1c1610] p-3 mt-2 border border-white/10 rounded-sm">
+                  <p className="font-sans text-[10px] sm:text-xs uppercase tracking-wider text-[#e6c994] font-semibold">
+                    The Times of India &bull; Print Edition Clipping
+                  </p>
+                  <p className="font-sans text-[10px] sm:text-[11px] text-[#d9cdb8]/80 mt-0.5">
+                    &ldquo;Pune&rsquo;s equestrian rider Ved eyeing to scale new heights&rdquo; &mdash; Special feature by Tushar Dutt
+                  </p>
+                </div>
+              </div>
+
+              {/* Article Editorial Summary */}
+              <div className="lg:col-span-6 flex flex-col justify-between">
+                <div>
+                  <p className="font-sans text-[10px] sm:text-xs uppercase tracking-widest text-[#a8895c] font-semibold">
+                    By Tushar Dutt &middot; The Times of India
+                  </p>
+                  <h4 className="mt-2 font-display text-xl sm:text-2xl text-white">
+                    &ldquo;Pune&rsquo;s equestrian rider Ved eyeing to scale new heights&rdquo;
+                  </h4>
+                  <div className="mt-4 space-y-3 font-sans text-xs sm:text-sm text-[#d9cdb8]/80 leading-relaxed">
+                    <p>
+                      The Times of India chronicles Ved Sarma Sarkar&rsquo;s athletic evolution &mdash; from discovering his passion at age 11 to winning junior national championships in show jumping and eventing, and committing to rigorous elite eventing preparation under Olympian Imtiaz Anees.
+                    </p>
+                    <blockquote className="border-l-2 border-[#a8895c] pl-4 italic text-[#e6c994] font-serif text-sm sm:text-base bg-[#19140e] p-3 rounded-r-sm">
+                      &ldquo;Our long-term goal is the 2030 Asian Games and the 2032 Olympics.&rdquo;
+                    </blockquote>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* VIDEOS SUB-SECTION - PLACED AFTER THE NATIONAL PRESS FEATURE */}
         {(activeMediaTab === 'all' || activeMediaTab === 'videos') && (
           <div className="reveal mt-12 sm:mt-16">
             <div className="flex items-center justify-between border-b border-white/10 pb-4">
@@ -164,7 +240,7 @@ export default function ActionGallery() {
               </span>
             </div>
 
-            {/* Featured Center Spotlight Video - 100% Full Video (No Cropping) */}
+            {/* Featured Video - Positioned right after the Times of India section */}
             <div className="mt-8 flex justify-center">
               <div
                 onClick={() => openVideoModal(0)}
@@ -185,7 +261,7 @@ export default function ActionGallery() {
                   </div>
                 </div>
 
-                {/* Bottom Bar Info (Placed underneath so video is 100% visible with zero overlay obstruction) */}
+                {/* Bottom Bar Info */}
                 <div className="bg-[#140e08] px-4 sm:px-6 py-3 border-t border-[#a8895c]/30 flex flex-wrap items-center justify-between gap-2 pointer-events-none">
                   <div>
                     <span className="font-display text-sm sm:text-base text-[#e6c994] block">
@@ -202,8 +278,8 @@ export default function ActionGallery() {
               </div>
             </div>
 
-            {/* Remaining Videos Grid - 4 Columns per row on Desktop */}
-            <div className="gsap-stagger-container mt-10 grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {/* Remaining Videos Grid */}
+            <div className="gsap-stagger-container mt-8 grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {VIDEOS.slice(1).map((vid, i) => (
                 <div
                   key={vid.id}
@@ -232,7 +308,7 @@ export default function ActionGallery() {
                     </div>
                   </div>
 
-                  {/* Info card placed below the video so video frame is 100% visible and uncropped */}
+                  {/* Info card placed below the video */}
                   <div className="p-3 sm:p-3.5 bg-[#17100a] border-t border-white/10 flex flex-col justify-between flex-grow">
                     <h4 className="font-display text-xs sm:text-sm font-semibold text-white group-hover:text-[#e6c994] transition-colors line-clamp-1">
                       {vid.title}
@@ -246,68 +322,6 @@ export default function ActionGallery() {
             </div>
           </div>
         )}
-
-        {/* NEWSPAPER / MEDIA COVERAGE SECTION */}
-        <div className="reveal mt-16 sm:mt-20 rounded-sm border border-[#a8895c]/30 bg-[#251e16] p-5 sm:p-8 lg:p-10 shadow-2xl">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4 sm:pb-5">
-            <div>
-              <div className="inline-flex items-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
-                <span className="h-[1px] w-6 bg-[#a8895c]" />
-                National Press Feature
-              </div>
-              <h3 className="mt-1 font-display text-2xl sm:text-3xl text-white">
-                The Times of India Coverage
-              </h3>
-            </div>
-            <span className="rounded-full bg-black/60 border border-[#a8895c]/40 px-3.5 py-1.5 font-sans text-[10px] sm:text-[11px] uppercase tracking-wider text-[#e6c994] self-start sm:self-auto">
-              National Daily &middot; Print Edition
-            </span>
-          </div>
-
-          <div className="mt-6 sm:mt-8 grid gap-6 sm:gap-8 lg:grid-cols-12 items-center">
-            {/* Clickable Newspaper Article Clipping */}
-            <div
-              onClick={() => {
-                const idx = filteredPhotos.findIndex((p) => p.src === '/assets/ved-35.jpeg');
-                if (idx !== -1) openLightbox(idx);
-                else openLightbox(0);
-              }}
-              className="lg:col-span-6 cursor-pointer overflow-hidden rounded-sm bg-[#120d08] border border-white/15 shadow-xl group p-2 flex items-center justify-center relative hover:border-[#a8895c] transition-colors"
-            >
-              <img
-                src="/assets/ved-35.jpeg"
-                alt="The Times of India - Pune's equestrian rider Ved eyeing to scale new heights"
-                className="w-full h-auto max-h-[480px] object-contain rounded-sm transition-transform duration-700 group-hover:scale-102"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="flex items-center gap-2 rounded-full bg-black/85 px-4 py-2 font-sans text-xs uppercase tracking-wider text-[#e6c994] border border-[#a8895c]/50 shadow-xl">
-                  <Maximize2 size={14} /> Click to View Full Article
-                </span>
-              </div>
-            </div>
-
-            {/* Article Editorial Summary */}
-            <div className="lg:col-span-6 flex flex-col justify-between">
-              <div>
-                <p className="font-sans text-[10px] sm:text-xs uppercase tracking-widest text-[#a8895c] font-semibold">
-                  By Tushar Dutt &middot; The Times of India
-                </p>
-                <h4 className="mt-2 font-display text-xl sm:text-2xl text-white">
-                  &ldquo;Pune&rsquo;s equestrian rider Ved eyeing to scale new heights&rdquo;
-                </h4>
-                <div className="mt-4 space-y-3 font-sans text-xs sm:text-sm text-[#d9cdb8]/80 leading-relaxed">
-                  <p>
-                    The Times of India chronicles Ved Sarma Sarkar&rsquo;s athletic evolution &mdash; from discovering his passion at age 11 to winning junior national championships in show jumping and eventing, and committing to rigorous elite eventing preparation under Olympian Imtiaz Anees.
-                  </p>
-                  <blockquote className="border-l-2 border-[#a8895c] pl-4 italic text-[#e6c994] font-serif text-sm sm:text-base bg-[#19140e] p-3 rounded-r-sm">
-                    &ldquo;Our long-term goal is the 2030 Asian Games and the 2032 Olympics.&rdquo;
-                  </blockquote>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* PHOTOS SUB-SECTION */}
         {(activeMediaTab === 'all' || activeMediaTab === 'photos') && (
