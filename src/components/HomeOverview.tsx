@@ -1,8 +1,36 @@
 import { Trophy, CheckCircle2, Medal, ArrowRight, Maximize2, Sparkles, Users } from 'lucide-react';
-import { GALLERY_ITEMS, NATIONAL_RESULTS } from '@/data';
+import { GALLERY_ITEMS } from '@/data';
 import Hero from '@/components/Hero';
 import Believers from '@/components/Believers';
 import { useGsapReveal, GsapCounter } from '@/hooks/useGsapAnimations';
+
+const HOME_SNAPSHOT_RESULTS = [
+  {
+    category: 'FEI World Challenge',
+    event: 'Podium Finish (Age 16)',
+    year: '2023',
+  },
+  {
+    category: 'Team Silver',
+    event: 'Junior National Equestrian Challenge — Eventing',
+    year: '2023',
+  },
+  {
+    category: 'Individual Bronze',
+    event: 'Junior National Equestrian Challenge — Show Jumping',
+    year: '2024',
+  },
+  {
+    category: 'CCI1*-S · U-Plc 9th',
+    event: 'Tryon International Three-Day Event',
+    year: 'May 2026',
+  },
+  {
+    category: '1.15 m Junior/Amateur Classic · 6th',
+    event: 'WEC Ocala Summer Series',
+    year: 'June 2026',
+  },
+];
 
 interface HomeOverviewProps {
   onNavigate: (pageId: string) => void;
@@ -39,7 +67,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
                 <span className="h-[1px] w-6 bg-[#a8895c] lg:hidden" />
               </div>
               <h2 className="mt-3 sm:mt-4 font-display text-2xl xs:text-3xl sm:text-4xl text-white lg:text-5xl text-center lg:text-left">
-                16 yo. Youngest with Podium Finish.
+                16 YO. Youngest International Podium Finisher
               </h2>
               <div className="mt-3 sm:mt-4 space-y-3 font-sans text-xs sm:text-sm md:text-base leading-relaxed text-[#d9cdb8]/85 text-center lg:text-left">
                 <p>
@@ -250,7 +278,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
                 International Circuit &bull; Tryon CCI 1★
               </h3>
               <p className="mt-1 font-sans text-xs text-[#d9cdb8]/70 line-clamp-2 text-center sm:text-left">
-                Placed #9th at Tryon International Three-Day Event alongside the world&rsquo;s top riders.
+                U-plc 9th at Tryon International Three-Day Event alongside the world&rsquo;s top riders.
               </p>
             </div>
           </div>
@@ -393,6 +421,21 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
       {/* 5. VERIFIED RESULTS & MENTORS PREVIEW */}
       <section className="bg-[#1c1610] text-[#ebe4d8] py-14 sm:py-20 lg:py-28 border-b border-white/10 relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+          {/* Section Header */}
+          <div className="gsap-reveal mb-10 sm:mb-14 text-center max-w-3xl mx-auto flex flex-col items-center">
+            <div className="inline-flex items-center justify-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-luxe text-[#a8895c]">
+              <span className="h-[1px] w-6 bg-[#a8895c]" />
+              Official Track Record
+              <span className="h-[1px] w-6 bg-[#a8895c]" />
+            </div>
+            <h2 className="mt-3 sm:mt-4 font-display text-2xl xs:text-3xl sm:text-4xl text-white lg:text-5xl text-center">
+              Results and Accomplishments
+            </h2>
+            <p className="mt-3 font-serif text-sm sm:text-base italic text-[#d9cdb8]/80 text-center">
+              A track record of precision &mdash; multiple national medals, international podium finishes, and a 100% course completion record.
+            </p>
+          </div>
+
           <div className="grid gap-8 sm:gap-10 lg:grid-cols-2 lg:items-start">
             {/* Results Snapshot */}
             <div className="gsap-reveal-left rounded-sm border border-white/10 bg-[#251e16] p-5 sm:p-8 shadow-xl">
@@ -410,20 +453,13 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
               </div>
 
               <div className="mt-5 flex flex-col gap-3">
-                <div className="flex items-center justify-between p-3 sm:p-3.5 bg-[#19140e] rounded-sm border border-white/10">
-                  <div className="pr-2">
-                    <span className="font-sans text-[9px] sm:text-[10px] uppercase tracking-wider text-[#a8895c] font-bold">FEI World Challenge</span>
-                    <p className="font-serif text-sm sm:text-base text-white font-medium">Podium Finish (Age 16)</p>
-                  </div>
-                  <span className="font-display text-lg sm:text-xl text-[#e6c994] font-semibold shrink-0">2023</span>
-                </div>
-                {NATIONAL_RESULTS.map((r) => (
-                  <div key={r.event} className="flex items-center justify-between p-3 sm:p-3.5 bg-[#19140e] rounded-sm border border-white/10">
-                    <div className="pr-2">
-                      <span className="font-sans text-[9px] sm:text-[10px] uppercase tracking-wider text-[#a8895c] font-bold">{r.result}</span>
-                      <p className="font-serif text-sm sm:text-base text-white font-medium">{r.event}</p>
+                {HOME_SNAPSHOT_RESULTS.map((r) => (
+                  <div key={r.event} className="flex items-center justify-between p-3 sm:p-3.5 bg-[#19140e] rounded-sm border border-white/10 gap-2">
+                    <div className="pr-2 min-w-0">
+                      <span className="font-sans text-[9px] sm:text-[10px] uppercase tracking-wider text-[#a8895c] font-bold block">{r.category}</span>
+                      <p className="font-serif text-sm sm:text-base text-white font-medium leading-snug">{r.event}</p>
                     </div>
-                    <span className="font-display text-lg sm:text-xl text-[#e6c994] font-semibold shrink-0">{r.year}</span>
+                    <span className="font-display text-sm sm:text-base md:text-lg text-[#e6c994] font-semibold shrink-0 text-right">{r.year}</span>
                   </div>
                 ))}
               </div>
@@ -431,7 +467,7 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
               {/* 3 Quick Performance Metric Badges */}
               <div className="mt-6 pt-4 border-t border-white/10 grid grid-cols-3 gap-2 text-center">
                 <div className="bg-[#19140e] p-2 sm:p-2.5 rounded-sm border border-white/5">
-                  <p className="font-display text-base sm:text-lg text-[#e6c994] font-bold">7</p>
+                  <p className="font-display text-base sm:text-lg text-[#e6c994] font-bold">5</p>
                   <p className="font-sans text-[8px] sm:text-[9px] uppercase tracking-wider text-[#d9cdb8]/70">Events</p>
                 </div>
                 <div className="bg-[#19140e] p-2 sm:p-2.5 rounded-sm border border-white/5">
@@ -533,8 +569,8 @@ export default function HomeOverview({ onNavigate }: HomeOverviewProps) {
             <div className="gsap-stagger-container mt-8 grid gap-3 sm:gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 text-center">
               <div className="gsap-stagger-item bg-[#19140e] p-3 sm:p-3.5 rounded-sm border border-white/10">
                 <span className="font-display text-base sm:text-lg font-bold text-[#e6c994]">2026</span>
-                <p className="font-sans text-xs text-white font-medium mt-1">International 2★</p>
-                <p className="font-sans text-[10px] text-[#d9cdb8]/60 mt-0.5">FEI 1★ &amp; 2★ Stints</p>
+                <p className="font-sans text-xs text-white font-medium mt-1">International Entry</p>
+                <p className="font-sans text-[10px] text-[#d9cdb8]/60 mt-0.5">FEI 1★ &amp; National SJ</p>
               </div>
               <div className="gsap-stagger-item bg-[#19140e] p-3 sm:p-3.5 rounded-sm border border-white/10">
                 <span className="font-display text-base sm:text-lg font-bold text-[#e6c994]">2027</span>

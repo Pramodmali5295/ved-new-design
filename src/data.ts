@@ -144,7 +144,7 @@ export const TIMELINE = [
     phase: 'WEC Ocala',
     year: '2026',
     title: 'WEC Summer Series',
-    text: 'Competing at the WEC, Summer Series by FEI, Ved secured 6th place in the 1.15 m Junior/Amateur Classic, national class. Also he is 6/26 riders.',
+    text: 'Competing at the WEC, Summer Series by FEI, Ved secured 6th place in the 1.15 m Junior/Amateur Classic, national class.',
     image: '/assets/journey 2026(1).jpeg',
     tag: '6th / 26 Riders • WEC',
   },
